@@ -1,0 +1,203 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API \u2014 Contests"
+  description: "Pok\xE9API Contests capability. 4 read-only operations covering the contests resource family."
+  tags:
+  - "Pok\xE9API"
+  - Contests
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi-contests
+    baseUri: https://pokeapi.co/api/v2
+    description: "Pok\xE9API Contests business capability. Self-contained, no shared references."
+    resources:
+    - name: pokeapi-contest-type
+      path: /contest-type
+      operations:
+      - name: listcontesttypes
+        method: GET
+        description: List Contest Types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-contest-type-id
+      path: /contest-type/{id}
+      operations:
+      - name: getcontesttype
+        method: GET
+        description: Get Contest Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-contest-effect-id
+      path: /contest-effect/{id}
+      operations:
+      - name: getcontesteffect
+        method: GET
+        description: Get Contest Effect
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-super-contest-effect-id
+      path: /super-contest-effect/{id}
+      operations:
+      - name: getsupercontesteffect
+        method: GET
+        description: Get Super Contest Effect
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: pokeapi-contests-rest
+    port: 8080
+    description: "REST adapter for Pok\xE9API Contests."
+    resources:
+    - path: /v1/contest-type
+      name: pokeapi-contest-type
+      description: REST surface for pokeapi-contest-type.
+      operations:
+      - method: GET
+        name: listcontesttypes
+        description: List Contest Types
+        call: pokeapi-contests.listcontesttypes
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contest-type/{id}
+      name: pokeapi-contest-type-id
+      description: REST surface for pokeapi-contest-type-id.
+      operations:
+      - method: GET
+        name: getcontesttype
+        description: Get Contest Type
+        call: pokeapi-contests.getcontesttype
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contest-effect/{id}
+      name: pokeapi-contest-effect-id
+      description: REST surface for pokeapi-contest-effect-id.
+      operations:
+      - method: GET
+        name: getcontesteffect
+        description: Get Contest Effect
+        call: pokeapi-contests.getcontesteffect
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/super-contest-effect/{id}
+      name: pokeapi-super-contest-effect-id
+      description: REST surface for pokeapi-super-contest-effect-id.
+      operations:
+      - method: GET
+        name: getsupercontesteffect
+        description: Get Super Contest Effect
+        call: pokeapi-contests.getsupercontesteffect
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pokeapi-contests-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Pok\xE9API Contests."
+    tools:
+    - name: pokeapi-listcontesttypes
+      description: List Contest Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-contests.listcontesttypes
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getcontesttype
+      description: Get Contest Type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-contests.getcontesttype
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getcontesteffect
+      description: Get Contest Effect
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-contests.getcontesteffect
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getsupercontesteffect
+      description: Get Super Contest Effect
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-contests.getsupercontesteffect
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-pokemon-species-schema.json",
+  "title": "PokemonSpecies",
+  "description": "Pok\u00e9API PokemonSpecies schema.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "gender_rate": {
+      "type": "integer"
+    },
+    "capture_rate": {
+      "type": "integer"
+    },
+    "base_happiness": {
+      "type": "integer"
+    },
+    "is_baby": {
+      "type": "boolean"
+    },
+    "is_legendary": {
+      "type": "boolean"
+    },
+    "is_mythical": {
+      "type": "boolean"
+    },
+    "hatch_counter": {
+      "type": "integer"
+    },
+    "has_gender_differences": {
+      "type": "boolean"
+    },
+    "forms_switchable": {
+      "type": "boolean"
+    },
+    "growth_rate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "pokedex_numbers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "egg_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug name of the referenced resource."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL of the referenced resource."
+          }
+        }
+      }
+    },
+    "color": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "shape": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "evolves_from_species": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "evolution_chain": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "habitat": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    },
+    "flavor_text_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flavor_text": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          },
+          "version": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

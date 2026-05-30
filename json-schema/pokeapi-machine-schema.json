@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-machine-schema.json",
+  "title": "Machine",
+  "description": "Pok\u00e9API Machine schema.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "move": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "version_group": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API \u2014 Utility"
+  description: "Pok\xE9API Utility capability. 2 read-only operations covering the utility resource family."
+  tags:
+  - "Pok\xE9API"
+  - Utility
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi-utility
+    baseUri: https://pokeapi.co/api/v2
+    description: "Pok\xE9API Utility business capability. Self-contained, no shared references."
+    resources:
+    - name: pokeapi-language
+      path: /language
+      operations:
+      - name: listlanguages
+        method: GET
+        description: List Languages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-language-id
+      path: /language/{id}
+      operations:
+      - name: getlanguage
+        method: GET
+        description: Get Language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: pokeapi-utility-rest
+    port: 8080
+    description: "REST adapter for Pok\xE9API Utility."
+    resources:
+    - path: /v1/language
+      name: pokeapi-language
+      description: REST surface for pokeapi-language.
+      operations:
+      - method: GET
+        name: listlanguages
+        description: List Languages
+        call: pokeapi-utility.listlanguages
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/language/{id}
+      name: pokeapi-language-id
+      description: REST surface for pokeapi-language-id.
+      operations:
+      - method: GET
+        name: getlanguage
+        description: Get Language
+        call: pokeapi-utility.getlanguage
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pokeapi-utility-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Pok\xE9API Utility."
+    tools:
+    - name: pokeapi-listlanguages
+      description: List Languages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-utility.listlanguages
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getlanguage
+      description: Get Language
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-utility.getlanguage
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

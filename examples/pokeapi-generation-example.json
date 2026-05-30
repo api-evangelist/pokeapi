@@ -1,0 +1,43 @@
+{
+  "id": 1,
+  "name": "example",
+  "abilities": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "main_region": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "moves": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "pokemon_species": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "types": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "version_groups": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

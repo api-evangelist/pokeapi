@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "name": "example",
+  "items": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "pocket": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  }
+}

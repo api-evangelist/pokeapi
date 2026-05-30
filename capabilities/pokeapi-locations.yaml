@@ -1,0 +1,386 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API \u2014 Locations"
+  description: "Pok\xE9API Locations capability. 8 read-only operations covering the locations resource family."
+  tags:
+  - "Pok\xE9API"
+  - Locations
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi-locations
+    baseUri: https://pokeapi.co/api/v2
+    description: "Pok\xE9API Locations business capability. Self-contained, no shared references."
+    resources:
+    - name: pokeapi-location
+      path: /location
+      operations:
+      - name: listlocations
+        method: GET
+        description: List Locations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-location-id
+      path: /location/{id}
+      operations:
+      - name: getlocation
+        method: GET
+        description: Get Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-location-area
+      path: /location-area
+      operations:
+      - name: listlocationareas
+        method: GET
+        description: List Location Areas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-location-area-id
+      path: /location-area/{id}
+      operations:
+      - name: getlocationarea
+        method: GET
+        description: Get Location Area
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pal-park-area
+      path: /pal-park-area
+      operations:
+      - name: listpalparkareas
+        method: GET
+        description: List Pal Park Areas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pal-park-area-id
+      path: /pal-park-area/{id}
+      operations:
+      - name: getpalparkarea
+        method: GET
+        description: Get Pal Park Area
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-region
+      path: /region
+      operations:
+      - name: listregions
+        method: GET
+        description: List Regions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-region-id
+      path: /region/{id}
+      operations:
+      - name: getregion
+        method: GET
+        description: Get Region
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: pokeapi-locations-rest
+    port: 8080
+    description: "REST adapter for Pok\xE9API Locations."
+    resources:
+    - path: /v1/location
+      name: pokeapi-location
+      description: REST surface for pokeapi-location.
+      operations:
+      - method: GET
+        name: listlocations
+        description: List Locations
+        call: pokeapi-locations.listlocations
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/location/{id}
+      name: pokeapi-location-id
+      description: REST surface for pokeapi-location-id.
+      operations:
+      - method: GET
+        name: getlocation
+        description: Get Location
+        call: pokeapi-locations.getlocation
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/location-area
+      name: pokeapi-location-area
+      description: REST surface for pokeapi-location-area.
+      operations:
+      - method: GET
+        name: listlocationareas
+        description: List Location Areas
+        call: pokeapi-locations.listlocationareas
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/location-area/{id}
+      name: pokeapi-location-area-id
+      description: REST surface for pokeapi-location-area-id.
+      operations:
+      - method: GET
+        name: getlocationarea
+        description: Get Location Area
+        call: pokeapi-locations.getlocationarea
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pal-park-area
+      name: pokeapi-pal-park-area
+      description: REST surface for pokeapi-pal-park-area.
+      operations:
+      - method: GET
+        name: listpalparkareas
+        description: List Pal Park Areas
+        call: pokeapi-locations.listpalparkareas
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pal-park-area/{id}
+      name: pokeapi-pal-park-area-id
+      description: REST surface for pokeapi-pal-park-area-id.
+      operations:
+      - method: GET
+        name: getpalparkarea
+        description: Get Pal Park Area
+        call: pokeapi-locations.getpalparkarea
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/region
+      name: pokeapi-region
+      description: REST surface for pokeapi-region.
+      operations:
+      - method: GET
+        name: listregions
+        description: List Regions
+        call: pokeapi-locations.listregions
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/region/{id}
+      name: pokeapi-region-id
+      description: REST surface for pokeapi-region-id.
+      operations:
+      - method: GET
+        name: getregion
+        description: Get Region
+        call: pokeapi-locations.getregion
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pokeapi-locations-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Pok\xE9API Locations."
+    tools:
+    - name: pokeapi-listlocations
+      description: List Locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.listlocations
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getlocation
+      description: Get Location
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.getlocation
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listlocationareas
+      description: List Location Areas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.listlocationareas
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getlocationarea
+      description: Get Location Area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.getlocationarea
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listpalparkareas
+      description: List Pal Park Areas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.listpalparkareas
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getpalparkarea
+      description: Get Pal Park Area
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.getpalparkarea
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listregions
+      description: List Regions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.listregions
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getregion
+      description: Get Region
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-locations.getregion
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

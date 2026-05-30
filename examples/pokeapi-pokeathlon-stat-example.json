@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "example",
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "affecting_natures": {}
+}

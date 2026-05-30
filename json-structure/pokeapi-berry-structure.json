@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-structure/pokeapi-berry-structure.json",
+  "name": "Berry",
+  "description": "Pok\u00e9API Berry structure.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "growth_time": {
+      "type": "int32"
+    },
+    "max_harvest": {
+      "type": "int32"
+    },
+    "natural_gift_power": {
+      "type": "int32"
+    },
+    "size": {
+      "type": "int32"
+    },
+    "smoothness": {
+      "type": "int32"
+    },
+    "soil_dryness": {
+      "type": "int32"
+    },
+    "firmness": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "flavors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "potency": {
+            "type": "int32"
+          },
+          "flavor": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "natural_gift_type": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    }
+  }
+}

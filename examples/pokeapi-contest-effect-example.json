@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "appeal": 1,
+  "jam": 1,
+  "effect_entries": [
+    {
+      "effect": "example"
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "example"
+    }
+  ]
+}

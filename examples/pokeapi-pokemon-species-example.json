@@ -1,0 +1,60 @@
+{
+  "id": 1,
+  "name": "example",
+  "order": 1,
+  "gender_rate": 1,
+  "capture_rate": 1,
+  "base_happiness": 1,
+  "is_baby": true,
+  "is_legendary": true,
+  "is_mythical": true,
+  "hatch_counter": 1,
+  "has_gender_differences": true,
+  "forms_switchable": true,
+  "growth_rate": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "pokedex_numbers": [
+    {}
+  ],
+  "egg_groups": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "color": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "shape": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "evolves_from_species": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "evolution_chain": {
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "habitat": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "generation": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "example"
+    }
+  ]
+}

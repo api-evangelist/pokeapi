@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-api-resource-schema.json",
+  "title": "APIResource",
+  "description": "Pok\u00e9API APIResource schema.",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL of the referenced resource."
+    }
+  }
+}

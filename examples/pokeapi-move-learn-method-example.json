@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "name": "example",
+  "descriptions": [
+    {
+      "description": "example"
+    }
+  ],
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "version_groups": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

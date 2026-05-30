@@ -1,0 +1,386 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API \u2014 Games"
+  description: "Pok\xE9API Games capability. 8 read-only operations covering the games resource family."
+  tags:
+  - "Pok\xE9API"
+  - Games
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi-games
+    baseUri: https://pokeapi.co/api/v2
+    description: "Pok\xE9API Games business capability. Self-contained, no shared references."
+    resources:
+    - name: pokeapi-generation
+      path: /generation
+      operations:
+      - name: listgenerations
+        method: GET
+        description: List Generations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-generation-id
+      path: /generation/{id}
+      operations:
+      - name: getgeneration
+        method: GET
+        description: Get Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokedex
+      path: /pokedex
+      operations:
+      - name: listpokedexes
+        method: GET
+        description: "List Pok\xE9dexes"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pokedex-id
+      path: /pokedex/{id}
+      operations:
+      - name: getpokedex
+        method: GET
+        description: "Get Pok\xE9dex"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-version
+      path: /version
+      operations:
+      - name: listversions
+        method: GET
+        description: List Versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-version-id
+      path: /version/{id}
+      operations:
+      - name: getversion
+        method: GET
+        description: Get Version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-version-group
+      path: /version-group
+      operations:
+      - name: listversiongroups
+        method: GET
+        description: List Version Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-version-group-id
+      path: /version-group/{id}
+      operations:
+      - name: getversiongroup
+        method: GET
+        description: Get Version Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: pokeapi-games-rest
+    port: 8080
+    description: "REST adapter for Pok\xE9API Games."
+    resources:
+    - path: /v1/generation
+      name: pokeapi-generation
+      description: REST surface for pokeapi-generation.
+      operations:
+      - method: GET
+        name: listgenerations
+        description: List Generations
+        call: pokeapi-games.listgenerations
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/generation/{id}
+      name: pokeapi-generation-id
+      description: REST surface for pokeapi-generation-id.
+      operations:
+      - method: GET
+        name: getgeneration
+        description: Get Generation
+        call: pokeapi-games.getgeneration
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pokedex
+      name: pokeapi-pokedex
+      description: REST surface for pokeapi-pokedex.
+      operations:
+      - method: GET
+        name: listpokedexes
+        description: "List Pok\xE9dexes"
+        call: pokeapi-games.listpokedexes
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pokedex/{id}
+      name: pokeapi-pokedex-id
+      description: REST surface for pokeapi-pokedex-id.
+      operations:
+      - method: GET
+        name: getpokedex
+        description: "Get Pok\xE9dex"
+        call: pokeapi-games.getpokedex
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/version
+      name: pokeapi-version
+      description: REST surface for pokeapi-version.
+      operations:
+      - method: GET
+        name: listversions
+        description: List Versions
+        call: pokeapi-games.listversions
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/version/{id}
+      name: pokeapi-version-id
+      description: REST surface for pokeapi-version-id.
+      operations:
+      - method: GET
+        name: getversion
+        description: Get Version
+        call: pokeapi-games.getversion
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/version-group
+      name: pokeapi-version-group
+      description: REST surface for pokeapi-version-group.
+      operations:
+      - method: GET
+        name: listversiongroups
+        description: List Version Groups
+        call: pokeapi-games.listversiongroups
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/version-group/{id}
+      name: pokeapi-version-group-id
+      description: REST surface for pokeapi-version-group-id.
+      operations:
+      - method: GET
+        name: getversiongroup
+        description: Get Version Group
+        call: pokeapi-games.getversiongroup
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pokeapi-games-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Pok\xE9API Games."
+    tools:
+    - name: pokeapi-listgenerations
+      description: List Generations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.listgenerations
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getgeneration
+      description: Get Generation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.getgeneration
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listpokedexes
+      description: "List Pok\xE9dexes"
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.listpokedexes
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getpokedex
+      description: "Get Pok\xE9dex"
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.getpokedex
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listversions
+      description: List Versions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.listversions
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getversion
+      description: Get Version
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.getversion
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-listversiongroups
+      description: List Version Groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.listversiongroups
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getversiongroup
+      description: Get Version Group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-games.getversiongroup
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

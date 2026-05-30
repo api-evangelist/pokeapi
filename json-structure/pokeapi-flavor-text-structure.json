@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-structure/pokeapi-flavor-text-structure.json",
+  "name": "FlavorText",
+  "description": "Pok\u00e9API FlavorText structure.",
+  "type": "object",
+  "properties": {
+    "flavor_text": {
+      "type": "string"
+    },
+    "language": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "version": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    }
+  }
+}

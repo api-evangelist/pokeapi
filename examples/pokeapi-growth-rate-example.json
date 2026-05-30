@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "name": "example",
+  "formula": "example",
+  "descriptions": [
+    {
+      "description": "example"
+    }
+  ],
+  "levels": [
+    {}
+  ],
+  "pokemon_species": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "gene_modulo": 1,
+  "possible_values": [
+    1
+  ],
+  "highest_stat": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "descriptions": [
+    {
+      "description": "example"
+    }
+  ]
+}

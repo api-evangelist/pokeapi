@@ -1,0 +1,17 @@
+{
+  "is_baby": true,
+  "species": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "evolution_details": [
+    {}
+  ],
+  "evolves_to": [
+    {
+      "is_baby": true,
+      "evolution_details": [],
+      "evolves_to": []
+    }
+  ]
+}

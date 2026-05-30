@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-structure/pokeapi-gender-structure.json",
+  "name": "Gender",
+  "description": "Pok\u00e9API Gender structure.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pokemon_species_details": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "required_for_evolution": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug name of the referenced resource."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL of the referenced resource."
+          }
+        }
+      }
+    }
+  }
+}

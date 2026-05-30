@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-characteristic-schema.json",
+  "title": "Characteristic",
+  "description": "Pok\u00e9API Characteristic schema.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "gene_modulo": {
+      "type": "integer"
+    },
+    "possible_values": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "highest_stat": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API \u2014 Machines"
+  description: "Pok\xE9API Machines capability. 2 read-only operations covering the machines resource family."
+  tags:
+  - "Pok\xE9API"
+  - Machines
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi-machines
+    baseUri: https://pokeapi.co/api/v2
+    description: "Pok\xE9API Machines business capability. Self-contained, no shared references."
+    resources:
+    - name: pokeapi-machine
+      path: /machine
+      operations:
+      - name: listmachines
+        method: GET
+        description: List Machines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-machine-id
+      path: /machine/{id}
+      operations:
+      - name: getmachine
+        method: GET
+        description: Get Machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    authentication:
+      type: none
+  exposes:
+  - type: rest
+    namespace: pokeapi-machines-rest
+    port: 8080
+    description: "REST adapter for Pok\xE9API Machines."
+    resources:
+    - path: /v1/machine
+      name: pokeapi-machine
+      description: REST surface for pokeapi-machine.
+      operations:
+      - method: GET
+        name: listmachines
+        description: List Machines
+        call: pokeapi-machines.listmachines
+        with:
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/machine/{id}
+      name: pokeapi-machine-id
+      description: REST surface for pokeapi-machine-id.
+      operations:
+      - method: GET
+        name: getmachine
+        description: Get Machine
+        call: pokeapi-machines.getmachine
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pokeapi-machines-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Pok\xE9API Machines."
+    tools:
+    - name: pokeapi-listmachines
+      description: List Machines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-machines.listmachines
+      with:
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pokeapi-getmachine
+      description: Get Machine
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pokeapi-machines.getmachine
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

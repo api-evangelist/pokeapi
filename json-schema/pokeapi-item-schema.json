@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-item-schema.json",
+  "title": "Item",
+  "description": "Pok\u00e9API Item schema.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "integer"
+    },
+    "fling_power": {
+      "type": "integer",
+      "nullable": true
+    },
+    "fling_effect": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug name of the referenced resource."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL of the referenced resource."
+          }
+        }
+      }
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "effect_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effect": {
+            "type": "string"
+          },
+          "short_effect": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    },
+    "flavor_text_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "version_group": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    },
+    "game_indices": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "held_by_pokemon": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          }
+        }
+      }
+    },
+    "sprites": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    }
+  }
+}

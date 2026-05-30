@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "name": "example",
+  "growth_time": 1,
+  "max_harvest": 1,
+  "natural_gift_power": 1,
+  "size": 1,
+  "smoothness": 1,
+  "soil_dryness": 1,
+  "firmness": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "flavors": [
+    {
+      "potency": 1,
+      "flavor": {}
+    }
+  ],
+  "item": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "natural_gift_type": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  }
+}

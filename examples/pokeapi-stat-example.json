@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "name": "example",
+  "game_index": 1,
+  "is_battle_only": true,
+  "affecting_moves": {},
+  "affecting_natures": {},
+  "characteristics": [
+    {
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "move_damage_class": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ]
+}

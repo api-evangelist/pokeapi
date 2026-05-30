@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "name": "example",
+  "is_main_series": true,
+  "descriptions": [
+    {
+      "description": "example"
+    }
+  ],
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "pokemon_entries": [
+    {
+      "entry_number": 1,
+      "pokemon_species": {}
+    }
+  ],
+  "region": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "version_groups": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

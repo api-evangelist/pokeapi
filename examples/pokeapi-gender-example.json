@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "name": "example",
+  "pokemon_species_details": [
+    {}
+  ],
+  "required_for_evolution": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

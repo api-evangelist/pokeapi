@@ -1,0 +1,33 @@
+{
+  "id": 1,
+  "name": "example",
+  "damage_relations": {},
+  "past_damage_relations": [
+    {}
+  ],
+  "game_indices": [
+    {}
+  ],
+  "generation": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "move_damage_class": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "pokemon": [
+    {}
+  ],
+  "moves": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

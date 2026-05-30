@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "baby_trigger_item": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "chain": {
+    "is_baby": true,
+    "species": {},
+    "evolution_details": [
+      {}
+    ],
+    "evolves_to": [
+      {}
+    ]
+  }
+}

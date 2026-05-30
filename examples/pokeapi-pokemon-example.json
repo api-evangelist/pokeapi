@@ -1,0 +1,50 @@
+{
+  "id": 1,
+  "name": "example",
+  "base_experience": 1,
+  "height": 1,
+  "is_default": true,
+  "order": 1,
+  "weight": 1,
+  "abilities": [
+    {
+      "is_hidden": true,
+      "slot": 1,
+      "ability": {}
+    }
+  ],
+  "forms": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "game_indices": [
+    {}
+  ],
+  "held_items": [
+    {}
+  ],
+  "location_area_encounters": "example",
+  "moves": [
+    {}
+  ],
+  "species": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "sprites": {},
+  "stats": [
+    {
+      "base_stat": 1,
+      "effort": 1,
+      "stat": {}
+    }
+  ],
+  "types": [
+    {
+      "slot": 1,
+      "type": {}
+    }
+  ]
+}

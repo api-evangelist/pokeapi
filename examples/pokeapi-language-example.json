@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "name": "example",
+  "official": true,
+  "iso639": "example",
+  "iso3166": "example",
+  "names": [
+    {
+      "name": "example"
+    }
+  ]
+}

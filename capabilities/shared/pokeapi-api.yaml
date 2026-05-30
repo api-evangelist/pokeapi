@@ -1,0 +1,1605 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Pok\xE9API REST API"
+  description: "Pok\xE9API v2 REST API \u2014 86 operations covering Pok\xE9mon, species, abilities, moves, items, berries,\
+    \ types, locations, encounters, evolution chains, contests, games, machines, and utilities. Shared, reusable per-API definition."
+  tags:
+  - "Pok\xE9API"
+  - "Pok\xE9mon"
+  - Open Data
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+  - type: http
+    namespace: pokeapi
+    baseUri: https://pokeapi.co/api/v2
+    description: "Shared per-API definition for Pok\xE9API v2 REST."
+    resources:
+    - name: pokeapi-berry
+      path: /berry
+      operations:
+      - name: listberries
+        method: GET
+        description: List Berries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-berry-id
+      path: /berry/{id}
+      operations:
+      - name: getberry
+        method: GET
+        description: Get Berry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-berry-firmness
+      path: /berry-firmness
+      operations:
+      - name: listberryfirmnesses
+        method: GET
+        description: List Berry Firmnesses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-berry-firmness-id
+      path: /berry-firmness/{id}
+      operations:
+      - name: getberryfirmness
+        method: GET
+        description: Get Berry Firmness
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-berry-flavor
+      path: /berry-flavor
+      operations:
+      - name: listberryflavors
+        method: GET
+        description: List Berry Flavors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-berry-flavor-id
+      path: /berry-flavor/{id}
+      operations:
+      - name: getberryflavor
+        method: GET
+        description: Get Berry Flavor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-contest-type
+      path: /contest-type
+      operations:
+      - name: listcontesttypes
+        method: GET
+        description: List Contest Types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-contest-type-id
+      path: /contest-type/{id}
+      operations:
+      - name: getcontesttype
+        method: GET
+        description: Get Contest Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-contest-effect-id
+      path: /contest-effect/{id}
+      operations:
+      - name: getcontesteffect
+        method: GET
+        description: Get Contest Effect
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-super-contest-effect-id
+      path: /super-contest-effect/{id}
+      operations:
+      - name: getsupercontesteffect
+        method: GET
+        description: Get Super Contest Effect
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-encounter-method
+      path: /encounter-method
+      operations:
+      - name: listencountermethods
+        method: GET
+        description: List Encounter Methods
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-encounter-method-id
+      path: /encounter-method/{id}
+      operations:
+      - name: getencountermethod
+        method: GET
+        description: Get Encounter Method
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-encounter-condition
+      path: /encounter-condition
+      operations:
+      - name: listencounterconditions
+        method: GET
+        description: List Encounter Conditions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-encounter-condition-id
+      path: /encounter-condition/{id}
+      operations:
+      - name: getencountercondition
+        method: GET
+        description: Get Encounter Condition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-encounter-condition-value
+      path: /encounter-condition-value
+      operations:
+      - name: listencounterconditionvalues
+        method: GET
+        description: List Encounter Condition Values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-encounter-condition-value-id
+      path: /encounter-condition-value/{id}
+      operations:
+      - name: getencounterconditionvalue
+        method: GET
+        description: Get Encounter Condition Value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-evolution-chain-id
+      path: /evolution-chain/{id}
+      operations:
+      - name: getevolutionchain
+        method: GET
+        description: Get Evolution Chain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-evolution-trigger
+      path: /evolution-trigger
+      operations:
+      - name: listevolutiontriggers
+        method: GET
+        description: List Evolution Triggers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-evolution-trigger-id
+      path: /evolution-trigger/{id}
+      operations:
+      - name: getevolutiontrigger
+        method: GET
+        description: Get Evolution Trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-generation
+      path: /generation
+      operations:
+      - name: listgenerations
+        method: GET
+        description: List Generations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-generation-id
+      path: /generation/{id}
+      operations:
+      - name: getgeneration
+        method: GET
+        description: Get Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokedex
+      path: /pokedex
+      operations:
+      - name: listpokedexes
+        method: GET
+        description: "List Pok\xE9dexes"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pokedex-id
+      path: /pokedex/{id}
+      operations:
+      - name: getpokedex
+        method: GET
+        description: "Get Pok\xE9dex"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-version
+      path: /version
+      operations:
+      - name: listversions
+        method: GET
+        description: List Versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-version-id
+      path: /version/{id}
+      operations:
+      - name: getversion
+        method: GET
+        description: Get Version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-version-group
+      path: /version-group
+      operations:
+      - name: listversiongroups
+        method: GET
+        description: List Version Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-version-group-id
+      path: /version-group/{id}
+      operations:
+      - name: getversiongroup
+        method: GET
+        description: Get Version Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-item
+      path: /item
+      operations:
+      - name: listitems
+        method: GET
+        description: List Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-item-id
+      path: /item/{id}
+      operations:
+      - name: getitem
+        method: GET
+        description: Get Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-item-attribute
+      path: /item-attribute
+      operations:
+      - name: listitemattributes
+        method: GET
+        description: List Item Attributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-item-attribute-id
+      path: /item-attribute/{id}
+      operations:
+      - name: getitemattribute
+        method: GET
+        description: Get Item Attribute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-item-category
+      path: /item-category
+      operations:
+      - name: listitemcategories
+        method: GET
+        description: List Item Categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-item-category-id
+      path: /item-category/{id}
+      operations:
+      - name: getitemcategory
+        method: GET
+        description: Get Item Category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-item-fling-effect
+      path: /item-fling-effect
+      operations:
+      - name: listitemflingeffects
+        method: GET
+        description: List Item Fling Effects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-item-fling-effect-id
+      path: /item-fling-effect/{id}
+      operations:
+      - name: getitemflingeffect
+        method: GET
+        description: Get Item Fling Effect
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-item-pocket
+      path: /item-pocket
+      operations:
+      - name: listitempockets
+        method: GET
+        description: List Item Pockets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-item-pocket-id
+      path: /item-pocket/{id}
+      operations:
+      - name: getitempocket
+        method: GET
+        description: Get Item Pocket
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-location
+      path: /location
+      operations:
+      - name: listlocations
+        method: GET
+        description: List Locations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-location-id
+      path: /location/{id}
+      operations:
+      - name: getlocation
+        method: GET
+        description: Get Location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-location-area
+      path: /location-area
+      operations:
+      - name: listlocationareas
+        method: GET
+        description: List Location Areas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-location-area-id
+      path: /location-area/{id}
+      operations:
+      - name: getlocationarea
+        method: GET
+        description: Get Location Area
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pal-park-area
+      path: /pal-park-area
+      operations:
+      - name: listpalparkareas
+        method: GET
+        description: List Pal Park Areas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pal-park-area-id
+      path: /pal-park-area/{id}
+      operations:
+      - name: getpalparkarea
+        method: GET
+        description: Get Pal Park Area
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-region
+      path: /region
+      operations:
+      - name: listregions
+        method: GET
+        description: List Regions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-region-id
+      path: /region/{id}
+      operations:
+      - name: getregion
+        method: GET
+        description: Get Region
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-machine
+      path: /machine
+      operations:
+      - name: listmachines
+        method: GET
+        description: List Machines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-machine-id
+      path: /machine/{id}
+      operations:
+      - name: getmachine
+        method: GET
+        description: Get Machine
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-move
+      path: /move
+      operations:
+      - name: listmoves
+        method: GET
+        description: List Moves
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-id
+      path: /move/{id}
+      operations:
+      - name: getmove
+        method: GET
+        description: Get Move
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-ailment
+      path: /move-ailment
+      operations:
+      - name: listmoveailments
+        method: GET
+        description: List Move Ailments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-ailment-id
+      path: /move-ailment/{id}
+      operations:
+      - name: getmoveailment
+        method: GET
+        description: Get Move Ailment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-battle-style
+      path: /move-battle-style
+      operations:
+      - name: listmovebattlestyles
+        method: GET
+        description: List Move Battle Styles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-battle-style-id
+      path: /move-battle-style/{id}
+      operations:
+      - name: getmovebattlestyle
+        method: GET
+        description: Get Move Battle Style
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-category
+      path: /move-category
+      operations:
+      - name: listmovecategories
+        method: GET
+        description: List Move Categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-category-id
+      path: /move-category/{id}
+      operations:
+      - name: getmovecategory
+        method: GET
+        description: Get Move Category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-damage-class
+      path: /move-damage-class
+      operations:
+      - name: listmovedamageclasses
+        method: GET
+        description: List Move Damage Classes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-damage-class-id
+      path: /move-damage-class/{id}
+      operations:
+      - name: getmovedamageclass
+        method: GET
+        description: Get Move Damage Class
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-learn-method
+      path: /move-learn-method
+      operations:
+      - name: listmovelearnmethods
+        method: GET
+        description: List Move Learn Methods
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-learn-method-id
+      path: /move-learn-method/{id}
+      operations:
+      - name: getmovelearnmethod
+        method: GET
+        description: Get Move Learn Method
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-move-target
+      path: /move-target
+      operations:
+      - name: listmovetargets
+        method: GET
+        description: List Move Targets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-move-target-id
+      path: /move-target/{id}
+      operations:
+      - name: getmovetarget
+        method: GET
+        description: Get Move Target
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-ability
+      path: /ability
+      operations:
+      - name: listabilities
+        method: GET
+        description: List Abilities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-ability-id
+      path: /ability/{id}
+      operations:
+      - name: getability
+        method: GET
+        description: Get Ability
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-characteristic
+      path: /characteristic
+      operations:
+      - name: listcharacteristics
+        method: GET
+        description: List Characteristics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-characteristic-id
+      path: /characteristic/{id}
+      operations:
+      - name: getcharacteristic
+        method: GET
+        description: Get Characteristic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+          description: Resource id (integer only).
+    - name: pokeapi-egg-group
+      path: /egg-group
+      operations:
+      - name: listegggroups
+        method: GET
+        description: List Egg Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-egg-group-id
+      path: /egg-group/{id}
+      operations:
+      - name: getegggroup
+        method: GET
+        description: Get Egg Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-gender
+      path: /gender
+      operations:
+      - name: listgenders
+        method: GET
+        description: List Genders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-gender-id
+      path: /gender/{id}
+      operations:
+      - name: getgender
+        method: GET
+        description: Get Gender
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-growth-rate
+      path: /growth-rate
+      operations:
+      - name: listgrowthrates
+        method: GET
+        description: List Growth Rates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-growth-rate-id
+      path: /growth-rate/{id}
+      operations:
+      - name: getgrowthrate
+        method: GET
+        description: Get Growth Rate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-nature
+      path: /nature
+      operations:
+      - name: listnatures
+        method: GET
+        description: List Natures
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-nature-id
+      path: /nature/{id}
+      operations:
+      - name: getnature
+        method: GET
+        description: Get Nature
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokeathlon-stat
+      path: /pokeathlon-stat
+      operations:
+      - name: listpokeathlonstats
+        method: GET
+        description: "List Pok\xE9athlon Stats"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pokeathlon-stat-id
+      path: /pokeathlon-stat/{id}
+      operations:
+      - name: getpokeathlonstat
+        method: GET
+        description: "Get Pok\xE9athlon Stat"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokemon
+      path: /pokemon
+      operations:
+      - name: listpokemon
+        method: GET
+        description: "List Pok\xE9mon"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pokemon-id
+      path: /pokemon/{id}
+      operations:
+      - name: getpokemon
+        method: GET
+        description: "Get Pok\xE9mon"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokemon-id-encounters
+      path: /pokemon/{id}/encounters
+      operations:
+      - name: getpokemonencounters
+        method: GET
+        description: "Get Pok\xE9mon Encounters"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-pokemon-species
+      path: /pokemon-species
+      operations:
+      - name: listpokemonspecies
+        method: GET
+        description: "List Pok\xE9mon Species"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-pokemon-species-id
+      path: /pokemon-species/{id}
+      operations:
+      - name: getpokemonspecies
+        method: GET
+        description: "Get Pok\xE9mon Species"
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-stat
+      path: /stat
+      operations:
+      - name: liststats
+        method: GET
+        description: List Stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-stat-id
+      path: /stat/{id}
+      operations:
+      - name: getstat
+        method: GET
+        description: Get Stat
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-type
+      path: /type
+      operations:
+      - name: listtypes
+        method: GET
+        description: List Types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-type-id
+      path: /type/{id}
+      operations:
+      - name: gettype
+        method: GET
+        description: Get Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    - name: pokeapi-language
+      path: /language
+      operations:
+      - name: listlanguages
+        method: GET
+        description: List Languages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Number of items to skip before starting to collect the result set.
+    - name: pokeapi-language-id
+      path: /language/{id}
+      operations:
+      - name: getlanguage
+        method: GET
+        description: Get Language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Resource id (integer) or name (slug).
+    authentication:
+      type: none

@@ -1,0 +1,25 @@
+{
+  "id": 1,
+  "name": "example",
+  "is_main_series": true,
+  "generation": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "effect_entries": [
+    {}
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "example"
+    }
+  ],
+  "pokemon": [
+    {}
+  ]
+}

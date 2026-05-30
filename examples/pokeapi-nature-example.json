@@ -1,0 +1,25 @@
+{
+  "id": 1,
+  "name": "example",
+  "decreased_stat": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "increased_stat": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "likes_flavor": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "hates_flavor": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ]
+}

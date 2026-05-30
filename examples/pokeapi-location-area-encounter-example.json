@@ -1,0 +1,9 @@
+{
+  "location_area": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "version_details": [
+    {}
+  ]
+}

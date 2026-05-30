@@ -1,0 +1,154 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "PokéAPI"
+  description: "Unified taxonomy of PokéAPI, covering the v2 REST surface (12 resource families across Pokémon, moves, abilities, items, berries, types, locations, encounters, evolution chains, contests, games, and machines) plus capability workflows for Pokédex apps, team builders, and educational tooling."
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+operational:
+  apis:
+    - name: PokéAPI REST API
+      namespace: pokeapi
+      version: "2"
+      baseUrl: https://pokeapi.co/api/v2
+      status: stable
+      description: "Open, unauthenticated REST API serving the canonical Pokémon dataset."
+    - name: PokéAPI GraphQL API
+      namespace: pokeapi-gql
+      version: "v1beta"
+      baseUrl: https://beta.pokeapi.co/graphql/v1beta
+      status: beta
+      description: "GraphQL endpoint exposing the same Pokémon dataset as the REST API."
+
+  resources:
+    - name: pokemon
+      api: pokeapi
+      description: "Individual Pokémon with stats, abilities, moves, types, and sprites."
+      actions: [list, get]
+    - name: pokemon-species
+      api: pokeapi
+      description: "Base species data covering all variants of a Pokémon."
+      actions: [list, get]
+    - name: abilities
+      api: pokeapi
+      description: "Passive effects Pokémon can have in battle or the overworld."
+      actions: [list, get]
+    - name: moves
+      api: pokeapi
+      description: "Battle skills with accuracy, power, and effects."
+      actions: [list, get]
+    - name: types
+      api: pokeapi
+      description: "Elemental classifications driving move effectiveness."
+      actions: [list, get]
+    - name: items
+      api: pokeapi
+      description: "Collectible objects usable in battle and exploration."
+      actions: [list, get]
+    - name: berries
+      api: pokeapi
+      description: "Small fruits providing HP/status restoration and stat enhancement."
+      actions: [list, get]
+    - name: locations
+      api: pokeapi
+      description: "Visitable areas within game regions."
+      actions: [list, get]
+    - name: location-areas
+      api: pokeapi
+      description: "Sections within locations containing distinct wild encounters."
+      actions: [list, get]
+    - name: encounters
+      api: pokeapi
+      description: "Encounter methods, conditions, and condition values controlling wild encounters."
+      actions: [list, get]
+    - name: evolution-chains
+      api: pokeapi
+      description: "Family trees detailing species evolution progression."
+      actions: [get]
+    - name: contests
+      api: pokeapi
+      description: "Contest types and contest effects for evaluating Pokémon."
+      actions: [list, get]
+    - name: games
+      api: pokeapi
+      description: "Generations, Pokédexes, versions, and version groups."
+      actions: [list, get]
+    - name: machines
+      api: pokeapi
+      description: "Representation of items that teach moves to Pokémon (TMs/HMs)."
+      actions: [list, get]
+    - name: stats
+      api: pokeapi
+      description: "Battle stats (HP, Attack, Defense, Special Attack, Special Defense, Speed)."
+      actions: [list, get]
+    - name: natures
+      api: pokeapi
+      description: "Personality traits affecting stat growth."
+      actions: [list, get]
+    - name: languages
+      api: pokeapi
+      description: "Supported languages for localized text content."
+      actions: [list, get]
+
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read-collection
+    - name: get
+      methods: [GET]
+      pattern: read-single
+
+  pagination:
+    style: limit-offset
+    default-limit: 20
+    parameters: [limit, offset]
+
+  authentication:
+    style: none
+    description: "PokéAPI is fully unauthenticated. No keys, tokens, or signup required."
+
+  rateLimiting:
+    style: fair-use
+    description: "Rate limits were removed in November 2018. Clients are encouraged to cache locally; persistent abusers may be IP-banned."
+
+capability:
+  workflows:
+    - name: pokemon-research
+      description: "Ad-hoc research and aggregation across Pokémon, species, types, moves, and abilities for fan apps and tutorials."
+      personas: [Game Developer, Educator, Hobbyist, AI Agent]
+      apis: [pokeapi]
+    - name: team-builder
+      description: "Combine type effectiveness, base stats, abilities, and movesets to assemble competitive teams."
+      personas: [Competitive Player, Game Developer]
+      apis: [pokeapi]
+    - name: pokedex-app
+      description: "Render full Pokédex entries — species, flavor text, sprites, evolution lineage — for a region or generation."
+      personas: [Game Developer, Hobbyist]
+      apis: [pokeapi]
+    - name: encounter-research
+      description: "Cross-reference Pokémon, location areas, encounter methods, and version groups to determine where and how to catch a species."
+      personas: [Game Developer, Competitive Player]
+      apis: [pokeapi]
+
+  personas:
+    - name: Game Developer
+      description: "Builds fan apps, Pokédex tools, mods, and game adjacent web experiences."
+    - name: Competitive Player
+      description: "Uses dataset to optimize team composition, type coverage, and EV/IV strategies."
+    - name: Educator
+      description: "Uses PokéAPI as an unauthenticated playground for teaching REST, GraphQL, caching, and pagination."
+    - name: AI Agent
+      description: "MCP-wrapped agent that retrieves and synthesizes Pokémon facts on behalf of an end user."
+    - name: Hobbyist
+      description: "Builds personal projects, wikis, trading apps, or visualizations around Pokémon data."
+
+tags:
+  - Pokémon
+  - Gaming
+  - Open Source
+  - Open Data
+  - Educational
+  - REST
+  - GraphQL
+  - Community

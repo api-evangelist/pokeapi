@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-structure/pokeapi-evolution-chain-structure.json",
+  "name": "EvolutionChain",
+  "description": "Pok\u00e9API EvolutionChain structure.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32"
+    },
+    "baby_trigger_item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "chain": {
+      "type": "object",
+      "properties": {
+        "is_baby": {
+          "type": "boolean"
+        },
+        "species": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Slug name of the referenced resource."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Canonical URL of the referenced resource."
+            }
+          }
+        },
+        "evolution_details": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "evolves_to": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "title": "ChainLink"
+          }
+        }
+      }
+    }
+  }
+}

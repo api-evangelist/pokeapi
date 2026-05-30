@@ -1,0 +1,48 @@
+{
+  "id": 1,
+  "name": "example",
+  "accuracy": 1,
+  "effect_chance": 1,
+  "pp": 1,
+  "priority": 1,
+  "power": 1,
+  "contest_combos": {},
+  "contest_type": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "contest_effect": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "damage_class": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "effect_entries": [
+    {}
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "example"
+    }
+  ],
+  "generation": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "meta": {},
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "target": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "type": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  }
+}

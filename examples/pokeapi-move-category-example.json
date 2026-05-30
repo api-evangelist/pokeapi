@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "name": "example",
+  "descriptions": [
+    {
+      "description": "example"
+    }
+  ],
+  "moves": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

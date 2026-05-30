@@ -1,0 +1,225 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pokémon Research
+  description: >-
+    Cross-resource Pokémon research workflow. Combines PokéAPI's Pokémon, species, ability, move, type, and evolution-chain endpoints into a single capability that lets an agent or app answer composite
+    questions such as "give me the full sheet for Pikachu" — base stats, abilities (with effect text), types and type effectiveness, learned moves, and the species' evolution chain — in one workflow.
+  tags:
+    - PokéAPI
+    - Pokémon
+    - Research
+    - Workflow
+  created: '2026-05-30'
+  modified: '2026-05-30'
+capability:
+  consumes:
+    - type: http
+      namespace: pokemon-research
+      baseUri: https://pokeapi.co/api/v2
+      description: Composite Pokémon research workflow over PokéAPI v2.
+      resources:
+        - name: pokemon
+          path: /pokemon/{id}
+          operations:
+            - name: getpokemon
+              method: GET
+              description: PokéAPI Get Pokémon
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: pokemon-species
+          path: /pokemon-species/{id}
+          operations:
+            - name: getpokemonspecies
+              method: GET
+              description: PokéAPI Get Pokémon Species
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: ability
+          path: /ability/{id}
+          operations:
+            - name: getability
+              method: GET
+              description: PokéAPI Get Ability
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: move
+          path: /move/{id}
+          operations:
+            - name: getmove
+              method: GET
+              description: PokéAPI Get Move
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: type
+          path: /type/{id}
+          operations:
+            - name: gettype
+              method: GET
+              description: PokéAPI Get Type
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: evolution-chain
+          path: /evolution-chain/{id}
+          operations:
+            - name: getevolutionchain
+              method: GET
+              description: PokéAPI Get Evolution Chain
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: integer
+                  required: true
+        - name: pokemon-encounters
+          path: /pokemon/{id}/encounters
+          operations:
+            - name: getpokemonencounters
+              method: GET
+              description: PokéAPI Get Pokémon Encounters
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: none
+  exposes:
+    - type: mcp
+      namespace: pokemon-research-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter exposing each Pokémon Research action as a tool that an AI agent can call.
+      tools:
+        - name: pokemon-research-get-pokemon
+          description: Get the full Pokémon sheet (stats, abilities, moves, types, sprites) for a Pokémon by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getpokemon
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-species
+          description: Get the species record (Pokédex entries, flavor text, evolution lineage, capture rate) for a Pokémon by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getpokemonspecies
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-ability
+          description: Get the effect text and Pokémon list for an ability by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getability
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-move
+          description: Get the metadata for a move (power, accuracy, PP, damage class, target, effect) by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getmove
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-type
+          description: Get the type record (damage relations, Pokémon list, moves) for a type by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.gettype
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-evolution-chain
+          description: Get the full evolution chain (link tree) by id.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getevolutionchain
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: pokemon-research-get-encounters
+          description: Get the list of location-area encounters for a Pokémon by id or name.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: pokemon-research.getpokemonencounters
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.

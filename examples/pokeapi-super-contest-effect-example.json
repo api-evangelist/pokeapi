@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "appeal": 1,
+  "flavor_text_entries": [
+    {
+      "flavor_text": "example"
+    }
+  ],
+  "moves": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

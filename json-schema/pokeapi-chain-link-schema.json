@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-schema/pokeapi-chain-link-schema.json",
+  "title": "ChainLink",
+  "description": "Pok\u00e9API ChainLink schema.",
+  "type": "object",
+  "properties": {
+    "is_baby": {
+      "type": "boolean"
+    },
+    "species": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Slug name of the referenced resource."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical URL of the referenced resource."
+        }
+      }
+    },
+    "evolution_details": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evolves_to": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "is_baby": {
+            "type": "boolean"
+          },
+          "species": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slug name of the referenced resource."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Canonical URL of the referenced resource."
+              }
+            }
+          },
+          "evolution_details": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "evolves_to": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "title": "ChainLink"
+            }
+          }
+        }
+      }
+    }
+  }
+}

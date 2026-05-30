@@ -1,0 +1,497 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "pokeapi": "https://pokeapi.co/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "NamedAPIResource": "pokeapi:NamedAPIResource",
+    "APIResource": "pokeapi:APIResource",
+    "NamedAPIResourceList": "pokeapi:NamedAPIResourceList",
+    "APIResourceList": "pokeapi:APIResourceList",
+    "Name": "pokeapi:Name",
+    "Description": "pokeapi:Description",
+    "Effect": "pokeapi:Effect",
+    "FlavorText": "pokeapi:FlavorText",
+    "Berry": "pokeapi:Berry",
+    "BerryFirmness": "pokeapi:BerryFirmness",
+    "BerryFlavor": "pokeapi:BerryFlavor",
+    "ContestType": "pokeapi:ContestType",
+    "ContestEffect": "pokeapi:ContestEffect",
+    "SuperContestEffect": "pokeapi:SuperContestEffect",
+    "EncounterMethod": "pokeapi:EncounterMethod",
+    "EncounterCondition": "pokeapi:EncounterCondition",
+    "EncounterConditionValue": "pokeapi:EncounterConditionValue",
+    "EvolutionChain": "pokeapi:EvolutionChain",
+    "ChainLink": "pokeapi:ChainLink",
+    "EvolutionTrigger": "pokeapi:EvolutionTrigger",
+    "Generation": "pokeapi:Generation",
+    "Pokedex": "pokeapi:Pokedex",
+    "Version": "pokeapi:Version",
+    "VersionGroup": "pokeapi:VersionGroup",
+    "Item": "pokeapi:Item",
+    "ItemAttribute": "pokeapi:ItemAttribute",
+    "ItemCategory": "pokeapi:ItemCategory",
+    "ItemFlingEffect": "pokeapi:ItemFlingEffect",
+    "ItemPocket": "pokeapi:ItemPocket",
+    "Location": "pokeapi:Location",
+    "LocationArea": "pokeapi:LocationArea",
+    "PalParkArea": "pokeapi:PalParkArea",
+    "Region": "pokeapi:Region",
+    "Machine": "pokeapi:Machine",
+    "Move": "pokeapi:Move",
+    "MoveAilment": "pokeapi:MoveAilment",
+    "MoveBattleStyle": "pokeapi:MoveBattleStyle",
+    "MoveCategory": "pokeapi:MoveCategory",
+    "MoveDamageClass": "pokeapi:MoveDamageClass",
+    "MoveLearnMethod": "pokeapi:MoveLearnMethod",
+    "MoveTarget": "pokeapi:MoveTarget",
+    "Ability": "pokeapi:Ability",
+    "Characteristic": "pokeapi:Characteristic",
+    "EggGroup": "pokeapi:EggGroup",
+    "Gender": "pokeapi:Gender",
+    "GrowthRate": "pokeapi:GrowthRate",
+    "Nature": "pokeapi:Nature",
+    "PokeathlonStat": "pokeapi:PokeathlonStat",
+    "Pokemon": "pokeapi:Pokemon",
+    "PokemonSpecies": "pokeapi:PokemonSpecies",
+    "Stat": "pokeapi:Stat",
+    "Type": "pokeapi:Type",
+    "Language": "pokeapi:Language",
+    "LocationAreaEncounter": "pokeapi:LocationAreaEncounter",
+    "name": {
+      "@id": "schema:name"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "count": {
+      "@id": "pokeapi:count",
+      "@type": "xsd:integer"
+    },
+    "next": {
+      "@id": "schema:url"
+    },
+    "previous": {
+      "@id": "schema:url"
+    },
+    "results": {
+      "@id": "pokeapi:results"
+    },
+    "language": {
+      "@id": "pokeapi:language"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "effect": {
+      "@id": "pokeapi:effect"
+    },
+    "flavorText": {
+      "@id": "pokeapi:flavor_text"
+    },
+    "version": {
+      "@id": "pokeapi:version"
+    },
+    "id": {
+      "@id": "pokeapi:id",
+      "@type": "xsd:integer"
+    },
+    "growthTime": {
+      "@id": "pokeapi:growth_time",
+      "@type": "xsd:integer"
+    },
+    "maxHarvest": {
+      "@id": "pokeapi:max_harvest",
+      "@type": "xsd:integer"
+    },
+    "naturalGiftPower": {
+      "@id": "pokeapi:natural_gift_power",
+      "@type": "xsd:integer"
+    },
+    "size": {
+      "@id": "pokeapi:size",
+      "@type": "xsd:integer"
+    },
+    "smoothness": {
+      "@id": "pokeapi:smoothness",
+      "@type": "xsd:integer"
+    },
+    "soilDryness": {
+      "@id": "pokeapi:soil_dryness",
+      "@type": "xsd:integer"
+    },
+    "firmness": {
+      "@id": "pokeapi:firmness"
+    },
+    "flavors": {
+      "@id": "pokeapi:flavors"
+    },
+    "item": {
+      "@id": "pokeapi:item"
+    },
+    "naturalGiftType": {
+      "@id": "pokeapi:natural_gift_type"
+    },
+    "berries": {
+      "@id": "pokeapi:berries"
+    },
+    "names": {
+      "@id": "pokeapi:names"
+    },
+    "contestType": {
+      "@id": "pokeapi:contest_type"
+    },
+    "berryFlavor": {
+      "@id": "pokeapi:berry_flavor"
+    },
+    "appeal": {
+      "@id": "pokeapi:appeal",
+      "@type": "xsd:integer"
+    },
+    "jam": {
+      "@id": "pokeapi:jam",
+      "@type": "xsd:integer"
+    },
+    "effectEntries": {
+      "@id": "pokeapi:effect_entries"
+    },
+    "flavorTextEntries": {
+      "@id": "pokeapi:flavor_text_entries"
+    },
+    "moves": {
+      "@id": "pokeapi:moves"
+    },
+    "order": {
+      "@id": "pokeapi:order",
+      "@type": "xsd:integer"
+    },
+    "values": {
+      "@id": "pokeapi:values"
+    },
+    "condition": {
+      "@id": "pokeapi:condition"
+    },
+    "babyTriggerItem": {
+      "@id": "pokeapi:baby_trigger_item"
+    },
+    "chain": {
+      "@id": "pokeapi:chain"
+    },
+    "isBaby": {
+      "@id": "pokeapi:is_baby",
+      "@type": "xsd:boolean"
+    },
+    "species": {
+      "@id": "pokeapi:species"
+    },
+    "evolutionDetails": {
+      "@id": "pokeapi:evolution_details"
+    },
+    "evolvesTo": {
+      "@id": "pokeapi:evolves_to"
+    },
+    "pokemonSpecies": {
+      "@id": "pokeapi:pokemon_species"
+    },
+    "abilities": {
+      "@id": "pokeapi:abilities"
+    },
+    "mainRegion": {
+      "@id": "pokeapi:main_region"
+    },
+    "types": {
+      "@id": "pokeapi:types"
+    },
+    "versionGroups": {
+      "@id": "pokeapi:version_groups"
+    },
+    "isMainSeries": {
+      "@id": "pokeapi:is_main_series",
+      "@type": "xsd:boolean"
+    },
+    "descriptions": {
+      "@id": "pokeapi:descriptions"
+    },
+    "pokemonEntries": {
+      "@id": "pokeapi:pokemon_entries"
+    },
+    "region": {
+      "@id": "pokeapi:region"
+    },
+    "versionGroup": {
+      "@id": "pokeapi:version_group"
+    },
+    "generation": {
+      "@id": "pokeapi:generation"
+    },
+    "moveLearnMethods": {
+      "@id": "pokeapi:move_learn_methods"
+    },
+    "pokedexes": {
+      "@id": "pokeapi:pokedexes"
+    },
+    "regions": {
+      "@id": "pokeapi:regions"
+    },
+    "versions": {
+      "@id": "pokeapi:versions"
+    },
+    "cost": {
+      "@id": "pokeapi:cost",
+      "@type": "xsd:integer"
+    },
+    "flingPower": {
+      "@id": "pokeapi:fling_power",
+      "@type": "xsd:integer"
+    },
+    "flingEffect": {
+      "@id": "pokeapi:fling_effect"
+    },
+    "attributes": {
+      "@id": "pokeapi:attributes"
+    },
+    "category": {
+      "@id": "pokeapi:category"
+    },
+    "gameIndices": {
+      "@id": "pokeapi:game_indices"
+    },
+    "heldByPokemon": {
+      "@id": "pokeapi:held_by_pokemon"
+    },
+    "sprites": {
+      "@id": "pokeapi:sprites"
+    },
+    "items": {
+      "@id": "pokeapi:items"
+    },
+    "pocket": {
+      "@id": "pokeapi:pocket"
+    },
+    "categories": {
+      "@id": "pokeapi:categories"
+    },
+    "areas": {
+      "@id": "pokeapi:areas"
+    },
+    "gameIndex": {
+      "@id": "pokeapi:game_index",
+      "@type": "xsd:integer"
+    },
+    "encounterMethodRates": {
+      "@id": "pokeapi:encounter_method_rates"
+    },
+    "location": {
+      "@id": "pokeapi:location"
+    },
+    "pokemonEncounters": {
+      "@id": "pokeapi:pokemon_encounters"
+    },
+    "locations": {
+      "@id": "pokeapi:locations"
+    },
+    "mainGeneration": {
+      "@id": "pokeapi:main_generation"
+    },
+    "move": {
+      "@id": "pokeapi:move"
+    },
+    "accuracy": {
+      "@id": "pokeapi:accuracy",
+      "@type": "xsd:integer"
+    },
+    "effectChance": {
+      "@id": "pokeapi:effect_chance",
+      "@type": "xsd:integer"
+    },
+    "pp": {
+      "@id": "pokeapi:pp",
+      "@type": "xsd:integer"
+    },
+    "priority": {
+      "@id": "pokeapi:priority",
+      "@type": "xsd:integer"
+    },
+    "power": {
+      "@id": "pokeapi:power",
+      "@type": "xsd:integer"
+    },
+    "contestCombos": {
+      "@id": "pokeapi:contest_combos"
+    },
+    "contestEffect": {
+      "@id": "pokeapi:contest_effect"
+    },
+    "damageClass": {
+      "@id": "pokeapi:damage_class"
+    },
+    "meta": {
+      "@id": "pokeapi:meta"
+    },
+    "target": {
+      "@id": "pokeapi:target"
+    },
+    "type": {
+      "@id": "pokeapi:type"
+    },
+    "pokemon": {
+      "@id": "pokeapi:pokemon"
+    },
+    "geneModulo": {
+      "@id": "pokeapi:gene_modulo",
+      "@type": "xsd:integer"
+    },
+    "possibleValues": {
+      "@id": "pokeapi:possible_values"
+    },
+    "highestStat": {
+      "@id": "pokeapi:highest_stat"
+    },
+    "pokemonSpeciesDetails": {
+      "@id": "pokeapi:pokemon_species_details"
+    },
+    "requiredForEvolution": {
+      "@id": "pokeapi:required_for_evolution"
+    },
+    "formula": {
+      "@id": "pokeapi:formula"
+    },
+    "levels": {
+      "@id": "pokeapi:levels"
+    },
+    "decreasedStat": {
+      "@id": "pokeapi:decreased_stat"
+    },
+    "increasedStat": {
+      "@id": "pokeapi:increased_stat"
+    },
+    "likesFlavor": {
+      "@id": "pokeapi:likes_flavor"
+    },
+    "hatesFlavor": {
+      "@id": "pokeapi:hates_flavor"
+    },
+    "affectingNatures": {
+      "@id": "pokeapi:affecting_natures"
+    },
+    "baseExperience": {
+      "@id": "pokeapi:base_experience",
+      "@type": "xsd:integer"
+    },
+    "height": {
+      "@id": "pokeapi:height",
+      "@type": "xsd:integer"
+    },
+    "isDefault": {
+      "@id": "pokeapi:is_default",
+      "@type": "xsd:boolean"
+    },
+    "weight": {
+      "@id": "pokeapi:weight",
+      "@type": "xsd:integer"
+    },
+    "forms": {
+      "@id": "pokeapi:forms"
+    },
+    "heldItems": {
+      "@id": "pokeapi:held_items"
+    },
+    "locationAreaEncounters": {
+      "@id": "pokeapi:location_area_encounters"
+    },
+    "stats": {
+      "@id": "pokeapi:stats"
+    },
+    "genderRate": {
+      "@id": "pokeapi:gender_rate",
+      "@type": "xsd:integer"
+    },
+    "captureRate": {
+      "@id": "pokeapi:capture_rate",
+      "@type": "xsd:integer"
+    },
+    "baseHappiness": {
+      "@id": "pokeapi:base_happiness",
+      "@type": "xsd:integer"
+    },
+    "isLegendary": {
+      "@id": "pokeapi:is_legendary",
+      "@type": "xsd:boolean"
+    },
+    "isMythical": {
+      "@id": "pokeapi:is_mythical",
+      "@type": "xsd:boolean"
+    },
+    "hatchCounter": {
+      "@id": "pokeapi:hatch_counter",
+      "@type": "xsd:integer"
+    },
+    "hasGenderDifferences": {
+      "@id": "pokeapi:has_gender_differences",
+      "@type": "xsd:boolean"
+    },
+    "formsSwitchable": {
+      "@id": "pokeapi:forms_switchable",
+      "@type": "xsd:boolean"
+    },
+    "growthRate": {
+      "@id": "pokeapi:growth_rate"
+    },
+    "pokedexNumbers": {
+      "@id": "pokeapi:pokedex_numbers"
+    },
+    "eggGroups": {
+      "@id": "pokeapi:egg_groups"
+    },
+    "color": {
+      "@id": "pokeapi:color"
+    },
+    "shape": {
+      "@id": "pokeapi:shape"
+    },
+    "evolvesFromSpecies": {
+      "@id": "pokeapi:evolves_from_species"
+    },
+    "evolutionChain": {
+      "@id": "pokeapi:evolution_chain"
+    },
+    "habitat": {
+      "@id": "pokeapi:habitat"
+    },
+    "isBattleOnly": {
+      "@id": "pokeapi:is_battle_only",
+      "@type": "xsd:boolean"
+    },
+    "affectingMoves": {
+      "@id": "pokeapi:affecting_moves"
+    },
+    "characteristics": {
+      "@id": "pokeapi:characteristics"
+    },
+    "moveDamageClass": {
+      "@id": "pokeapi:move_damage_class"
+    },
+    "damageRelations": {
+      "@id": "pokeapi:damage_relations"
+    },
+    "pastDamageRelations": {
+      "@id": "pokeapi:past_damage_relations"
+    },
+    "official": {
+      "@id": "pokeapi:official",
+      "@type": "xsd:boolean"
+    },
+    "iso639": {
+      "@id": "pokeapi:iso639"
+    },
+    "iso3166": {
+      "@id": "pokeapi:iso3166"
+    },
+    "locationArea": {
+      "@id": "pokeapi:location_area"
+    },
+    "versionDetails": {
+      "@id": "pokeapi:version_details"
+    }
+  }
+}

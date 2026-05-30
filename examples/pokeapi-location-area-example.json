@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "name": "example",
+  "game_index": 1,
+  "encounter_method_rates": [
+    {}
+  ],
+  "location": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "pokemon_encounters": [
+    {}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "name": "example",
+  "berries": [
+    {
+      "potency": 1,
+      "berry": {}
+    }
+  ],
+  "contest_type": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "names": [
+    {
+      "name": "example"
+    }
+  ]
+}

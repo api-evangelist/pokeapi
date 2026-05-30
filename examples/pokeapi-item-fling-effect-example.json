@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "name": "example",
+  "effect_entries": [
+    {
+      "effect": "example"
+    }
+  ],
+  "items": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

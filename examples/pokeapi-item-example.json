@@ -1,0 +1,48 @@
+{
+  "id": 1,
+  "name": "example",
+  "cost": 1,
+  "fling_power": 1,
+  "fling_effect": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "attributes": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ],
+  "category": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "effect_entries": [
+    {
+      "effect": "example",
+      "short_effect": "example",
+      "language": {}
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "text": "example",
+      "version_group": {},
+      "language": {}
+    }
+  ],
+  "game_indices": [
+    {}
+  ],
+  "held_by_pokemon": [
+    {}
+  ],
+  "names": [
+    {
+      "name": "example"
+    }
+  ],
+  "sprites": {
+    "default": "example"
+  }
+}

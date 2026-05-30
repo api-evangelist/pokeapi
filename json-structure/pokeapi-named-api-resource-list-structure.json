@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/json-structure/pokeapi-named-api-resource-list-structure.json",
+  "name": "NamedAPIResourceList",
+  "description": "Pok\u00e9API NamedAPIResourceList structure.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int32"
+    },
+    "next": {
+      "type": "string",
+      "nullable": true,
+      "format": "uri"
+    },
+    "previous": {
+      "type": "string",
+      "nullable": true,
+      "format": "uri"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug name of the referenced resource."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL of the referenced resource."
+          }
+        }
+      }
+    }
+  }
+}

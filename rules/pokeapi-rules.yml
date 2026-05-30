@@ -1,0 +1,245 @@
+rules:
+  # =================== INFO ===================
+  info-title-required:
+    description: Info title must be defined.
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+
+  info-description-required:
+    description: Info description must be defined.
+    severity: warn
+    given: "$.info"
+    then:
+      field: description
+      function: truthy
+
+  info-version-required:
+    description: Info version must be defined.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+
+  info-license-required:
+    description: PokéAPI is BSD-3-Clause licensed — info.license must be present.
+    severity: warn
+    given: "$.info"
+    then:
+      field: license
+      function: truthy
+
+  # =================== OPENAPI VERSION ===================
+  openapi-version-3:
+    description: OpenAPI version must be 3.x.
+    severity: error
+    given: "$"
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\."
+
+  # =================== SERVERS ===================
+  servers-defined:
+    description: Servers must be defined.
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+
+  pokeapi-base-url:
+    description: PokéAPI base URL should be https://pokeapi.co/api/v2.
+    severity: info
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://(pokeapi\\.co|beta\\.pokeapi\\.co)/"
+
+  # =================== PATHS — NAMING CONVENTIONS ===================
+  paths-kebab-case:
+    description: PokéAPI path segments are kebab-case (e.g. /berry-firmness, /location-area).
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z0-9]+(-[a-z0-9]+)*(\\/\\{[a-z][a-zA-Z0-9_]*\\})?(\\/[a-z]+(-[a-z]+)*)?$"
+
+  paths-no-trailing-slash:
+    description: Paths should not end with a trailing slash inside the spec.
+    severity: info
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ".+/$"
+
+  paths-no-camel-case:
+    description: PokéAPI path segments must not use camelCase.
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "[a-z][A-Z]"
+
+  # =================== OPERATIONS — HTTP METHODS ===================
+  operations-read-only:
+    description: All PokéAPI operations are read-only — only GET should be used.
+    severity: error
+    given: "$.paths[*]"
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - get
+          - parameters
+          - summary
+          - description
+
+  # =================== OPERATIONS — IDENTIFIERS ===================
+  operation-id-required:
+    description: Every operation must declare operationId.
+    severity: error
+    given: "$.paths[*][get]"
+    then:
+      field: operationId
+      function: truthy
+
+  operation-id-camel-case:
+    description: operationId must be camelCase (e.g. getPokemon, listMoves).
+    severity: warn
+    given: "$.paths[*][get].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  operation-id-list-or-get-prefix:
+    description: Single-resource operations should be prefixed with `get` and collection operations with `list`.
+    severity: info
+    given: "$.paths[*][get].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(get|list)[A-Z][a-zA-Z0-9]*$"
+
+  # =================== OPERATIONS — SUMMARIES / DESCRIPTIONS ===================
+  operation-summary-required:
+    description: Each operation must have a summary.
+    severity: error
+    given: "$.paths[*][get]"
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-title-case:
+    description: Operation summaries should use Title Case.
+    severity: warn
+    given: "$.paths[*][get].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zà-öø-ÿé]*\\s?)+$"
+
+  operation-description-required:
+    description: Each operation must have a description.
+    severity: warn
+    given: "$.paths[*][get]"
+    then:
+      field: description
+      function: truthy
+
+  operation-tag-required:
+    description: Each operation must declare at least one tag.
+    severity: warn
+    given: "$.paths[*][get]"
+    then:
+      field: tags
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+
+  # =================== PARAMETERS ===================
+  pagination-limit-required:
+    description: List endpoints should accept a `limit` query parameter.
+    severity: info
+    given: "$.paths[*][get].parameters[?(@.in=='query')]"
+    then:
+      function: truthy
+
+  path-id-required:
+    description: Single-resource paths must declare an `id` path parameter.
+    severity: warn
+    given: "$.paths[?(@property.match(/\\{id\\}$/))][get].parameters[?(@.in=='path' && @.name=='id')]"
+    then:
+      function: truthy
+
+  # =================== RESPONSES ===================
+  response-200-required:
+    description: Each operation must declare a 200 response.
+    severity: error
+    given: "$.paths[*][get].responses"
+    then:
+      field: "200"
+      function: truthy
+
+  response-description-required:
+    description: Every response must declare a description.
+    severity: warn
+    given: "$.paths[*][get].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  response-content-required:
+    description: 200 responses must include an application/json schema.
+    severity: warn
+    given: "$.paths[*][get].responses['200'].content"
+    then:
+      field: application/json
+      function: truthy
+
+  # =================== TAGS ===================
+  tags-defined:
+    description: Spec must declare a tags collection at the root.
+    severity: info
+    given: "$"
+    then:
+      field: tags
+      function: truthy
+
+  tags-title-case:
+    description: Tag names should use Title Case.
+    severity: info
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  # =================== SCHEMAS ===================
+  schemas-defined:
+    description: Components.schemas must be defined.
+    severity: info
+    given: "$.components"
+    then:
+      field: schemas
+      function: truthy
+
+  named-api-resource-defined:
+    description: NamedAPIResource is the canonical PokéAPI reference shape — define it.
+    severity: info
+    given: "$.components.schemas"
+    then:
+      field: NamedAPIResource
+      function: truthy

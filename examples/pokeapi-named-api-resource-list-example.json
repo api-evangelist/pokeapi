@@ -1,0 +1,11 @@
+{
+  "count": 1,
+  "next": "https://pokeapi.co/api/v2/example/1/",
+  "previous": "https://pokeapi.co/api/v2/example/1/",
+  "results": [
+    {
+      "name": "example",
+      "url": "https://pokeapi.co/api/v2/example/1/"
+    }
+  ]
+}

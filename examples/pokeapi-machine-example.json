@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "item": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "move": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "version_group": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  }
+}

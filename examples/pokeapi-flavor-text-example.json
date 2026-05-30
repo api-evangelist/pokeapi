@@ -1,0 +1,11 @@
+{
+  "flavor_text": "example",
+  "language": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  },
+  "version": {
+    "name": "example",
+    "url": "https://pokeapi.co/api/v2/example/1/"
+  }
+}
