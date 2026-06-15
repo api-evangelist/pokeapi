@@ -1,0 +1,1978 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PokéAPI",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Berries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Berries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berries."
+        },
+        {
+          "info": {
+            "name": "Get Berry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry by id or name."
+        },
+        {
+          "info": {
+            "name": "List Berry Firmnesses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-firmness",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berry firmness categories."
+        },
+        {
+          "info": {
+            "name": "Get Berry Firmness",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-firmness/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry firmness by id or name."
+        },
+        {
+          "info": {
+            "name": "List Berry Flavors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-flavor",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berry flavor categories."
+        },
+        {
+          "info": {
+            "name": "Get Berry Flavor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-flavor/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry flavor by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Contest Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-type",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all contest types."
+        },
+        {
+          "info": {
+            "name": "Get Contest Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contest type by id or name."
+        },
+        {
+          "info": {
+            "name": "Get Contest Effect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-effect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contest effect by id."
+        },
+        {
+          "info": {
+            "name": "Get Super Contest Effect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/super-contest-effect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single super contest effect by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Encounters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Encounter Methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-method",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all encounter methods."
+        },
+        {
+          "info": {
+            "name": "Get Encounter Method",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-method/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single encounter method by id or name."
+        },
+        {
+          "info": {
+            "name": "List Encounter Conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-condition",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all encounter conditions."
+        },
+        {
+          "info": {
+            "name": "Get Encounter Condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-condition/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single encounter condition by id or name."
+        },
+        {
+          "info": {
+            "name": "List Encounter Condition Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-condition-value",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all encounter condition values."
+        },
+        {
+          "info": {
+            "name": "Get Encounter Condition Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/encounter-condition-value/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single encounter condition value by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Evolution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Evolution Chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-chain/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single evolution chain by id."
+        },
+        {
+          "info": {
+            "name": "List Evolution Triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all evolution triggers."
+        },
+        {
+          "info": {
+            "name": "Get Evolution Trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single evolution trigger by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Games",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Generations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/generation",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all generations."
+        },
+        {
+          "info": {
+            "name": "Get Generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/generation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single generation by id or name."
+        },
+        {
+          "info": {
+            "name": "List Pokédexes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokedex",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokédexes."
+        },
+        {
+          "info": {
+            "name": "Get Pokédex",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokedex/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pokédex by id or name."
+        },
+        {
+          "info": {
+            "name": "List Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all game versions."
+        },
+        {
+          "info": {
+            "name": "Get Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single game version by id or name."
+        },
+        {
+          "info": {
+            "name": "List Version Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version-group",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all version groups."
+        },
+        {
+          "info": {
+            "name": "Get Version Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version-group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single version group by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all items."
+        },
+        {
+          "info": {
+            "name": "Get Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single item by id or name."
+        },
+        {
+          "info": {
+            "name": "List Item Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-attribute",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all item attributes."
+        },
+        {
+          "info": {
+            "name": "Get Item Attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-attribute/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single item attribute by id or name."
+        },
+        {
+          "info": {
+            "name": "List Item Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-category",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all item categories."
+        },
+        {
+          "info": {
+            "name": "Get Item Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-category/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single item category by id or name."
+        },
+        {
+          "info": {
+            "name": "List Item Fling Effects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-fling-effect",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all item fling effects."
+        },
+        {
+          "info": {
+            "name": "Get Item Fling Effect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-fling-effect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single item fling effect by id or name."
+        },
+        {
+          "info": {
+            "name": "List Item Pockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-pocket",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all item pockets."
+        },
+        {
+          "info": {
+            "name": "Get Item Pocket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/item-pocket/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single item pocket by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/location",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all locations."
+        },
+        {
+          "info": {
+            "name": "Get Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/location/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single location by id or name."
+        },
+        {
+          "info": {
+            "name": "List Location Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/location-area",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all location areas."
+        },
+        {
+          "info": {
+            "name": "Get Location Area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/location-area/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single location area by id or name."
+        },
+        {
+          "info": {
+            "name": "List Pal Park Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pal-park-area",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pal Park areas."
+        },
+        {
+          "info": {
+            "name": "Get Pal Park Area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pal-park-area/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pal Park area by id or name."
+        },
+        {
+          "info": {
+            "name": "List Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/region",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all regions."
+        },
+        {
+          "info": {
+            "name": "Get Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/region/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single region by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Machines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/machine",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all machines."
+        },
+        {
+          "info": {
+            "name": "Get Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/machine/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single machine by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Moves",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Moves",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all moves."
+        },
+        {
+          "info": {
+            "name": "Get Move",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Ailments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-ailment",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move ailments."
+        },
+        {
+          "info": {
+            "name": "Get Move Ailment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-ailment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move ailment by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Battle Styles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-battle-style",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move battle styles."
+        },
+        {
+          "info": {
+            "name": "Get Move Battle Style",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-battle-style/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move battle style by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-category",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move categories."
+        },
+        {
+          "info": {
+            "name": "Get Move Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-category/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move category by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Damage Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-damage-class",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move damage classes."
+        },
+        {
+          "info": {
+            "name": "Get Move Damage Class",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-damage-class/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move damage class by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Learn Methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-learn-method",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move learn methods."
+        },
+        {
+          "info": {
+            "name": "Get Move Learn Method",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-learn-method/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move learn method by id or name."
+        },
+        {
+          "info": {
+            "name": "List Move Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-target",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all move targets."
+        },
+        {
+          "info": {
+            "name": "Get Move Target",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/move-target/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single move target by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pokémon",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Abilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/ability",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokémon abilities."
+        },
+        {
+          "info": {
+            "name": "Get Ability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/ability/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single ability by id or name."
+        },
+        {
+          "info": {
+            "name": "List Characteristics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/characteristic",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all characteristics."
+        },
+        {
+          "info": {
+            "name": "Get Characteristic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/characteristic/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single characteristic by id."
+        },
+        {
+          "info": {
+            "name": "List Egg Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/egg-group",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all egg groups."
+        },
+        {
+          "info": {
+            "name": "Get Egg Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/egg-group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single egg group by id or name."
+        },
+        {
+          "info": {
+            "name": "List Genders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/gender",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all gender designations."
+        },
+        {
+          "info": {
+            "name": "Get Gender",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/gender/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single gender by id or name."
+        },
+        {
+          "info": {
+            "name": "List Growth Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/growth-rate",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all growth rates."
+        },
+        {
+          "info": {
+            "name": "Get Growth Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/growth-rate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single growth rate by id or name."
+        },
+        {
+          "info": {
+            "name": "List Natures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/nature",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all natures."
+        },
+        {
+          "info": {
+            "name": "Get Nature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/nature/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single nature by id or name."
+        },
+        {
+          "info": {
+            "name": "List Pokéathlon Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokeathlon-stat",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokéathlon stats."
+        },
+        {
+          "info": {
+            "name": "Get Pokéathlon Stat",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokeathlon-stat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pokéathlon stat by id or name."
+        },
+        {
+          "info": {
+            "name": "List Pokémon",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokemon",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokémon."
+        },
+        {
+          "info": {
+            "name": "Get Pokémon",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokemon/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pokémon by id or name."
+        },
+        {
+          "info": {
+            "name": "Get Pokémon Encounters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokemon/:id/encounters",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve the list of location-area encounters for a Pokémon."
+        },
+        {
+          "info": {
+            "name": "List Pokémon Species",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokemon-species",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokémon species."
+        },
+        {
+          "info": {
+            "name": "Get Pokémon Species",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokemon-species/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pokémon species by id or name."
+        },
+        {
+          "info": {
+            "name": "List Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/stat",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all battle stats."
+        },
+        {
+          "info": {
+            "name": "Get Stat",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/stat/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single stat by id or name."
+        },
+        {
+          "info": {
+            "name": "List Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/type",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokémon types."
+        },
+        {
+          "info": {
+            "name": "Get Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single type by id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/language",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all supported languages."
+        },
+        {
+          "info": {
+            "name": "Get Language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/language/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single language by id or name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
