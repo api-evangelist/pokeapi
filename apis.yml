@@ -50,19 +50,19 @@ apis:
     type: TermsOfService
     title: Fair Use Policy
   - url: https://www.npmjs.com/package/pokeapi-js-wrapper
-    type: SDK
+    type: SDKs
     title: JavaScript Wrapper (pokeapi-js-wrapper)
   - url: https://www.npmjs.com/package/pokedex-promise-v2
-    type: SDK
+    type: SDKs
     title: Node.js Client (pokedex-promise-v2)
   - url: https://pypi.org/project/pokebase/
-    type: SDK
+    type: SDKs
     title: Python Wrapper (pokebase)
   - url: https://pypi.org/project/pokepy/
-    type: SDK
+    type: SDKs
     title: Python Wrapper (pokepy)
   - url: https://github.com/PokeAPI/pokekotlin
-    type: SDK
+    type: SDKs
     title: Kotlin Multiplatform Client (pokekotlin)
   baseURL: https://pokeapi.co/api/v2
 - aid: pokeapi:pokeapi-graphql
@@ -125,13 +125,13 @@ common:
 - url: https://github.com/PokeAPI/pokeapi/releases
   type: ChangeLog
 - url: https://hub.docker.com/r/pokeapi/pokeapi
-  type: SDK
+  type: SDKs
   title: Docker Image
 - url: https://github.com/PokeAPI/sprites
-  type: SDK
+  type: SDKs
   title: Pokémon Sprites (Static Assets)
 - url: https://github.com/PokeAPI/api-data
-  type: SDK
+  type: SDKs
   title: Static API Data Dump + JSON Schema
 - type: Features
   data:
