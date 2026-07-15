@@ -93,6 +93,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: AgenticAccess
+  url: agentic-access/pokeapi-agentic-access.yml
 - type: DomainSecurity
   url: security/pokeapi-domain-security.yml
 - url: https://pokeapi.co
