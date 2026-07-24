@@ -1,0 +1,221 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Encounters API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Encounters
+  description: Encounter methods, conditions, and condition values used in the wild.
+paths:
+  /encounter-method:
+    get:
+      tags:
+      - Encounters
+      summary: List Encounter Methods
+      description: List all encounter methods.
+      operationId: listEncounterMethods
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter method resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-method/{id}:
+    get:
+      tags:
+      - Encounters
+      summary: Get Encounter Method
+      description: Retrieve a single encounter method by id or name.
+      operationId: getEncounterMethod
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter method resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterMethod'
+  /encounter-condition:
+    get:
+      tags:
+      - Encounters
+      summary: List Encounter Conditions
+      description: List all encounter conditions.
+      operationId: listEncounterConditions
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter condition resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-condition/{id}:
+    get:
+      tags:
+      - Encounters
+      summary: Get Encounter Condition
+      description: Retrieve a single encounter condition by id or name.
+      operationId: getEncounterCondition
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter condition resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterCondition'
+  /encounter-condition-value:
+    get:
+      tags:
+      - Encounters
+      summary: List Encounter Condition Values
+      description: List all encounter condition values.
+      operationId: listEncounterConditionValues
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter condition value resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-condition-value/{id}:
+    get:
+      tags:
+      - Encounters
+      summary: Get Encounter Condition Value
+      description: Retrieve a single encounter condition value by id or name.
+      operationId: getEncounterConditionValue
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter condition value resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterConditionValue'
+components:
+  schemas:
+    EncounterCondition:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    EncounterMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    EncounterConditionValue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        condition:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string

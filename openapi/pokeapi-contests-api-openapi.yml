@@ -1,0 +1,214 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Contests API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Contests
+  description: Contest types, contest effects, and super-contest effects.
+paths:
+  /contest-type:
+    get:
+      tags:
+      - Contests
+      summary: List Contest Types
+      description: List all contest types.
+      operationId: listContestTypes
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of contest type resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /contest-type/{id}:
+    get:
+      tags:
+      - Contests
+      summary: Get Contest Type
+      description: Retrieve a single contest type by id or name.
+      operationId: getContestType
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single contest type resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestType'
+  /contest-effect/{id}:
+    get:
+      tags:
+      - Contests
+      summary: Get Contest Effect
+      description: Retrieve a single contest effect by id.
+      operationId: getContestEffect
+      parameters:
+      - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single contest effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestEffect'
+  /super-contest-effect/{id}:
+    get:
+      tags:
+      - Contests
+      summary: Get Super Contest Effect
+      description: Retrieve a single super contest effect by id.
+      operationId: getSuperContestEffect
+      parameters:
+      - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single super contest effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuperContestEffect'
+components:
+  schemas:
+    ContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        jam:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    SuperContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ContestType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berry_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              color:
+                type: string
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+  parameters:
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string

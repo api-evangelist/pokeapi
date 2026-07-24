@@ -1,0 +1,838 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Pokémon API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Pokémon
+  description: Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders, characteristics, and Pokéathlon stats.
+paths:
+  /ability:
+    get:
+      tags:
+      - Pokémon
+      summary: List Abilities
+      description: List all Pokémon abilities.
+      operationId: listAbilities
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of ability resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /ability/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Ability
+      description: Retrieve a single ability by id or name.
+      operationId: getAbility
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single ability resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ability'
+  /characteristic:
+    get:
+      tags:
+      - Pokémon
+      summary: List Characteristics
+      description: List all characteristics.
+      operationId: listCharacteristics
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of characteristic resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResourceList'
+  /characteristic/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Characteristic
+      description: Retrieve a single characteristic by id.
+      operationId: getCharacteristic
+      parameters:
+      - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single characteristic resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Characteristic'
+  /egg-group:
+    get:
+      tags:
+      - Pokémon
+      summary: List Egg Groups
+      description: List all egg groups.
+      operationId: listEggGroups
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of egg group resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /egg-group/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Egg Group
+      description: Retrieve a single egg group by id or name.
+      operationId: getEggGroup
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single egg group resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EggGroup'
+  /gender:
+    get:
+      tags:
+      - Pokémon
+      summary: List Genders
+      description: List all gender designations.
+      operationId: listGenders
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of gender resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /gender/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Gender
+      description: Retrieve a single gender by id or name.
+      operationId: getGender
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single gender resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+  /growth-rate:
+    get:
+      tags:
+      - Pokémon
+      summary: List Growth Rates
+      description: List all growth rates.
+      operationId: listGrowthRates
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of growth rate resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /growth-rate/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Growth Rate
+      description: Retrieve a single growth rate by id or name.
+      operationId: getGrowthRate
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single growth rate resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrowthRate'
+  /nature:
+    get:
+      tags:
+      - Pokémon
+      summary: List Natures
+      description: List all natures.
+      operationId: listNatures
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of nature resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /nature/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Nature
+      description: Retrieve a single nature by id or name.
+      operationId: getNature
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single nature resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Nature'
+  /pokeathlon-stat:
+    get:
+      tags:
+      - Pokémon
+      summary: List Pokéathlon Stats
+      description: List all Pokéathlon stats.
+      operationId: listPokeathlonStats
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokéathlon stat resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokeathlon-stat/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Pokéathlon Stat
+      description: Retrieve a single Pokéathlon stat by id or name.
+      operationId: getPokeathlonStat
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokéathlon stat resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokeathlonStat'
+  /pokemon:
+    get:
+      tags:
+      - Pokémon
+      summary: List Pokémon
+      description: List all Pokémon.
+      operationId: listPokemon
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokémon resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokemon/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Pokémon
+      description: Retrieve a single Pokémon by id or name.
+      operationId: getPokemon
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokémon resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pokemon'
+  /pokemon/{id}/encounters:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Pokémon Encounters
+      description: Retrieve the list of location-area encounters for a Pokémon.
+      operationId: getPokemonEncounters
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A list of location-area encounters.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocationAreaEncounter'
+  /pokemon-species:
+    get:
+      tags:
+      - Pokémon
+      summary: List Pokémon Species
+      description: List all Pokémon species.
+      operationId: listPokemonSpecies
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokémon species resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokemon-species/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Pokémon Species
+      description: Retrieve a single Pokémon species by id or name.
+      operationId: getPokemonSpecies
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokémon species resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonSpecies'
+  /stat:
+    get:
+      tags:
+      - Pokémon
+      summary: List Stats
+      description: List all battle stats.
+      operationId: listStats
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of stat resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /stat/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Stat
+      description: Retrieve a single stat by id or name.
+      operationId: getStat
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single stat resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stat'
+  /type:
+    get:
+      tags:
+      - Pokémon
+      summary: List Types
+      description: List all Pokémon types.
+      operationId: listTypes
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of type resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /type/{id}:
+    get:
+      tags:
+      - Pokémon
+      summary: Get Type
+      description: Retrieve a single type by id or name.
+      operationId: getType
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single type resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+components:
+  schemas:
+    APIResource:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Nature:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        decreased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        increased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        likes_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        hates_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    LocationAreaEncounter:
+      type: object
+      properties:
+        location_area:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_details:
+          type: array
+          items:
+            type: object
+    Ability:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        effect_entries:
+          type: array
+          items:
+            type: object
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        pokemon:
+          type: array
+          items:
+            type: object
+    Characteristic:
+      type: object
+      properties:
+        id:
+          type: integer
+        gene_modulo:
+          type: integer
+        possible_values:
+          type: array
+          items:
+            type: integer
+        highest_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    Gender:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        pokemon_species_details:
+          type: array
+          items:
+            type: object
+        required_for_evolution:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    EggGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        damage_relations:
+          type: object
+        past_damage_relations:
+          type: array
+          items:
+            type: object
+        game_indices:
+          type: array
+          items:
+            type: object
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon:
+          type: array
+          items:
+            type: object
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    PokeathlonStat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        affecting_natures:
+          type: object
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    PokemonSpecies:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        gender_rate:
+          type: integer
+        capture_rate:
+          type: integer
+        base_happiness:
+          type: integer
+        is_baby:
+          type: boolean
+        is_legendary:
+          type: boolean
+        is_mythical:
+          type: boolean
+        hatch_counter:
+          type: integer
+        has_gender_differences:
+          type: boolean
+        forms_switchable:
+          type: boolean
+        growth_rate:
+          $ref: '#/components/schemas/NamedAPIResource'
+        pokedex_numbers:
+          type: array
+          items:
+            type: object
+        egg_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        color:
+          $ref: '#/components/schemas/NamedAPIResource'
+        shape:
+          $ref: '#/components/schemas/NamedAPIResource'
+        evolves_from_species:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        evolution_chain:
+          $ref: '#/components/schemas/APIResource'
+        habitat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+    APIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Stat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        is_battle_only:
+          type: boolean
+        affecting_moves:
+          type: object
+        affecting_natures:
+          type: object
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    GrowthRate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        formula:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        levels:
+          type: array
+          items:
+            type: object
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Pokemon:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        base_experience:
+          type: integer
+        height:
+          type: integer
+        is_default:
+          type: boolean
+        order:
+          type: integer
+        weight:
+          type: integer
+        abilities:
+          type: array
+          items:
+            type: object
+            properties:
+              is_hidden:
+                type: boolean
+              slot:
+                type: integer
+              ability:
+                $ref: '#/components/schemas/NamedAPIResource'
+        forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        game_indices:
+          type: array
+          items:
+            type: object
+        held_items:
+          type: array
+          items:
+            type: object
+        location_area_encounters:
+          type: string
+        moves:
+          type: array
+          items:
+            type: object
+        species:
+          $ref: '#/components/schemas/NamedAPIResource'
+        sprites:
+          type: object
+        stats:
+          type: array
+          items:
+            type: object
+            properties:
+              base_stat:
+                type: integer
+              effort:
+                type: integer
+              stat:
+                $ref: '#/components/schemas/NamedAPIResource'
+        types:
+          type: array
+          items:
+            type: object
+            properties:
+              slot:
+                type: integer
+              type:
+                $ref: '#/components/schemas/NamedAPIResource'
+  parameters:
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20

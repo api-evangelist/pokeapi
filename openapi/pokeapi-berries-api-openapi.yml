@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Berries
+  description: Berries, their flavors, and firmness ratings.
+paths:
+  /berry:
+    get:
+      tags:
+      - Berries
+      summary: List Berries
+      description: List all berries.
+      operationId: listBerries
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry/{id}:
+    get:
+      tags:
+      - Berries
+      summary: Get Berry
+      description: Retrieve a single berry by id or name.
+      operationId: getBerry
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Berry'
+  /berry-firmness:
+    get:
+      tags:
+      - Berries
+      summary: List Berry Firmnesses
+      description: List all berry firmness categories.
+      operationId: listBerryFirmnesses
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry firmness resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry-firmness/{id}:
+    get:
+      tags:
+      - Berries
+      summary: Get Berry Firmness
+      description: Retrieve a single berry firmness by id or name.
+      operationId: getBerryFirmness
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry firmness resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFirmness'
+  /berry-flavor:
+    get:
+      tags:
+      - Berries
+      summary: List Berry Flavors
+      description: List all berry flavor categories.
+      operationId: listBerryFlavors
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry flavor resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry-flavor/{id}:
+    get:
+      tags:
+      - Berries
+      summary: Get Berry Flavor
+      description: Retrieve a single berry flavor by id or name.
+      operationId: getBerryFlavor
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry flavor resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFlavor'
+components:
+  schemas:
+    BerryFirmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    BerryFlavor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              berry:
+                $ref: '#/components/schemas/NamedAPIResource'
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Berry:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        growth_time:
+          type: integer
+        max_harvest:
+          type: integer
+        natural_gift_power:
+          type: integer
+        size:
+          type: integer
+        smoothness:
+          type: integer
+        soil_dryness:
+          type: integer
+        firmness:
+          $ref: '#/components/schemas/NamedAPIResource'
+        flavors:
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              flavor:
+                $ref: '#/components/schemas/NamedAPIResource'
+        item:
+          $ref: '#/components/schemas/NamedAPIResource'
+        natural_gift_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string

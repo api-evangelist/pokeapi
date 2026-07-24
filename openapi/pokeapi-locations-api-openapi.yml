@@ -1,0 +1,297 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Locations API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Locations
+  description: Locations, location areas, Pal Park areas, and regions.
+paths:
+  /location:
+    get:
+      tags:
+      - Locations
+      summary: List Locations
+      description: List all locations.
+      operationId: listLocations
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of location resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /location/{id}:
+    get:
+      tags:
+      - Locations
+      summary: Get Location
+      description: Retrieve a single location by id or name.
+      operationId: getLocation
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single location resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+  /location-area:
+    get:
+      tags:
+      - Locations
+      summary: List Location Areas
+      description: List all location areas.
+      operationId: listLocationAreas
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of location area resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /location-area/{id}:
+    get:
+      tags:
+      - Locations
+      summary: Get Location Area
+      description: Retrieve a single location area by id or name.
+      operationId: getLocationArea
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single location area resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationArea'
+  /pal-park-area:
+    get:
+      tags:
+      - Locations
+      summary: List Pal Park Areas
+      description: List all Pal Park areas.
+      operationId: listPalParkAreas
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pal Park area resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pal-park-area/{id}:
+    get:
+      tags:
+      - Locations
+      summary: Get Pal Park Area
+      description: Retrieve a single Pal Park area by id or name.
+      operationId: getPalParkArea
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pal Park area resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PalParkArea'
+  /region:
+    get:
+      tags:
+      - Locations
+      summary: List Regions
+      description: List all regions.
+      operationId: listRegions
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of region resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /region/{id}:
+    get:
+      tags:
+      - Locations
+      summary: Get Region
+      description: Retrieve a single region by id or name.
+      operationId: getRegion
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single region resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+components:
+  schemas:
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        main_generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    PalParkArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        game_indices:
+          type: array
+          items:
+            type: object
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    LocationArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        encounter_method_rates:
+          type: array
+          items:
+            type: object
+        location:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string

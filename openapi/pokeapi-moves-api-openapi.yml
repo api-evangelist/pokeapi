@@ -1,0 +1,477 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Moves API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Moves
+  description: Moves, ailments, battle styles, categories, damage classes, learn methods, and targets.
+paths:
+  /move:
+    get:
+      tags:
+      - Moves
+      summary: List Moves
+      description: List all moves.
+      operationId: listMoves
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move
+      description: Retrieve a single move by id or name.
+      operationId: getMove
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Move'
+  /move-ailment:
+    get:
+      tags:
+      - Moves
+      summary: List Move Ailments
+      description: List all move ailments.
+      operationId: listMoveAilments
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move ailment resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-ailment/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Ailment
+      description: Retrieve a single move ailment by id or name.
+      operationId: getMoveAilment
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move ailment resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveAilment'
+  /move-battle-style:
+    get:
+      tags:
+      - Moves
+      summary: List Move Battle Styles
+      description: List all move battle styles.
+      operationId: listMoveBattleStyles
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move battle style resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-battle-style/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Battle Style
+      description: Retrieve a single move battle style by id or name.
+      operationId: getMoveBattleStyle
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move battle style resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveBattleStyle'
+  /move-category:
+    get:
+      tags:
+      - Moves
+      summary: List Move Categories
+      description: List all move categories.
+      operationId: listMoveCategories
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move category resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-category/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Category
+      description: Retrieve a single move category by id or name.
+      operationId: getMoveCategory
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move category resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveCategory'
+  /move-damage-class:
+    get:
+      tags:
+      - Moves
+      summary: List Move Damage Classes
+      description: List all move damage classes.
+      operationId: listMoveDamageClasses
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move damage class resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-damage-class/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Damage Class
+      description: Retrieve a single move damage class by id or name.
+      operationId: getMoveDamageClass
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move damage class resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveDamageClass'
+  /move-learn-method:
+    get:
+      tags:
+      - Moves
+      summary: List Move Learn Methods
+      description: List all move learn methods.
+      operationId: listMoveLearnMethods
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move learn method resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-learn-method/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Learn Method
+      description: Retrieve a single move learn method by id or name.
+      operationId: getMoveLearnMethod
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move learn method resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveLearnMethod'
+  /move-target:
+    get:
+      tags:
+      - Moves
+      summary: List Move Targets
+      description: List all move targets.
+      operationId: listMoveTargets
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move target resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-target/{id}:
+    get:
+      tags:
+      - Moves
+      summary: Get Move Target
+      description: Retrieve a single move target by id or name.
+      operationId: getMoveTarget
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move target resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveTarget'
+components:
+  schemas:
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    MoveBattleStyle:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveTarget:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveDamageClass:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Move:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        accuracy:
+          type: integer
+          nullable: true
+        effect_chance:
+          type: integer
+          nullable: true
+        pp:
+          type: integer
+        priority:
+          type: integer
+        power:
+          type: integer
+          nullable: true
+        contest_combos:
+          type: object
+          nullable: true
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        contest_effect:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+        effect_entries:
+          type: array
+          items:
+            type: object
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        meta:
+          type: object
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        target:
+          $ref: '#/components/schemas/NamedAPIResource'
+        type:
+          $ref: '#/components/schemas/NamedAPIResource'
+    MoveCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    MoveAilment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveLearnMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

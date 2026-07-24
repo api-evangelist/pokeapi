@@ -1,0 +1,387 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Items API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Items
+  description: Items, item attributes, categories, fling effects, and bag pockets.
+paths:
+  /item:
+    get:
+      tags:
+      - Items
+      summary: List Items
+      description: List all items.
+      operationId: listItems
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item/{id}:
+    get:
+      tags:
+      - Items
+      summary: Get Item
+      description: Retrieve a single item by id or name.
+      operationId: getItem
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  /item-attribute:
+    get:
+      tags:
+      - Items
+      summary: List Item Attributes
+      description: List all item attributes.
+      operationId: listItemAttributes
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item attribute resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-attribute/{id}:
+    get:
+      tags:
+      - Items
+      summary: Get Item Attribute
+      description: Retrieve a single item attribute by id or name.
+      operationId: getItemAttribute
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item attribute resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttribute'
+  /item-category:
+    get:
+      tags:
+      - Items
+      summary: List Item Categories
+      description: List all item categories.
+      operationId: listItemCategories
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item category resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-category/{id}:
+    get:
+      tags:
+      - Items
+      summary: Get Item Category
+      description: Retrieve a single item category by id or name.
+      operationId: getItemCategory
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item category resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCategory'
+  /item-fling-effect:
+    get:
+      tags:
+      - Items
+      summary: List Item Fling Effects
+      description: List all item fling effects.
+      operationId: listItemFlingEffects
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item fling effect resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-fling-effect/{id}:
+    get:
+      tags:
+      - Items
+      summary: Get Item Fling Effect
+      description: Retrieve a single item fling effect by id or name.
+      operationId: getItemFlingEffect
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item fling effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFlingEffect'
+  /item-pocket:
+    get:
+      tags:
+      - Items
+      summary: List Item Pockets
+      description: List all item pockets.
+      operationId: listItemPockets
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item pocket resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-pocket/{id}:
+    get:
+      tags:
+      - Items
+      summary: Get Item Pocket
+      description: Retrieve a single item pocket by id or name.
+      operationId: getItemPocket
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item pocket resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPocket'
+components:
+  schemas:
+    ItemPocket:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    ItemFlingEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ItemCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pocket:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ItemAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        cost:
+          type: integer
+        fling_power:
+          type: integer
+          nullable: true
+        fling_effect:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        category:
+          $ref: '#/components/schemas/NamedAPIResource'
+        effect_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              effect:
+                type: string
+              short_effect:
+                type: string
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+        flavor_text_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              version_group:
+                $ref: '#/components/schemas/NamedAPIResource'
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+        game_indices:
+          type: array
+          items:
+            type: object
+        held_by_pokemon:
+          type: array
+          items:
+            type: object
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        sprites:
+          type: object
+          properties:
+            default:
+              type: string
+              nullable: true
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string

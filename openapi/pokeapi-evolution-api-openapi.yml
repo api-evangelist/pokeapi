@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Evolution API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Evolution
+  description: Evolution chains and the triggers that drive them.
+paths:
+  /evolution-chain/{id}:
+    get:
+      tags:
+      - Evolution
+      summary: Get Evolution Chain
+      description: Retrieve a single evolution chain by id.
+      operationId: getEvolutionChain
+      parameters:
+      - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single evolution chain resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionChain'
+  /evolution-trigger:
+    get:
+      tags:
+      - Evolution
+      summary: List Evolution Triggers
+      description: List all evolution triggers.
+      operationId: listEvolutionTriggers
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of evolution trigger resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /evolution-trigger/{id}:
+    get:
+      tags:
+      - Evolution
+      summary: Get Evolution Trigger
+      description: Retrieve a single evolution trigger by id or name.
+      operationId: getEvolutionTrigger
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single evolution trigger resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionTrigger'
+components:
+  parameters:
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+  schemas:
+    EvolutionChain:
+      type: object
+      properties:
+        id:
+          type: integer
+        baby_trigger_item:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        chain:
+          $ref: '#/components/schemas/ChainLink'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    EvolutionTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ChainLink:
+      type: object
+      properties:
+        is_baby:
+          type: boolean
+        species:
+          $ref: '#/components/schemas/NamedAPIResource'
+        evolution_details:
+          type: array
+          items:
+            type: object
+        evolves_to:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChainLink'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.

@@ -1,0 +1,325 @@
+openapi: 3.1.0
+info:
+  title: Poké Berries Games API
+  description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+- url: https://pokeapi.co/api/v2
+  description: PokéAPI v2 production base URL
+tags:
+- name: Games
+  description: Generations, Pokédexes, individual versions, and version groups.
+paths:
+  /generation:
+    get:
+      tags:
+      - Games
+      summary: List Generations
+      description: List all generations.
+      operationId: listGenerations
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of generation resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /generation/{id}:
+    get:
+      tags:
+      - Games
+      summary: Get Generation
+      description: Retrieve a single generation by id or name.
+      operationId: getGeneration
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single generation resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+  /pokedex:
+    get:
+      tags:
+      - Games
+      summary: List Pokédexes
+      description: List all Pokédexes.
+      operationId: listPokedexes
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokédex resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokedex/{id}:
+    get:
+      tags:
+      - Games
+      summary: Get Pokédex
+      description: Retrieve a single Pokédex by id or name.
+      operationId: getPokedex
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokédex resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pokedex'
+  /version:
+    get:
+      tags:
+      - Games
+      summary: List Versions
+      description: List all game versions.
+      operationId: listVersions
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of version resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /version/{id}:
+    get:
+      tags:
+      - Games
+      summary: Get Version
+      description: Retrieve a single game version by id or name.
+      operationId: getVersion
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single version resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Version'
+  /version-group:
+    get:
+      tags:
+      - Games
+      summary: List Version Groups
+      description: List all version groups.
+      operationId: listVersionGroups
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of version group resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /version-group/{id}:
+    get:
+      tags:
+      - Games
+      summary: Get Version Group
+      description: Retrieve a single version group by id or name.
+      operationId: getVersionGroup
+      parameters:
+      - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single version group resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionGroup'
+components:
+  schemas:
+    Version:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Pokedex:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              entry_number:
+                type: integer
+              pokemon_species:
+                $ref: '#/components/schemas/NamedAPIResource'
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    VersionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_learn_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Generation:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        main_region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
