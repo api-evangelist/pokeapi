@@ -8,9 +8,20 @@ description: >-
   responses locally. The API powers tutorials, fan apps, machine-learning experiments, and game tooling worldwide and
   consistently serves one billion-plus requests per month.
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: open
+  trial: false
+  try_now: false
+  public: true
+  label: Open access
+  confidence: medium
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pokeapi.png
 tags:
 - Pokémon
 - Open Source
@@ -25,52 +36,12 @@ modified: '2026-05-30'
 url: https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: pokeapi:pokeapi-rest
-  name: PokéAPI REST API v2
-  description: >-
-    The PokéAPI v2 REST API exposes the canonical Pokémon dataset across 12 resource families and roughly 60 endpoints
-    — Pokémon, Pokémon Species, Abilities, Moves, Types, Items, Berries, Locations, Evolution Chains, Encounters,
-    Games (Generations / Pokédex / Versions / Version Groups), Contests, Machines, and Utility (Languages). Every
-    endpoint is GET-only, returns JSON, and is reachable under https://pokeapi.co/api/v2/ without authentication.
-  humanURL: https://pokeapi.co/docs/v2
-  tags:
-  - Pokémon
-  - REST
-  - Open Data
-  - Educational
-  - Open Source
-  properties:
-  - url: https://pokeapi.co/docs/v2
-    type: Documentation
-  - url: https://pokeapi.co/docs/v2
-    type: APIReference
-  - url: https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/openapi/pokeapi-openapi.yml
-    type: OpenAPI
-  - url: https://pokeapi.co/docs/v2#fairuse
-    type: TermsOfService
-    title: Fair Use Policy
-  - url: https://www.npmjs.com/package/pokeapi-js-wrapper
-    type: SDKs
-    title: JavaScript Wrapper (pokeapi-js-wrapper)
-  - url: https://www.npmjs.com/package/pokedex-promise-v2
-    type: SDKs
-    title: Node.js Client (pokedex-promise-v2)
-  - url: https://pypi.org/project/pokebase/
-    type: SDKs
-    title: Python Wrapper (pokebase)
-  - url: https://pypi.org/project/pokepy/
-    type: SDKs
-    title: Python Wrapper (pokepy)
-  - url: https://github.com/PokeAPI/pokekotlin
-    type: SDKs
-    title: Kotlin Multiplatform Client (pokekotlin)
-  baseURL: https://pokeapi.co/api/v2
 - aid: pokeapi:pokeapi-graphql
   name: PokéAPI GraphQL API (Beta)
   description: >-
-    The PokéAPI GraphQL beta exposes the same Pokémon dataset as the REST API through a single endpoint with
-    field-level selection, joins, and filtering. It is well suited to clients that want to cherry-pick fields across
-    Pokémon, species, moves, and abilities in a single round trip.
+    The PokéAPI GraphQL beta exposes the same Pokémon dataset as the REST API through a single endpoint
+    with field-level selection, joins, and filtering. It is well suited to clients that want to cherry-pick
+    fields across Pokémon, species, moves, and abilities in a single round trip.
   humanURL: https://pokeapi.co/docs/graphql
   tags:
   - Pokémon
@@ -89,6 +60,294 @@ apis:
   - url: graphql/pokeapi-graphql.md
     type: GraphQL
   baseURL: https://beta.pokeapi.co/graphql/v1beta
+- aid: pokeapi:pokeapi-berries-api
+  name: PokéAPI Berries API
+  description: Berries, their flavors, and firmness ratings.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Berries
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-berries-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-contests-api
+  name: PokéAPI Contests API
+  description: Contest types, contest effects, and super-contest effects.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Contests
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-contests-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-encounters-api
+  name: PokéAPI Encounters API
+  description: Encounter methods, conditions, and condition values used in the wild.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Encounters
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-encounters-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-evolution-api
+  name: PokéAPI Evolution API
+  description: Evolution chains and the triggers that drive them.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Evolution
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-evolution-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-games-api
+  name: PokéAPI Games API
+  description: Generations, Pokédexes, individual versions, and version groups.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Games
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-games-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-items-api
+  name: PokéAPI Items API
+  description: Items, item attributes, categories, fling effects, and bag pockets.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-items-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-locations-api
+  name: PokéAPI Locations API
+  description: Locations, location areas, Pal Park areas, and regions.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-locations-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-machines-api
+  name: PokéAPI Machines API
+  description: Items that teach moves to Pokémon (TMs and HMs).
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Machines
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-machines-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-moves-api
+  name: PokéAPI Moves API
+  description: Moves, ailments, battle styles, categories, damage classes, learn methods, and targets.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Moves
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-moves-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-pok-mon-api
+  name: PokéAPI Pokémon API
+  description: >-
+    Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders, characteristics,
+    and Pokéathlon stats.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Pokémon
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-pok-mon-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
+- aid: pokeapi:pokeapi-utility-api
+  name: PokéAPI Utility API
+  description: Cross-cutting utility resources such as supported languages.
+  humanURL: https://pokeapi.co/docs/v2
+  baseURL: https://pokeapi.co/api/v2
+  tags:
+  - Utility
+  properties:
+  - type: OpenAPI
+    url: openapi/pokeapi-utility-api-openapi.yml
+  - type: Documentation
+    url: https://pokeapi.co/docs/v2
+  - type: APIReference
+    url: https://pokeapi.co/docs/v2
+  - type: TermsOfService
+    url: https://pokeapi.co/docs/v2#fairuse
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokeapi-js-wrapper
+  - type: SDKs
+    url: https://www.npmjs.com/package/pokedex-promise-v2
+  - type: SDKs
+    url: https://pypi.org/project/pokebase/
+  - type: SDKs
+    url: https://pypi.org/project/pokepy/
+  - type: SDKs
+    url: https://github.com/PokeAPI/pokekotlin
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
