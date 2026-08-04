@@ -1,0 +1,34 @@
+{
+  "provider": "pokeapi",
+  "sources": [
+    "pokeapi-berries-api-openapi.yml",
+    "pokeapi-contests-api-openapi.yml",
+    "pokeapi-encounters-api-openapi.yml",
+    "pokeapi-evolution-api-openapi.yml",
+    "pokeapi-games-api-openapi.yml",
+    "pokeapi-items-api-openapi.yml",
+    "pokeapi-locations-api-openapi.yml",
+    "pokeapi-machines-api-openapi.yml",
+    "pokeapi-moves-api-openapi.yml",
+    "pokeapi-pok-mon-api-openapi.yml",
+    "pokeapi-utility-api-openapi.yml"
+  ],
+  "outputs": [
+    "pokeapi-berries-api-openapi.yml",
+    "pokeapi-contests-api-openapi.yml",
+    "pokeapi-encounters-api-openapi.yml",
+    "pokeapi-evolution-api-openapi.yml",
+    "pokeapi-games-api-openapi.yml",
+    "pokeapi-items-api-openapi.yml",
+    "pokeapi-locations-api-openapi.yml",
+    "pokeapi-machines-api-openapi.yml",
+    "pokeapi-moves-api-openapi.yml",
+    "pokeapi-pok-mon-api-openapi.yml",
+    "pokeapi-utility-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

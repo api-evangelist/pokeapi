@@ -1,0 +1,2538 @@
+openapi: 3.1.0
+info:
+  title: PokéAPI
+  description: >-
+    PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and
+    machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
+  version: '2'
+  contact:
+    name: PokéAPI Maintainers
+    url: https://pokeapi.co
+  license:
+    name: BSD-3-Clause
+    url: https://github.com/PokeAPI/pokeapi/blob/master/LICENSE.md
+servers:
+  - url: https://pokeapi.co/api/v2
+    description: PokéAPI v2 production base URL
+tags:
+  - name: Berries
+    description: Berries, their flavors, and firmness ratings.
+  - name: Contests
+    description: Contest types, contest effects, and super-contest effects.
+  - name: Encounters
+    description: Encounter methods, conditions, and condition values used in the wild.
+  - name: Evolution
+    description: Evolution chains and the triggers that drive them.
+  - name: Games
+    description: Generations, Pokédexes, individual versions, and version groups.
+  - name: Items
+    description: Items, item attributes, categories, fling effects, and bag pockets.
+  - name: Locations
+    description: Locations, location areas, Pal Park areas, and regions.
+  - name: Machines
+    description: Items that teach moves to Pokémon (TMs and HMs).
+  - name: Moves
+    description: Moves, ailments, battle styles, categories, damage classes, learn methods, and targets.
+  - name: Pokémon
+    description: Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders, characteristics, and Pokéathlon stats.
+  - name: Utility
+    description: Cross-cutting utility resources such as supported languages.
+paths:
+  # =================== BERRIES ===================
+  /berry:
+    get:
+      tags: [Berries]
+      summary: List Berries
+      description: List all berries.
+      operationId: listBerries
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry/{id}:
+    get:
+      tags: [Berries]
+      summary: Get Berry
+      description: Retrieve a single berry by id or name.
+      operationId: getBerry
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Berry'
+  /berry-firmness:
+    get:
+      tags: [Berries]
+      summary: List Berry Firmnesses
+      description: List all berry firmness categories.
+      operationId: listBerryFirmnesses
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry firmness resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry-firmness/{id}:
+    get:
+      tags: [Berries]
+      summary: Get Berry Firmness
+      description: Retrieve a single berry firmness by id or name.
+      operationId: getBerryFirmness
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry firmness resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFirmness'
+  /berry-flavor:
+    get:
+      tags: [Berries]
+      summary: List Berry Flavors
+      description: List all berry flavor categories.
+      operationId: listBerryFlavors
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of berry flavor resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /berry-flavor/{id}:
+    get:
+      tags: [Berries]
+      summary: Get Berry Flavor
+      description: Retrieve a single berry flavor by id or name.
+      operationId: getBerryFlavor
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single berry flavor resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerryFlavor'
+
+  # =================== CONTESTS ===================
+  /contest-type:
+    get:
+      tags: [Contests]
+      summary: List Contest Types
+      description: List all contest types.
+      operationId: listContestTypes
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of contest type resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /contest-type/{id}:
+    get:
+      tags: [Contests]
+      summary: Get Contest Type
+      description: Retrieve a single contest type by id or name.
+      operationId: getContestType
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single contest type resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestType'
+  /contest-effect/{id}:
+    get:
+      tags: [Contests]
+      summary: Get Contest Effect
+      description: Retrieve a single contest effect by id.
+      operationId: getContestEffect
+      parameters:
+        - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single contest effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContestEffect'
+  /super-contest-effect/{id}:
+    get:
+      tags: [Contests]
+      summary: Get Super Contest Effect
+      description: Retrieve a single super contest effect by id.
+      operationId: getSuperContestEffect
+      parameters:
+        - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single super contest effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuperContestEffect'
+
+  # =================== ENCOUNTERS ===================
+  /encounter-method:
+    get:
+      tags: [Encounters]
+      summary: List Encounter Methods
+      description: List all encounter methods.
+      operationId: listEncounterMethods
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter method resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-method/{id}:
+    get:
+      tags: [Encounters]
+      summary: Get Encounter Method
+      description: Retrieve a single encounter method by id or name.
+      operationId: getEncounterMethod
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter method resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterMethod'
+  /encounter-condition:
+    get:
+      tags: [Encounters]
+      summary: List Encounter Conditions
+      description: List all encounter conditions.
+      operationId: listEncounterConditions
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter condition resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-condition/{id}:
+    get:
+      tags: [Encounters]
+      summary: Get Encounter Condition
+      description: Retrieve a single encounter condition by id or name.
+      operationId: getEncounterCondition
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter condition resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterCondition'
+  /encounter-condition-value:
+    get:
+      tags: [Encounters]
+      summary: List Encounter Condition Values
+      description: List all encounter condition values.
+      operationId: listEncounterConditionValues
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of encounter condition value resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /encounter-condition-value/{id}:
+    get:
+      tags: [Encounters]
+      summary: Get Encounter Condition Value
+      description: Retrieve a single encounter condition value by id or name.
+      operationId: getEncounterConditionValue
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single encounter condition value resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncounterConditionValue'
+
+  # =================== EVOLUTION ===================
+  /evolution-chain/{id}:
+    get:
+      tags: [Evolution]
+      summary: Get Evolution Chain
+      description: Retrieve a single evolution chain by id.
+      operationId: getEvolutionChain
+      parameters:
+        - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single evolution chain resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionChain'
+  /evolution-trigger:
+    get:
+      tags: [Evolution]
+      summary: List Evolution Triggers
+      description: List all evolution triggers.
+      operationId: listEvolutionTriggers
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of evolution trigger resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /evolution-trigger/{id}:
+    get:
+      tags: [Evolution]
+      summary: Get Evolution Trigger
+      description: Retrieve a single evolution trigger by id or name.
+      operationId: getEvolutionTrigger
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single evolution trigger resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvolutionTrigger'
+
+  # =================== GAMES ===================
+  /generation:
+    get:
+      tags: [Games]
+      summary: List Generations
+      description: List all generations.
+      operationId: listGenerations
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of generation resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /generation/{id}:
+    get:
+      tags: [Games]
+      summary: Get Generation
+      description: Retrieve a single generation by id or name.
+      operationId: getGeneration
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single generation resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+  /pokedex:
+    get:
+      tags: [Games]
+      summary: List Pokédexes
+      description: List all Pokédexes.
+      operationId: listPokedexes
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokédex resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokedex/{id}:
+    get:
+      tags: [Games]
+      summary: Get Pokédex
+      description: Retrieve a single Pokédex by id or name.
+      operationId: getPokedex
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokédex resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pokedex'
+  /version:
+    get:
+      tags: [Games]
+      summary: List Versions
+      description: List all game versions.
+      operationId: listVersions
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of version resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /version/{id}:
+    get:
+      tags: [Games]
+      summary: Get Version
+      description: Retrieve a single game version by id or name.
+      operationId: getVersion
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single version resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Version'
+  /version-group:
+    get:
+      tags: [Games]
+      summary: List Version Groups
+      description: List all version groups.
+      operationId: listVersionGroups
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of version group resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /version-group/{id}:
+    get:
+      tags: [Games]
+      summary: Get Version Group
+      description: Retrieve a single version group by id or name.
+      operationId: getVersionGroup
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single version group resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionGroup'
+
+  # =================== ITEMS ===================
+  /item:
+    get:
+      tags: [Items]
+      summary: List Items
+      description: List all items.
+      operationId: listItems
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item/{id}:
+    get:
+      tags: [Items]
+      summary: Get Item
+      description: Retrieve a single item by id or name.
+      operationId: getItem
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  /item-attribute:
+    get:
+      tags: [Items]
+      summary: List Item Attributes
+      description: List all item attributes.
+      operationId: listItemAttributes
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item attribute resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-attribute/{id}:
+    get:
+      tags: [Items]
+      summary: Get Item Attribute
+      description: Retrieve a single item attribute by id or name.
+      operationId: getItemAttribute
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item attribute resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAttribute'
+  /item-category:
+    get:
+      tags: [Items]
+      summary: List Item Categories
+      description: List all item categories.
+      operationId: listItemCategories
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item category resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-category/{id}:
+    get:
+      tags: [Items]
+      summary: Get Item Category
+      description: Retrieve a single item category by id or name.
+      operationId: getItemCategory
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item category resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemCategory'
+  /item-fling-effect:
+    get:
+      tags: [Items]
+      summary: List Item Fling Effects
+      description: List all item fling effects.
+      operationId: listItemFlingEffects
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item fling effect resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-fling-effect/{id}:
+    get:
+      tags: [Items]
+      summary: Get Item Fling Effect
+      description: Retrieve a single item fling effect by id or name.
+      operationId: getItemFlingEffect
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item fling effect resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemFlingEffect'
+  /item-pocket:
+    get:
+      tags: [Items]
+      summary: List Item Pockets
+      description: List all item pockets.
+      operationId: listItemPockets
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of item pocket resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /item-pocket/{id}:
+    get:
+      tags: [Items]
+      summary: Get Item Pocket
+      description: Retrieve a single item pocket by id or name.
+      operationId: getItemPocket
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single item pocket resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPocket'
+
+  # =================== LOCATIONS ===================
+  /location:
+    get:
+      tags: [Locations]
+      summary: List Locations
+      description: List all locations.
+      operationId: listLocations
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of location resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /location/{id}:
+    get:
+      tags: [Locations]
+      summary: Get Location
+      description: Retrieve a single location by id or name.
+      operationId: getLocation
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single location resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+  /location-area:
+    get:
+      tags: [Locations]
+      summary: List Location Areas
+      description: List all location areas.
+      operationId: listLocationAreas
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of location area resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /location-area/{id}:
+    get:
+      tags: [Locations]
+      summary: Get Location Area
+      description: Retrieve a single location area by id or name.
+      operationId: getLocationArea
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single location area resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationArea'
+  /pal-park-area:
+    get:
+      tags: [Locations]
+      summary: List Pal Park Areas
+      description: List all Pal Park areas.
+      operationId: listPalParkAreas
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pal Park area resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pal-park-area/{id}:
+    get:
+      tags: [Locations]
+      summary: Get Pal Park Area
+      description: Retrieve a single Pal Park area by id or name.
+      operationId: getPalParkArea
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pal Park area resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PalParkArea'
+  /region:
+    get:
+      tags: [Locations]
+      summary: List Regions
+      description: List all regions.
+      operationId: listRegions
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of region resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /region/{id}:
+    get:
+      tags: [Locations]
+      summary: Get Region
+      description: Retrieve a single region by id or name.
+      operationId: getRegion
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single region resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Region'
+
+  # =================== MACHINES ===================
+  /machine:
+    get:
+      tags: [Machines]
+      summary: List Machines
+      description: List all machines.
+      operationId: listMachines
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of machine resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResourceList'
+  /machine/{id}:
+    get:
+      tags: [Machines]
+      summary: Get Machine
+      description: Retrieve a single machine by id.
+      operationId: getMachine
+      parameters:
+        - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single machine resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+
+  # =================== MOVES ===================
+  /move:
+    get:
+      tags: [Moves]
+      summary: List Moves
+      description: List all moves.
+      operationId: listMoves
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move
+      description: Retrieve a single move by id or name.
+      operationId: getMove
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Move'
+  /move-ailment:
+    get:
+      tags: [Moves]
+      summary: List Move Ailments
+      description: List all move ailments.
+      operationId: listMoveAilments
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move ailment resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-ailment/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Ailment
+      description: Retrieve a single move ailment by id or name.
+      operationId: getMoveAilment
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move ailment resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveAilment'
+  /move-battle-style:
+    get:
+      tags: [Moves]
+      summary: List Move Battle Styles
+      description: List all move battle styles.
+      operationId: listMoveBattleStyles
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move battle style resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-battle-style/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Battle Style
+      description: Retrieve a single move battle style by id or name.
+      operationId: getMoveBattleStyle
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move battle style resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveBattleStyle'
+  /move-category:
+    get:
+      tags: [Moves]
+      summary: List Move Categories
+      description: List all move categories.
+      operationId: listMoveCategories
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move category resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-category/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Category
+      description: Retrieve a single move category by id or name.
+      operationId: getMoveCategory
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move category resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveCategory'
+  /move-damage-class:
+    get:
+      tags: [Moves]
+      summary: List Move Damage Classes
+      description: List all move damage classes.
+      operationId: listMoveDamageClasses
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move damage class resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-damage-class/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Damage Class
+      description: Retrieve a single move damage class by id or name.
+      operationId: getMoveDamageClass
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move damage class resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveDamageClass'
+  /move-learn-method:
+    get:
+      tags: [Moves]
+      summary: List Move Learn Methods
+      description: List all move learn methods.
+      operationId: listMoveLearnMethods
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move learn method resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-learn-method/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Learn Method
+      description: Retrieve a single move learn method by id or name.
+      operationId: getMoveLearnMethod
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move learn method resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveLearnMethod'
+  /move-target:
+    get:
+      tags: [Moves]
+      summary: List Move Targets
+      description: List all move targets.
+      operationId: listMoveTargets
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of move target resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /move-target/{id}:
+    get:
+      tags: [Moves]
+      summary: Get Move Target
+      description: Retrieve a single move target by id or name.
+      operationId: getMoveTarget
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single move target resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveTarget'
+
+  # =================== POKEMON ===================
+  /ability:
+    get:
+      tags: [Pokémon]
+      summary: List Abilities
+      description: List all Pokémon abilities.
+      operationId: listAbilities
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of ability resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /ability/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Ability
+      description: Retrieve a single ability by id or name.
+      operationId: getAbility
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single ability resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ability'
+  /characteristic:
+    get:
+      tags: [Pokémon]
+      summary: List Characteristics
+      description: List all characteristics.
+      operationId: listCharacteristics
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of characteristic resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResourceList'
+  /characteristic/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Characteristic
+      description: Retrieve a single characteristic by id.
+      operationId: getCharacteristic
+      parameters:
+        - $ref: '#/components/parameters/IntegerId'
+      responses:
+        '200':
+          description: A single characteristic resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Characteristic'
+  /egg-group:
+    get:
+      tags: [Pokémon]
+      summary: List Egg Groups
+      description: List all egg groups.
+      operationId: listEggGroups
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of egg group resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /egg-group/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Egg Group
+      description: Retrieve a single egg group by id or name.
+      operationId: getEggGroup
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single egg group resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EggGroup'
+  /gender:
+    get:
+      tags: [Pokémon]
+      summary: List Genders
+      description: List all gender designations.
+      operationId: listGenders
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of gender resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /gender/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Gender
+      description: Retrieve a single gender by id or name.
+      operationId: getGender
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single gender resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gender'
+  /growth-rate:
+    get:
+      tags: [Pokémon]
+      summary: List Growth Rates
+      description: List all growth rates.
+      operationId: listGrowthRates
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of growth rate resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /growth-rate/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Growth Rate
+      description: Retrieve a single growth rate by id or name.
+      operationId: getGrowthRate
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single growth rate resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrowthRate'
+  /nature:
+    get:
+      tags: [Pokémon]
+      summary: List Natures
+      description: List all natures.
+      operationId: listNatures
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of nature resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /nature/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Nature
+      description: Retrieve a single nature by id or name.
+      operationId: getNature
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single nature resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Nature'
+  /pokeathlon-stat:
+    get:
+      tags: [Pokémon]
+      summary: List Pokéathlon Stats
+      description: List all Pokéathlon stats.
+      operationId: listPokeathlonStats
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokéathlon stat resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokeathlon-stat/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Pokéathlon Stat
+      description: Retrieve a single Pokéathlon stat by id or name.
+      operationId: getPokeathlonStat
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokéathlon stat resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokeathlonStat'
+  /pokemon:
+    get:
+      tags: [Pokémon]
+      summary: List Pokémon
+      description: List all Pokémon.
+      operationId: listPokemon
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokémon resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokemon/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Pokémon
+      description: Retrieve a single Pokémon by id or name.
+      operationId: getPokemon
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokémon resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pokemon'
+  /pokemon/{id}/encounters:
+    get:
+      tags: [Pokémon]
+      summary: Get Pokémon Encounters
+      description: Retrieve the list of location-area encounters for a Pokémon.
+      operationId: getPokemonEncounters
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A list of location-area encounters.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocationAreaEncounter'
+  /pokemon-species:
+    get:
+      tags: [Pokémon]
+      summary: List Pokémon Species
+      description: List all Pokémon species.
+      operationId: listPokemonSpecies
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of Pokémon species resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /pokemon-species/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Pokémon Species
+      description: Retrieve a single Pokémon species by id or name.
+      operationId: getPokemonSpecies
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single Pokémon species resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PokemonSpecies'
+  /stat:
+    get:
+      tags: [Pokémon]
+      summary: List Stats
+      description: List all battle stats.
+      operationId: listStats
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of stat resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /stat/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Stat
+      description: Retrieve a single stat by id or name.
+      operationId: getStat
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single stat resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stat'
+  /type:
+    get:
+      tags: [Pokémon]
+      summary: List Types
+      description: List all Pokémon types.
+      operationId: listTypes
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of type resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /type/{id}:
+    get:
+      tags: [Pokémon]
+      summary: Get Type
+      description: Retrieve a single type by id or name.
+      operationId: getType
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single type resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Type'
+
+  # =================== UTILITY ===================
+  /language:
+    get:
+      tags: [Utility]
+      summary: List Languages
+      description: List all supported languages.
+      operationId: listLanguages
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: A paginated list of language resources.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NamedAPIResourceList'
+  /language/{id}:
+    get:
+      tags: [Utility]
+      summary: Get Language
+      description: Retrieve a single language by id or name.
+      operationId: getLanguage
+      parameters:
+        - $ref: '#/components/parameters/IdOrName'
+      responses:
+        '200':
+          description: A single language resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Language'
+
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+  schemas:
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    APIResource:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    APIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Berry:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        growth_time:
+          type: integer
+        max_harvest:
+          type: integer
+        natural_gift_power:
+          type: integer
+        size:
+          type: integer
+        smoothness:
+          type: integer
+        soil_dryness:
+          type: integer
+        firmness:
+          $ref: '#/components/schemas/NamedAPIResource'
+        flavors:
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              flavor:
+                $ref: '#/components/schemas/NamedAPIResource'
+        item:
+          $ref: '#/components/schemas/NamedAPIResource'
+        natural_gift_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+    BerryFirmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    BerryFlavor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              berry:
+                $ref: '#/components/schemas/NamedAPIResource'
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    ContestType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berry_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              color:
+                type: string
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+    ContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        jam:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+    SuperContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    EncounterMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    EncounterCondition:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    EncounterConditionValue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        condition:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    EvolutionChain:
+      type: object
+      properties:
+        id:
+          type: integer
+        baby_trigger_item:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        chain:
+          $ref: '#/components/schemas/ChainLink'
+    ChainLink:
+      type: object
+      properties:
+        is_baby:
+          type: boolean
+        species:
+          $ref: '#/components/schemas/NamedAPIResource'
+        evolution_details:
+          type: array
+          items:
+            type: object
+        evolves_to:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChainLink'
+    EvolutionTrigger:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Generation:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        main_region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Pokedex:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              entry_number:
+                type: integer
+              pokemon_species:
+                $ref: '#/components/schemas/NamedAPIResource'
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Version:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    VersionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_learn_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        cost:
+          type: integer
+        fling_power:
+          type: integer
+          nullable: true
+        fling_effect:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        category:
+          $ref: '#/components/schemas/NamedAPIResource'
+        effect_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              effect:
+                type: string
+              short_effect:
+                type: string
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+        flavor_text_entries:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              version_group:
+                $ref: '#/components/schemas/NamedAPIResource'
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+        game_indices:
+          type: array
+          items:
+            type: object
+        held_by_pokemon:
+          type: array
+          items:
+            type: object
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        sprites:
+          type: object
+          properties:
+            default:
+              type: string
+              nullable: true
+    ItemAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    ItemCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pocket:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ItemFlingEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ItemPocket:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        game_indices:
+          type: array
+          items:
+            type: object
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    LocationArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        encounter_method_rates:
+          type: array
+          items:
+            type: object
+        location:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    PalParkArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        main_generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Machine:
+      type: object
+      properties:
+        id:
+          type: integer
+        item:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Move:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        accuracy:
+          type: integer
+          nullable: true
+        effect_chance:
+          type: integer
+          nullable: true
+        pp:
+          type: integer
+        priority:
+          type: integer
+        power:
+          type: integer
+          nullable: true
+        contest_combos:
+          type: object
+          nullable: true
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        contest_effect:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+        effect_entries:
+          type: array
+          items:
+            type: object
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        meta:
+          type: object
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        target:
+          $ref: '#/components/schemas/NamedAPIResource'
+        type:
+          $ref: '#/components/schemas/NamedAPIResource'
+    MoveAilment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveBattleStyle:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    MoveDamageClass:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveLearnMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    MoveTarget:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Ability:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        effect_entries:
+          type: array
+          items:
+            type: object
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        pokemon:
+          type: array
+          items:
+            type: object
+    Characteristic:
+      type: object
+      properties:
+        id:
+          type: integer
+        gene_modulo:
+          type: integer
+        possible_values:
+          type: array
+          items:
+            type: integer
+        highest_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    EggGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Gender:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        pokemon_species_details:
+          type: array
+          items:
+            type: object
+        required_for_evolution:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    GrowthRate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        formula:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        levels:
+          type: array
+          items:
+            type: object
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Nature:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        decreased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        increased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        likes_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        hates_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    PokeathlonStat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        affecting_natures:
+          type: object
+    Pokemon:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        base_experience:
+          type: integer
+        height:
+          type: integer
+        is_default:
+          type: boolean
+        order:
+          type: integer
+        weight:
+          type: integer
+        abilities:
+          type: array
+          items:
+            type: object
+            properties:
+              is_hidden:
+                type: boolean
+              slot:
+                type: integer
+              ability:
+                $ref: '#/components/schemas/NamedAPIResource'
+        forms:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        game_indices:
+          type: array
+          items:
+            type: object
+        held_items:
+          type: array
+          items:
+            type: object
+        location_area_encounters:
+          type: string
+        moves:
+          type: array
+          items:
+            type: object
+        species:
+          $ref: '#/components/schemas/NamedAPIResource'
+        sprites:
+          type: object
+        stats:
+          type: array
+          items:
+            type: object
+            properties:
+              base_stat:
+                type: integer
+              effort:
+                type: integer
+              stat:
+                $ref: '#/components/schemas/NamedAPIResource'
+        types:
+          type: array
+          items:
+            type: object
+            properties:
+              slot:
+                type: integer
+              type:
+                $ref: '#/components/schemas/NamedAPIResource'
+    PokemonSpecies:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        gender_rate:
+          type: integer
+        capture_rate:
+          type: integer
+        base_happiness:
+          type: integer
+        is_baby:
+          type: boolean
+        is_legendary:
+          type: boolean
+        is_mythical:
+          type: boolean
+        hatch_counter:
+          type: integer
+        has_gender_differences:
+          type: boolean
+        forms_switchable:
+          type: boolean
+        growth_rate:
+          $ref: '#/components/schemas/NamedAPIResource'
+        pokedex_numbers:
+          type: array
+          items:
+            type: object
+        egg_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        color:
+          $ref: '#/components/schemas/NamedAPIResource'
+        shape:
+          $ref: '#/components/schemas/NamedAPIResource'
+        evolves_from_species:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        evolution_chain:
+          $ref: '#/components/schemas/APIResource'
+        habitat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+    Stat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        is_battle_only:
+          type: boolean
+        affecting_moves:
+          type: object
+        affecting_natures:
+          type: object
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        damage_relations:
+          type: object
+        past_damage_relations:
+          type: array
+          items:
+            type: object
+        game_indices:
+          type: array
+          items:
+            type: object
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon:
+          type: array
+          items:
+            type: object
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Language:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        official:
+          type: boolean
+        iso639:
+          type: string
+        iso3166:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    LocationAreaEncounter:
+      type: object
+      properties:
+        location_area:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_details:
+          type: array
+          items:
+            type: object
