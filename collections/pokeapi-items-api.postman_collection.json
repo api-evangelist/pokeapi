@@ -1,0 +1,932 @@
+{
+  "item": [
+    {
+      "id": "150c3fac-8673-47da-b695-395cf9c4439b",
+      "name": "Items",
+      "description": {
+        "content": "Items, item attributes, categories, fling effects, and bag pockets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "495fe13d-d624-4381-98a5-a0de4f541233",
+          "name": "List Items",
+          "request": {
+            "name": "List Items",
+            "description": {
+              "content": "List all items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63986d08-7848-461c-a85a-4b215796f60a",
+              "name": "A paginated list of item resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9659,\n  \"next\": \"https://uELifUKsdQgdsDEdVmFR.xakyGcH0x-xFUPuuEFe,kFSjWI8nJRaavoumVLEM.XW\",\n  \"previous\": \"http://PHwxURWlTBiKtsozsFpIAGbC.qnpeQW3iqWri\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://SBUt.cdkuF4GeYTA8vNXY+-4vX,bYGk\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mxaA.moKTfoVpjLs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6b24939-5fbf-496a-b9e1-ffbff0ca10ea",
+          "name": "Get Item",
+          "request": {
+            "name": "Get Item",
+            "description": {
+              "content": "Retrieve a single item by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2931a006-2c90-476f-9cce-701bd9d3148a",
+              "name": "A single item resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6366,\n  \"name\": \"string\",\n  \"cost\": 3183,\n  \"fling_power\": 9131,\n  \"fling_effect\": {\n    \"name\": \"string\",\n    \"url\": \"https://QUXYgnhXurEjwqxlQyljIGFzYT.husT8ElyVEXVLRt9AxUgU-\"\n  },\n  \"attributes\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://dnpql.aaveHUbpJ91Y1-HyMLQI9cI5WdWscETRmwAqkfEdFg\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://KRExK.eexnK3ALLKvnxxeBVB,4DgxJRO-CBDQ2UhoO9keZZXxqSpU,PgcKrQiBE\"\n    }\n  ],\n  \"category\": {\n    \"name\": \"string\",\n    \"url\": \"http://VvRiqbqGeZEzicxClzSQU.ntkbqOl.U.3Vi6XghBrEpvNNCTCuPTljUUIjZTmqlj8pa\"\n  },\n  \"effect_entries\": [\n    {\n      \"effect\": \"string\",\n      \"short_effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://zlMOePZ.wtoi50129Xeyjh8I5boaQM\"\n      }\n    },\n    {\n      \"effect\": \"string\",\n      \"short_effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://xKBuHkYNGGEHBuNJlzTuRdp.reocRHMVtEL0B4LLx4Cfp2I3j+ZXokwrrviPzegqyST1dfdd\"\n      }\n    }\n  ],\n  \"flavor_text_entries\": [\n    {\n      \"text\": \"string\",\n      \"version_group\": {\n        \"name\": \"string\",\n        \"url\": \"http://yfOQahbhSnRJsjZJCDjn.ekwe5kbej+McAV+1ZtrZ7\"\n      },\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://rIZvzM.dbmrTB58jnGVG6IUQ9,QsT4o.ZBeKEcxonzOGwJTm-mY9hpUyHAU,XEdfc2p4VUfz\"\n      }\n    },\n    {\n      \"text\": \"string\",\n      \"version_group\": {\n        \"name\": \"string\",\n        \"url\": \"http://eGiSNNNAiYQpNz.ioncqrtIvG5J+Nx,XBFq91amjZeZZoWnxLyhbuRk3d\"\n      },\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://ogKILOvoMmm.peinRgRGuvAtPdszaXi+isMocchJQazNJN5k--BaDYrS\"\n      }\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://Zvoy.qttI\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://QcqqdirUrCXCqjFLaaafVfylbe.ekdsPDI.GyOf39lSQszr1MqLw,Yrtv7s7ZEdpNuRPr9ehaeJ7ohUqlucgw6I1\"\n      }\n    }\n  ],\n  \"sprites\": {\n    \"default\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6053e7d8-6573-41b1-a6b6-a82940cd3fab",
+          "name": "List Item Attributes",
+          "request": {
+            "name": "List Item Attributes",
+            "description": {
+              "content": "List all item attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-attribute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f946af09-073b-4ad3-b3cb-ef94b58808e3",
+              "name": "A paginated list of item attribute resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-attribute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9659,\n  \"next\": \"https://uELifUKsdQgdsDEdVmFR.xakyGcH0x-xFUPuuEFe,kFSjWI8nJRaavoumVLEM.XW\",\n  \"previous\": \"http://PHwxURWlTBiKtsozsFpIAGbC.qnpeQW3iqWri\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://SBUt.cdkuF4GeYTA8vNXY+-4vX,bYGk\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mxaA.moKTfoVpjLs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0d94cfd-026e-4dce-a314-f374aa67154b",
+          "name": "Get Item Attribute",
+          "request": {
+            "name": "Get Item Attribute",
+            "description": {
+              "content": "Retrieve a single item attribute by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-attribute",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3f03652-c0b7-4ac0-b63b-e171bae6fc3f",
+              "name": "A single item attribute resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-attribute",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9743,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://CINSgRZOtskWWJYsGvYMoylLmt.emvodYGu0BS11Br9hgBFIxupBzwIpqabRCNiQ\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://QpYcrGfNxpNLdZJVytNNMQyQQNYTGl.zaMN9bbNmdTuqvi2F-RmhM.Way6Z0Lfn\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://UFOAmYFfAGhrvaDORVWtwFkZjirqZXS.qkwHHwDqtrf3KSD\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://STDwvb.deyxPTf,g+k9g2BB0zA4itqwkEbJ53xSWXezVIZEY3yreQesbMGeleGrx09U9mKvR1+\"\n      }\n    }\n  ],\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://lqVPo.wazLt4FQv6m0SVbwLstYKzyAsm1IEGrfS1POiTPa3ah0adoIrnhWSnm3AAamQmfmUK\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://HDeZGRDeJFOEwvxOQ.evmrRG5AbM1IHkrFlFc+LyJndWyGCbxdn4,.ZmuMEvFhKtiSq+qus\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2be74e6b-fa99-49dc-ac65-dc7a48f24dba",
+          "name": "List Item Categories",
+          "request": {
+            "name": "List Item Categories",
+            "description": {
+              "content": "List all item categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce06a7d8-5cf9-47e5-bce1-d7d5ce4a4566",
+              "name": "A paginated list of item category resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9659,\n  \"next\": \"https://uELifUKsdQgdsDEdVmFR.xakyGcH0x-xFUPuuEFe,kFSjWI8nJRaavoumVLEM.XW\",\n  \"previous\": \"http://PHwxURWlTBiKtsozsFpIAGbC.qnpeQW3iqWri\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://SBUt.cdkuF4GeYTA8vNXY+-4vX,bYGk\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mxaA.moKTfoVpjLs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b3186e0-cb2f-4022-b1fa-54bbcd6425e5",
+          "name": "Get Item Category",
+          "request": {
+            "name": "Get Item Category",
+            "description": {
+              "content": "Retrieve a single item category by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-category",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b39fdc66-36ea-44f9-b7e2-18b82c4ecd30",
+              "name": "A single item category resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-category",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 778,\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://axDVTBexOfEeFhs.hlhfJ3qa8jsfDtm8Z,qXq.NwLbS1hq+-KFUmwTe8vEDvhIijd0FRCHgTNnQ,YgpkNIuOsm\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://eXbxUBoxRyDnjYDLQyvuKnVD.ufRS7CMywLKTMdF,gSthW74xE4FcX8tNxrYXul93p\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://UZZDBaqwCFDBc.xbqyPEHRtgPoK5RItIBbRmujau,ebm-e.lJnKQbMp8\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://vJnmSaMAQisrCYcuSkfl.icclgbWPCrezuZ66guMuazfG.-FBKheDUlWqqxcmVqmdFOX+947V9BSZGT-Q7\"\n      }\n    }\n  ],\n  \"pocket\": {\n    \"name\": \"string\",\n    \"url\": \"http://rZcUfm.ohiMJsK541wbGzA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "120ecfd1-9041-4290-bc8a-c2867cff0190",
+          "name": "List Item Fling Effects",
+          "request": {
+            "name": "List Item Fling Effects",
+            "description": {
+              "content": "List all item fling effects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-fling-effect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61f60c4e-7306-4deb-8e3e-961ce0b2dad3",
+              "name": "A paginated list of item fling effect resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-fling-effect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9659,\n  \"next\": \"https://uELifUKsdQgdsDEdVmFR.xakyGcH0x-xFUPuuEFe,kFSjWI8nJRaavoumVLEM.XW\",\n  \"previous\": \"http://PHwxURWlTBiKtsozsFpIAGbC.qnpeQW3iqWri\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://SBUt.cdkuF4GeYTA8vNXY+-4vX,bYGk\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mxaA.moKTfoVpjLs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfb0802b-38ce-4a5c-b90f-4fa0362e0105",
+          "name": "Get Item Fling Effect",
+          "request": {
+            "name": "Get Item Fling Effect",
+            "description": {
+              "content": "Retrieve a single item fling effect by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-fling-effect",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1a5c14c-3569-4021-9c31-91b043afbbac",
+              "name": "A single item fling effect resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-fling-effect",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6595,\n  \"name\": \"string\",\n  \"effect_entries\": [\n    {\n      \"effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://jUJuOf.etlocYfqAs2uynnfdl8KZPfdM9ipTI\"\n      }\n    },\n    {\n      \"effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://zoOuxnvfwLOXjddWrR.vgkGEvp4pKt.urcBv+7P1GrnNYrEhFOv6SYv\"\n      }\n    }\n  ],\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://fOiJzhqCubFUXrBunmrTHGmc.vdobsaKNH.YVeD3H-secS1FhQqivEJ3WqqIRg8Hot2-5vJ0DaVLiKJ\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://nYKjLEPzWGnVVNyOqvhAxRtEkCesprZwC.fqQ9KW1Tq1fC-HROsf6rSL3qXDxROQToRsdpfVF,p7nxUzHfnLkbxO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e52863c4-ebc3-4bd1-9a8f-5fa88498e5f1",
+          "name": "List Item Pockets",
+          "request": {
+            "name": "List Item Pockets",
+            "description": {
+              "content": "List all item pockets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-pocket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "563e7c83-c1d0-4ce0-aec3-f2baedc1a45e",
+              "name": "A paginated list of item pocket resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-pocket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9659,\n  \"next\": \"https://uELifUKsdQgdsDEdVmFR.xakyGcH0x-xFUPuuEFe,kFSjWI8nJRaavoumVLEM.XW\",\n  \"previous\": \"http://PHwxURWlTBiKtsozsFpIAGbC.qnpeQW3iqWri\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://SBUt.cdkuF4GeYTA8vNXY+-4vX,bYGk\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mxaA.moKTfoVpjLs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9e7603c-179a-40ef-b962-d3551aa3ff48",
+          "name": "Get Item Pocket",
+          "request": {
+            "name": "Get Item Pocket",
+            "description": {
+              "content": "Retrieve a single item pocket by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "item-pocket",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23f02618-55e3-46cb-9186-00aef32d1bd9",
+              "name": "A single item pocket resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "item-pocket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7916,\n  \"name\": \"string\",\n  \"categories\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tKetDwDqLWkMmoRxgjmwWmCiUHn.xpQX5AP+\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://sJDurNOFwwxmxiUjVYtkewCNlZ.oseaAftJtAh3lQEpu2eOH,AYn+fJx2yo93FShes\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://vqJBi.xyzxRO0kH.n788pHJPaNtAgkpCusZnCeBq\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://fpbJpmvuEHYxsnPHUldkJ.agxzjR8JHgHKrc+JIyy1SEgkI14WJwoqxPqO5aGQZVUoiNJ32TJjFOzklrmwZc+bEy5avERUW-JQNaaB\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "45a8d69e-29ca-48b2-a468-8977843dfe17",
+    "name": "Poké Berries Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poké Berries Machines API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Machines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Machines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/machine",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all machines."
+        },
+        {
+          "info": {
+            "name": "Get Machine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/machine/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single machine by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

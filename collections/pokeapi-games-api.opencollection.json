@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poké Berries Games API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Games",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Generations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/generation",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all generations."
+        },
+        {
+          "info": {
+            "name": "Get Generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/generation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single generation by id or name."
+        },
+        {
+          "info": {
+            "name": "List Pokédexes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokedex",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all Pokédexes."
+        },
+        {
+          "info": {
+            "name": "Get Pokédex",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/pokedex/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Pokédex by id or name."
+        },
+        {
+          "info": {
+            "name": "List Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all game versions."
+        },
+        {
+          "info": {
+            "name": "Get Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single game version by id or name."
+        },
+        {
+          "info": {
+            "name": "List Version Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version-group",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all version groups."
+        },
+        {
+          "info": {
+            "name": "Get Version Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/version-group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single version group by id or name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

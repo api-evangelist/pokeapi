@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "758c6f3d-30e5-4f64-b990-7e49f7abed5b",
+      "name": "Games",
+      "description": {
+        "content": "Generations, Pokédexes, individual versions, and version groups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d88e1ff2-fd7f-4882-8edd-243b42833549",
+          "name": "List Generations",
+          "request": {
+            "name": "List Generations",
+            "description": {
+              "content": "List all generations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fdda230-31f9-456b-8334-96cde0e98e54",
+              "name": "A paginated list of generation resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8254,\n  \"next\": \"http://aJRyHRpYK.geV2duRmn+nY3OJZ\",\n  \"previous\": \"https://HiUIJUvTVaUDsdXXLtO.nevfKe57pDQ5okv3smx,\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://kAraGzgvfwQyScKVPfwtPpLGyjvpXfUO.sculVbMnmSzAwrVlPIxBMnqWjhowC9kbdYnhq-5-VnmbcN.KsTQU\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ndxxUjyiXzNEUIPG.wjbG9vbh0HM81wkccDx4+80-srMyGylCZ.6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eeead289-288b-4902-8f79-d101c340299c",
+          "name": "Get Generation",
+          "request": {
+            "name": "Get Generation",
+            "description": {
+              "content": "Retrieve a single generation by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "336fd491-5452-493c-8eec-802205a7cc40",
+              "name": "A single generation resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7347,\n  \"name\": \"string\",\n  \"abilities\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://AgoMXodyGVdbemrzbGIiV.skuvQcpsMnhKFx,pkwbb4pxysSAB6AHWGGe1.0aoGvM7DIjWwFQa7A\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://cagZAAUMwKNIfJMvNVevtaaZZce.vtP+Y84fa4Yq1qp2BBfnUziVVq.FTPj8lZoh94V\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://tuEfbvMuYnfYVDw.vurCV3s.hcPimRbNDt2uzMlG7TonPxDBfXyTt\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://FkoQGYRcvoC.qgooCoECBdZz6HLZlEVui3czWGg2Y9aVSOddFfu.EtbzrZ\"\n      }\n    }\n  ],\n  \"main_region\": {\n    \"name\": \"string\",\n    \"url\": \"https://MItSxLmivtYoOQdO.vjYijBS+LacayJ8PqWju7+BDrSj4Kt9f,CrxWZ5ROdz3kG1bJL\"\n  },\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://fLXArH.hjuZyhHVEX+qMrQq5GSOvN7+SRWvK1Kwecv\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DWCIeCNnqLHgay.sqdGBHfNdjC+LM.hXjcPPpZ2CAWbOVND+Mi1A4d6MOzgu2ffffAdD0caH\"\n    }\n  ],\n  \"pokemon_species\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://qjAWXGjfDgMvjsdxRmNgXdqprvRh.xytqE0G0eTEtEanRRdtBKbN9PEeX4W54SLwQN9Y4mFdbpRsQY7fcFlwdNIr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://BcYIKpLehhb.xactOhgbRuMqEwAe+ume44L-TDbE6oRiRUTyOaeYirug6.GPJVMZEltBjYv81hhiTSwev1KTfALtaTQl8y\"\n    }\n  ],\n  \"types\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://aSbsJeNYLiEsWfQKHZoYRVppsE.tspfbZFYGoG.yHXgH,oeCkzUQB9u7sLXgUfNYOmKZERVIl8OdDleTB5\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://dnedejDaOPsIFFFvDqeKrhEwJBqMnjHe.cfehrIKJnhJsMqxv7SjXiarHxX\"\n    }\n  ],\n  \"version_groups\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tnqmaBuN.ehS,X,CyZyTeD2BDjuEr55-nfKq6qpzIuclyBvqLRB\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://xRHqIAlqoeJUqSH.cywCqXPZyL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3a80e72-b663-4d05-add9-23859b7c2e53",
+          "name": "List Pokédexes",
+          "request": {
+            "name": "List Pokédexes",
+            "description": {
+              "content": "List all Pokédexes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokedex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91072ec2-aee0-4f0d-bbec-28e32a22e094",
+              "name": "A paginated list of Pokédex resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokedex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8254,\n  \"next\": \"http://aJRyHRpYK.geV2duRmn+nY3OJZ\",\n  \"previous\": \"https://HiUIJUvTVaUDsdXXLtO.nevfKe57pDQ5okv3smx,\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://kAraGzgvfwQyScKVPfwtPpLGyjvpXfUO.sculVbMnmSzAwrVlPIxBMnqWjhowC9kbdYnhq-5-VnmbcN.KsTQU\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ndxxUjyiXzNEUIPG.wjbG9vbh0HM81wkccDx4+80-srMyGylCZ.6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "982be657-b821-435d-814a-f8fe469eb16d",
+          "name": "Get Pokédex",
+          "request": {
+            "name": "Get Pokédex",
+            "description": {
+              "content": "Retrieve a single Pokédex by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokedex",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "768f4450-7247-4b4e-9f45-7e05a2902f33",
+              "name": "A single Pokédex resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokedex",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8647,\n  \"name\": \"string\",\n  \"is_main_series\": true,\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://AaMUXLqteFcntlWYFofNgjLyYrgD.mhoC7FQb9OR5ripFDtgvsAMrLqXmmb\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://MCrLGmvJOtlefbeBQe.rzsaNNltG.xBZiiMOKj\"\n      }\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://tFUiGGloMbXBoZuMFYpvzdHzkY.kmxcKMk4Wl7sBekqIEXV2vEYpy7x-PtrTgSNwnUambf\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://tkLzzzitrxcssvawuzUpgYNzi.gxqcI2KL+T\"\n      }\n    }\n  ],\n  \"pokemon_entries\": [\n    {\n      \"entry_number\": 9943,\n      \"pokemon_species\": {\n        \"name\": \"string\",\n        \"url\": \"http://KwuhJEekLgyrjjfPrRvayWyhNNFdlgLJ.mlsAcToSkiZX\"\n      }\n    },\n    {\n      \"entry_number\": 5398,\n      \"pokemon_species\": {\n        \"name\": \"string\",\n        \"url\": \"http://HGttCZAEEVxpH.kgeLzjrVoWr1eF+OSzt.g6C.AUM+PtsXPJHmtszPQxA4oN++PwEggxd9wlmPDTt2C\"\n      }\n    }\n  ],\n  \"region\": {\n    \"name\": \"string\",\n    \"url\": \"http://hapYpKKxxVzZ.ssmdTpkeBRULcaNIEZJhvaviMshdxT.2mlGj0e8Hp7RiZi3yUhyo7f1lom6lLtzC2Nv9JBJ\"\n  },\n  \"version_groups\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://OdIBCm.yzqrktbFobgPJUbKWDRxCjQKoHW4AaIRsLwaBYn\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://rrSsQgjgAVsEVLSNtrkQKYzswINV.cjuYU5l6HKKV3cyUSCExMdklO5gNeyufkL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98cb35dc-50f0-4c45-b9c1-563658bf11f7",
+          "name": "List Versions",
+          "request": {
+            "name": "List Versions",
+            "description": {
+              "content": "List all game versions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6b14b8b-7a3c-46ae-9a41-c9a94595040d",
+              "name": "A paginated list of version resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8254,\n  \"next\": \"http://aJRyHRpYK.geV2duRmn+nY3OJZ\",\n  \"previous\": \"https://HiUIJUvTVaUDsdXXLtO.nevfKe57pDQ5okv3smx,\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://kAraGzgvfwQyScKVPfwtPpLGyjvpXfUO.sculVbMnmSzAwrVlPIxBMnqWjhowC9kbdYnhq-5-VnmbcN.KsTQU\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ndxxUjyiXzNEUIPG.wjbG9vbh0HM81wkccDx4+80-srMyGylCZ.6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72f7b637-d03b-4083-bbaa-97b8d4dc1a6e",
+          "name": "Get Version",
+          "request": {
+            "name": "Get Version",
+            "description": {
+              "content": "Retrieve a single game version by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "931d7181-6748-48f3-adb8-e1e0cc28693d",
+              "name": "A single version resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7470,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://pmJzuSMLRxaMc.kyzL-x0qVI6E\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://QtaGFHQCgtVFxEEEfMgTKTOvp.oarrg\"\n      }\n    }\n  ],\n  \"version_group\": {\n    \"name\": \"string\",\n    \"url\": \"https://MzyIDXtjjYDaTBJVbbtuxaLbVa.vil3V9V2W5z9vmNeP7jcAXQXltqY1ZoM.kdT\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9815ee8f-f26b-47a7-90b4-638aa40798d8",
+          "name": "List Version Groups",
+          "request": {
+            "name": "List Version Groups",
+            "description": {
+              "content": "List all version groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version-group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11d66ec1-ac07-47a9-8aef-7e5be2446775",
+              "name": "A paginated list of version group resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version-group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8254,\n  \"next\": \"http://aJRyHRpYK.geV2duRmn+nY3OJZ\",\n  \"previous\": \"https://HiUIJUvTVaUDsdXXLtO.nevfKe57pDQ5okv3smx,\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://kAraGzgvfwQyScKVPfwtPpLGyjvpXfUO.sculVbMnmSzAwrVlPIxBMnqWjhowC9kbdYnhq-5-VnmbcN.KsTQU\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ndxxUjyiXzNEUIPG.wjbG9vbh0HM81wkccDx4+80-srMyGylCZ.6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72160a96-e9a1-4646-bb43-97fda614e6b3",
+          "name": "Get Version Group",
+          "request": {
+            "name": "Get Version Group",
+            "description": {
+              "content": "Retrieve a single version group by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "version-group",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b29f282-9923-4892-bf5d-91488b0a42cb",
+              "name": "A single version group resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "version-group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1505,\n  \"name\": \"string\",\n  \"order\": 5314,\n  \"generation\": {\n    \"name\": \"string\",\n    \"url\": \"https://GAfzINmUvNyiEMClqueCILoM.txzq86M3HllKGvdlEtR75jYE7.EUpNnh1nibhjm.NF2ObozmVceBqzu-gqRdXZ\"\n  },\n  \"move_learn_methods\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://ILAgGGuhwjX.osksYBYVecQD.ncN\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://DjrVovzfPEx.uikxVo4YIpr7VyoVcsbJygz9BG.\"\n    }\n  ],\n  \"pokedexes\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://JWSYufvbXrcTBI.qopviVtNhWQoLynMsr,9E81TX-8T2WMw5iEqHPzJpfG1a1AGq\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://VFzDRTctDBSionxHhqMPaMNneYFCLM.jmuyV6L.+NLkPfALL5ZiPzWe7KAWGZm+AHu2PSCpNjjnzCt1PPifqx7x+kCve\"\n    }\n  ],\n  \"regions\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://yzdMXQZcBgPxaJiAmBotUVTpWbCv.xvCd.gQL8LzarPmPGQr3rDJjCmI0sMFTZa4cmCz5iGokNTFuYrUQ\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://Ib.faybWLEPs.xkBT-QRnpjB7yM\"\n    }\n  ],\n  \"versions\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://GbcXUzoBDXN.yfgX,d2YsMPaWrfjhtna-SGkQctvYJmWBoPVgSL\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://TlmVGyEJjc.tklsj,DQ3JoRSk5A1LirtQAcxEaGBbsrNFYVGJuFRxsnfslsT1lwIVs\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "03faabf3-1e6a-4ff1-ab9a-8c829dbc1b6d",
+    "name": "Poké Berries Games API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

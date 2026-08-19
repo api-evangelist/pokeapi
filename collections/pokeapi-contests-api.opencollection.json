@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poké Berries Contests API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Contest Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-type",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all contest types."
+        },
+        {
+          "info": {
+            "name": "Get Contest Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-type/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contest type by id or name."
+        },
+        {
+          "info": {
+            "name": "Get Contest Effect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/contest-effect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contest effect by id."
+        },
+        {
+          "info": {
+            "name": "Get Super Contest Effect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/super-contest-effect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single super contest effect by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

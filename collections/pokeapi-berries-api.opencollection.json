@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poké Berries API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Berries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Berries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berries."
+        },
+        {
+          "info": {
+            "name": "Get Berry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry by id or name."
+        },
+        {
+          "info": {
+            "name": "List Berry Firmnesses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-firmness",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berry firmness categories."
+        },
+        {
+          "info": {
+            "name": "Get Berry Firmness",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-firmness/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry firmness by id or name."
+        },
+        {
+          "info": {
+            "name": "List Berry Flavors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-flavor",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all berry flavor categories."
+        },
+        {
+          "info": {
+            "name": "Get Berry Flavor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/berry-flavor/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single berry flavor by id or name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

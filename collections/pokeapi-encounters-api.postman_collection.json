@@ -1,0 +1,572 @@
+{
+  "item": [
+    {
+      "id": "fe196b6a-389a-47f8-99c9-cc6d5cfde1bb",
+      "name": "Encounters",
+      "description": {
+        "content": "Encounter methods, conditions, and condition values used in the wild.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b29f6fab-8b70-45ad-8814-0029e2b80f8e",
+          "name": "List Encounter Methods",
+          "request": {
+            "name": "List Encounter Methods",
+            "description": {
+              "content": "List all encounter methods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89fdf68d-7dd0-4bb2-85df-03dfc4f134fd",
+              "name": "A paginated list of encounter method resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6720,\n  \"next\": \"https://bgb.ocnwO+BuVzbVUeKeANLCGpxU5jkBIc-RDNEpImaBbqBKK7\",\n  \"previous\": \"https://sumeIgtxMEUjhWaBUrDCqQekziJBe.xdbwFWTyJ+mVPq9V\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://nBmMYwlcJcJOLyfbgKchYCsIhGoo.fxcuiki.UUF02en9koLdcer92+hzj\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wUiSjq.osjbKF9rWkeSM7OSs+QtEZzqIJfcBYxBxSgiywWowLBckNCV5eeG28OjW\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31f2bcd2-4154-498a-982f-3642a738a47a",
+          "name": "Get Encounter Method",
+          "request": {
+            "name": "Get Encounter Method",
+            "description": {
+              "content": "Retrieve a single encounter method by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-method",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3d5745a-7558-4bb0-a56e-530e315a0978",
+              "name": "A single encounter method resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-method",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7643,\n  \"name\": \"string\",\n  \"order\": 2972,\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://TJoFCPdRAZbTROwoFq.zbb0bM2znkGNxL0VsXp4h0qzlGe6jqsL,3\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://rJiCcvMXUAjiAuNUbJxqlV.hiuagAqeweQhsXQW1SSTOwPUd2smrxzMM1ndeo5mfuWW\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ce85a87-7587-4320-a2d5-d4e75ec8543b",
+          "name": "List Encounter Conditions",
+          "request": {
+            "name": "List Encounter Conditions",
+            "description": {
+              "content": "List all encounter conditions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-condition"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6354651e-3d00-47ee-8ca9-b48e500086b5",
+              "name": "A paginated list of encounter condition resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-condition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6720,\n  \"next\": \"https://bgb.ocnwO+BuVzbVUeKeANLCGpxU5jkBIc-RDNEpImaBbqBKK7\",\n  \"previous\": \"https://sumeIgtxMEUjhWaBUrDCqQekziJBe.xdbwFWTyJ+mVPq9V\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://nBmMYwlcJcJOLyfbgKchYCsIhGoo.fxcuiki.UUF02en9koLdcer92+hzj\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wUiSjq.osjbKF9rWkeSM7OSs+QtEZzqIJfcBYxBxSgiywWowLBckNCV5eeG28OjW\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f0f14a8-dc71-4f2e-bd23-6346be0ef53b",
+          "name": "Get Encounter Condition",
+          "request": {
+            "name": "Get Encounter Condition",
+            "description": {
+              "content": "Retrieve a single encounter condition by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-condition",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6918b17f-270f-4077-856c-da915759ee8e",
+              "name": "A single encounter condition resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-condition",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9316,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://whKyrdTvpsTuAIRblRkvva.yvHFH4WNWqeAwtOrWEp.a\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://ZifPztFLQMylRss.djaH7f4+l05T1Ch87GEb+-tbraaxwc6GShddlM4QGG1KaxiBVpaX\"\n      }\n    }\n  ],\n  \"values\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://nSnFPxVDdAWZDwqCuPbyBhBzqg.bjyxV5Li6dlfEQbxMdC5WhtB6-mnnHbpl4StbD36ogBi,V9DPBwCv\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://YazerWxYZKi.awdhF1POepESo3W7paEKJ2ohuca6aVF\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9641395c-598e-48bd-be20-c2bf426c2827",
+          "name": "List Encounter Condition Values",
+          "request": {
+            "name": "List Encounter Condition Values",
+            "description": {
+              "content": "List all encounter condition values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-condition-value"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1b8794f-f30d-4af8-af74-86034020e21a",
+              "name": "A paginated list of encounter condition value resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-condition-value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6720,\n  \"next\": \"https://bgb.ocnwO+BuVzbVUeKeANLCGpxU5jkBIc-RDNEpImaBbqBKK7\",\n  \"previous\": \"https://sumeIgtxMEUjhWaBUrDCqQekziJBe.xdbwFWTyJ+mVPq9V\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://nBmMYwlcJcJOLyfbgKchYCsIhGoo.fxcuiki.UUF02en9koLdcer92+hzj\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wUiSjq.osjbKF9rWkeSM7OSs+QtEZzqIJfcBYxBxSgiywWowLBckNCV5eeG28OjW\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a36f83f6-cee2-4c16-aec8-15c33745fda1",
+          "name": "Get Encounter Condition Value",
+          "request": {
+            "name": "Get Encounter Condition Value",
+            "description": {
+              "content": "Retrieve a single encounter condition value by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "encounter-condition-value",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c82ba525-6849-4629-aca2-3300b4afb2ef",
+              "name": "A single encounter condition value resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounter-condition-value",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1964,\n  \"name\": \"string\",\n  \"condition\": {\n    \"name\": \"string\",\n    \"url\": \"https://miJKD.dqbSTmD.41TOxpelVfCkNhw4xMnlmb\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://YMmtyTnFfqFAPmJsTKqRW.wpmI1tntb-qt+D20SjPcfNVbIGpJRpWoMWP\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://CBCIglDpJNPTWfDuMbaFYNfE.jfvVD\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c0b33511-39ef-4f3a-9299-4f38fa9d39f6",
+    "name": "Poké Berries Encounters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

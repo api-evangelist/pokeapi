@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "fd0a97f8-ab6b-48a3-ae23-7d1ef3135fde",
+      "name": "Locations",
+      "description": {
+        "content": "Locations, location areas, Pal Park areas, and regions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da605391-2b1d-4a51-b1d0-07a1e832b289",
+          "name": "List Locations",
+          "request": {
+            "name": "List Locations",
+            "description": {
+              "content": "List all locations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ac96676-fa8b-4852-a5d8-149ba9feed89",
+              "name": "A paginated list of location resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1418,\n  \"next\": \"https://HRtopgVVcfsRnAyLSkZu.mxm328\",\n  \"previous\": \"https://RZXtWAbZwNOFop.jjCQSLzAKlMDjcMNEjoMnuNqDT,+7TZlhB+a+q4Hy4bwNurzSUg24Oe-mAqFL-6vnwY\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DgTeROW.aiwQUt6CyA.LZQK3OIRDnPEneICk9F4B0xoap\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wdHMpztmGPxwMwUcbfJoAZe.agwdckTK0TYBU8EpNhGL46eHZnHQu3HLzM-0s\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75b24e64-8897-4d93-8eca-454ca2789c28",
+          "name": "Get Location",
+          "request": {
+            "name": "Get Location",
+            "description": {
+              "content": "Retrieve a single location by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b59b6786-dcb5-40cd-8750-172aa9705078",
+              "name": "A single location resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1139,\n  \"name\": \"string\",\n  \"region\": {\n    \"name\": \"string\",\n    \"url\": \"http://zbaTiXmHotQ.mtqmAA1PKrih8IGjVckLwQ\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://XIyNjXtDqbfhElZcbqgpkqJpHC.ablqdf4+7htOEGFqMa9sxiq+wdTDa25jI-3RqieHur7AzKo2E\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://DlhpKUeLrEYWLqItqSUN.qphvX9O5791yvHalWSi,YU92MrNI4yGe\"\n      }\n    }\n  ],\n  \"areas\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://Wz.bamiIHCVrWqlyUMvfW2VVQxCz6iVfAf1I7ebxnW-a\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://eGYIkIVGslHmZ.ixPpwPzH-ZldX2sdNGMrkCcGQ4XkM2aQKiUFgr1dH0N009VdQstmVRy94G+7g\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89af7be8-01c8-42eb-b13e-0fdf1ccf6c6b",
+          "name": "List Location Areas",
+          "request": {
+            "name": "List Location Areas",
+            "description": {
+              "content": "List all location areas.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location-area"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60811c48-b552-4fed-a8cc-dbcf34def0a2",
+              "name": "A paginated list of location area resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1418,\n  \"next\": \"https://HRtopgVVcfsRnAyLSkZu.mxm328\",\n  \"previous\": \"https://RZXtWAbZwNOFop.jjCQSLzAKlMDjcMNEjoMnuNqDT,+7TZlhB+a+q4Hy4bwNurzSUg24Oe-mAqFL-6vnwY\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DgTeROW.aiwQUt6CyA.LZQK3OIRDnPEneICk9F4B0xoap\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wdHMpztmGPxwMwUcbfJoAZe.agwdckTK0TYBU8EpNhGL46eHZnHQu3HLzM-0s\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84bae6c1-a7c0-4392-90a5-af83dfc03ce5",
+          "name": "Get Location Area",
+          "request": {
+            "name": "Get Location Area",
+            "description": {
+              "content": "Retrieve a single location area by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location-area",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78cdffd8-c1e1-4f25-95e3-6f39480d3220",
+              "name": "A single location area resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location-area",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7340,\n  \"name\": \"string\",\n  \"game_index\": 8511,\n  \"location\": {\n    \"name\": \"string\",\n    \"url\": \"https://jTCQTvQflZGQLKXootQlG.qaeozwkGtWw\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://uAxLfyFnsHnzVtqCDSitdqD.owyfca-nlL71QxW\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://soSDFvkoNXozHkWImaGrSuEDwMarqXrCT.fvtek7wb.au0wHwS0vDKviKeYpEZCXfvZ0,ZrpN4C9BpgqDQIkIgLr5vYDEz9Pj4BThKjUobsTH\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8285d3d-fdd2-4e20-ba8f-9cd4d262063a",
+          "name": "List Pal Park Areas",
+          "request": {
+            "name": "List Pal Park Areas",
+            "description": {
+              "content": "List all Pal Park areas.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pal-park-area"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40d9ef41-4d04-4723-b1a9-5e9e49fb9a71",
+              "name": "A paginated list of Pal Park area resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pal-park-area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1418,\n  \"next\": \"https://HRtopgVVcfsRnAyLSkZu.mxm328\",\n  \"previous\": \"https://RZXtWAbZwNOFop.jjCQSLzAKlMDjcMNEjoMnuNqDT,+7TZlhB+a+q4Hy4bwNurzSUg24Oe-mAqFL-6vnwY\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DgTeROW.aiwQUt6CyA.LZQK3OIRDnPEneICk9F4B0xoap\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wdHMpztmGPxwMwUcbfJoAZe.agwdckTK0TYBU8EpNhGL46eHZnHQu3HLzM-0s\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0e76d55-2acc-451f-b450-75eb79ce3924",
+          "name": "Get Pal Park Area",
+          "request": {
+            "name": "Get Pal Park Area",
+            "description": {
+              "content": "Retrieve a single Pal Park area by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pal-park-area",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c87b40f-5862-4ea2-8fac-b751a353ec26",
+              "name": "A single Pal Park area resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pal-park-area",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4558,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://kTFISNvIa.ibtyNGzon+TwkETbosA3\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://srAyrKKGodlzzHJ.cwlMttZHf\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36c0228d-ac8a-431f-919c-777b17d0abee",
+          "name": "List Regions",
+          "request": {
+            "name": "List Regions",
+            "description": {
+              "content": "List all regions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9c497f2-8de0-4612-97b3-4e8ce0cf8abd",
+              "name": "A paginated list of region resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1418,\n  \"next\": \"https://HRtopgVVcfsRnAyLSkZu.mxm328\",\n  \"previous\": \"https://RZXtWAbZwNOFop.jjCQSLzAKlMDjcMNEjoMnuNqDT,+7TZlhB+a+q4Hy4bwNurzSUg24Oe-mAqFL-6vnwY\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DgTeROW.aiwQUt6CyA.LZQK3OIRDnPEneICk9F4B0xoap\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wdHMpztmGPxwMwUcbfJoAZe.agwdckTK0TYBU8EpNhGL46eHZnHQu3HLzM-0s\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d06f28d1-080b-4c72-b5ff-ae7e31bf4520",
+          "name": "Get Region",
+          "request": {
+            "name": "Get Region",
+            "description": {
+              "content": "Retrieve a single region by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "region",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "985d7553-0f45-4691-87dc-54eea60016bf",
+              "name": "A single region resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "region",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4109,\n  \"name\": \"string\",\n  \"locations\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://fFLMB.gasErE\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://DMitZwBghHEKaHFqTXZsQzVyFAAUfA.taknocxRClucQfOwPAQSLzro1q\"\n    }\n  ],\n  \"main_generation\": {\n    \"name\": \"string\",\n    \"url\": \"https://GGcdxbZctHlMerh.upkd,,TsgphfoPYRaR70QZ+sqOmoi4o\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://KdjaccHnldTQlha.vuolGmUL3GkHMyWxhqGsHNKyQBrf.28zfwTVg5ScfOWcI2y0mIU-4wnm8cZeOupTJkri3ElLPuockup3UkaHr7r\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://umbyWMXBcBiyo.eccv-Esy+Me\"\n      }\n    }\n  ],\n  \"pokedexes\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://mcGOOIMJkZXCBpQIGLOey.nlsylVxOj1-.XsgoUeOZhXueKt6jO5BBAYnTT6jC5r4wSzSnub\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://zlQJzZzZaCL.skP4ifZEvot+cJdfqHKhY2DO86z4amj8DDV\"\n    }\n  ],\n  \"version_groups\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://prIxChsQMcRQeHacgxxglJboPOlIFktV.dabRM2f,MzR\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZgBaPDdPXtTpKQZUFt.nqtk-bCa\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d3e04ef-a74c-479e-831b-e60e86429093",
+    "name": "Poké Berries Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

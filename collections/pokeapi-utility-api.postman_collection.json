@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "64e80a62-2e03-40a3-89af-cbfdffd83247",
+      "name": "Utility",
+      "description": {
+        "content": "Cross-cutting utility resources such as supported languages.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "277452b5-053c-4760-a74e-6e6921e99976",
+          "name": "List Languages",
+          "request": {
+            "name": "List Languages",
+            "description": {
+              "content": "List all supported languages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "language"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "301e7fa5-21dd-455a-b59e-2f4a380c8d97",
+              "name": "A paginated list of language resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9899,\n  \"next\": \"https://ppPpSJaaAMJUuTqlXHbjvz.zcKTvd6scruo+d4SB5\",\n  \"previous\": \"https://nNIigOPINftHHlxI.qrnc7.2\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://fiTVcVsGCivDbRcKIN.ara3KL6G6XoE+zvh5jhJZwYcBiuyAQ.IDydleYZP5oav8sDPT-aRFpNuxczh9c8zk3anqHdo4\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://OGXx.vtk4hCO9w9qvNwyeRFQ8Ie1vhbTNbV2X1PAZzUSxGaQtZhEtNdLMxfTl2rLW+AUlVyyybyyR7hibA\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3860724b-2771-40e9-9326-365aea1633d7",
+          "name": "Get Language",
+          "request": {
+            "name": "Get Language",
+            "description": {
+              "content": "Retrieve a single language by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "language",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95805a91-da57-441e-940b-9e4e1060380c",
+              "name": "A single language resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "language",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9936,\n  \"name\": \"string\",\n  \"official\": true,\n  \"iso639\": \"string\",\n  \"iso3166\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://GoHS.rdgMOQeA\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://oHVuhoWNEkUaXebmwVBp.tirT-O7hT5ry,UgHGPg5X\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "42c0fbe2-04cc-4284-9c99-926209db7d65",
+    "name": "Poké Berries Utility API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

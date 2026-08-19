@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poké Berries Evolution API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Evolution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Evolution Chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-chain/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer only)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single evolution chain by id."
+        },
+        {
+          "info": {
+            "name": "List Evolution Triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before starting to collect the result set."
+              }
+            ]
+          },
+          "docs": "List all evolution triggers."
+        },
+        {
+          "info": {
+            "name": "Get Evolution Trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource id (integer) or name (slug)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single evolution trigger by id or name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,300 @@
+{
+  "item": [
+    {
+      "id": "4f7940a4-11e0-4646-b831-76e7335ccc89",
+      "name": "Evolution",
+      "description": {
+        "content": "Evolution chains and the triggers that drive them.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07c2cd0d-905b-4941-b97f-a20f047b2c2d",
+          "name": "Get Evolution Chain",
+          "request": {
+            "name": "Get Evolution Chain",
+            "description": {
+              "content": "Retrieve a single evolution chain by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "evolution-chain",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer only)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9aa8d4b2-c94c-43e4-ba2d-f13707712b18",
+              "name": "A single evolution chain resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "evolution-chain",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer only)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7266,\n  \"baby_trigger_item\": {\n    \"name\": \"string\",\n    \"url\": \"http://RIkICMnTXZsBukhpGCeSQr.ewif+wHpRPYDuZJEUPQrkIyecoevu7,h1\"\n  },\n  \"chain\": {\n    \"is_baby\": true,\n    \"species\": {\n      \"name\": \"string\",\n      \"url\": \"http://HdhTSNMdBrLhcTgpiJBZVmerTEKgHPmLG.nluNdYhZ0Y2U0\"\n    },\n    \"evolves_to\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/ChainLink detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/ChainLink detected>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4eb0d28c-de0c-4da2-87f6-cdd4bca07700",
+          "name": "List Evolution Triggers",
+          "request": {
+            "name": "List Evolution Triggers",
+            "description": {
+              "content": "List all evolution triggers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "evolution-trigger"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "873422f9-84a6-4aff-9be2-9e0ebb438d69",
+              "name": "A paginated list of evolution trigger resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "evolution-trigger"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7181,\n  \"next\": \"http://BvvwxecoYEJWkRqGDWjbhPOx.ggeB0GT0D5cxPrR4y0lok4GMyA2et,Y\",\n  \"previous\": \"http://VqrdIGznLZX.mjqOUpUvdktkg\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://FoDJYbePWYUQmpcfOregH.hivLVdpcaHNomEuNxiK01-P7xpqy0XWXajIqkedsUP4yiGGQsmB8Yn5wYStf.dwB+Tw0ybeJQMfNji8KE-HvZlsAgQ75DN\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://n.jhiuEAhTQgaEhbuQwv.,ceuY4\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d794bc32-0040-44b7-9e0c-bcd2061072f8",
+          "name": "Get Evolution Trigger",
+          "request": {
+            "name": "Get Evolution Trigger",
+            "description": {
+              "content": "Retrieve a single evolution trigger by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "evolution-trigger",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40703bf2-8968-4606-85dc-a902d33b673a",
+              "name": "A single evolution trigger resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "evolution-trigger",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6813,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://JBgZoYsXKwGyDei.btphX7cQ8f6HyMd2nfG43tDkBoh+l2\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://mimunWuLrmOLmAEWcwoNokqIFeL.ztsBZCJ4jQ4OKha63clJtHLaV8bb,z2tytdkrblWlPCAbVtW,-5F\"\n      }\n    }\n  ],\n  \"pokemon_species\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://wx.nyIK0k6USqMq0QdVKx7TH3,3j2Gor\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://GyefuXJywvFbpPZZdATuxnuY.vilyxzm01WEuTGWybKIbq-EeoMWNZwBuhL8mfxGHCOQPMorC\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dd16e1aa-1fc2-4f6c-82fc-224aefb98c4c",
+    "name": "Poké Berries Evolution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

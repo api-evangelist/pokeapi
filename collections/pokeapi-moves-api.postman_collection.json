@@ -1,0 +1,1292 @@
+{
+  "item": [
+    {
+      "id": "39a479a8-b524-4636-a7b9-789f49cf4743",
+      "name": "Moves",
+      "description": {
+        "content": "Moves, ailments, battle styles, categories, damage classes, learn methods, and targets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1022d7f-959a-467b-8071-eea2cb44afc6",
+          "name": "List Moves",
+          "request": {
+            "name": "List Moves",
+            "description": {
+              "content": "List all moves.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1bb2348-f13b-447e-91f4-f42b0f856d1c",
+              "name": "A paginated list of move resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83480c53-cb22-485d-b181-e709eb1db095",
+          "name": "Get Move",
+          "request": {
+            "name": "Get Move",
+            "description": {
+              "content": "Retrieve a single move by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6d3bf6f-d480-465c-aa11-ea156065ba10",
+              "name": "A single move resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2199,\n  \"name\": \"string\",\n  \"accuracy\": 7735,\n  \"effect_chance\": 3993,\n  \"pp\": 1545,\n  \"priority\": 3579,\n  \"power\": 2713,\n  \"contest_combos\": {},\n  \"contest_type\": {\n    \"name\": \"string\",\n    \"url\": \"https://mlRErHTEOXuBATcQieMdziOMxf.sbxtWOjRuTz2VqEwQwNCJnlic,Vz3KoTLJRVIpb,aGEx+\"\n  },\n  \"contest_effect\": {\n    \"name\": \"string\",\n    \"url\": \"https://TXlCbSRYaKaJRnTfmSMpZNh.pob8S1k-G,VCffY.9lJkhYHWYsQO,o6Z8,\"\n  },\n  \"damage_class\": {\n    \"name\": \"string\",\n    \"url\": \"http://VTYTgJyTikWuuv.cgcJHHxEI,kTyvaWNRwch2jontD0\"\n  },\n  \"flavor_text_entries\": [\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://PHIyMSYUtuXjonDWZNgUwXhxHqFcJDqg.alulfbn+RF-sg3qfHjbiFf0OgkEBAu1UapNnsmf-bDB1tpmqh\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"https://OCTpqPdkczqztxuhQeEBCsKVwD.oyhg6moYhoiB7llyn2DAO501CqTOUtHBwLczEQfW-lbKPo,sFmzVK1-1DKB3\"\n      }\n    },\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://ZxLtWksEcDAQvcsnIJPZHwJfdMbuRGvF.gyknLvjRKjPaOzJMzk4kJHnkeHOeg3EDwIAurwPGKQ\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"http://pHmd.kgwFXHxR,U0rELOEM\"\n      }\n    }\n  ],\n  \"generation\": {\n    \"name\": \"string\",\n    \"url\": \"https://jnjBDnUcYeiLhSzb.cdfTVb9,sdUvA2x2,VLQduTqjWqWdGE.+KArT8OvqcO.S18iVJnY6LREsYXpu26\"\n  },\n  \"meta\": {},\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://ji.wivFC6usNrsKC0idw11bdyUzmPg4znnl7dofscU1xaUYpKFCg2EtzA0aBWjxu12d\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://uKVKjjNsCxoebvdiRy.tpLiCz0lQ1AhchnUR,1DySYRN8zwo5wdpaheVUWqh5PCZayvl2tjM\"\n      }\n    }\n  ],\n  \"target\": {\n    \"name\": \"string\",\n    \"url\": \"https://UzYfLnLvpBvXIqfTgavqBcoJ.zsnRYFE\"\n  },\n  \"type\": {\n    \"name\": \"string\",\n    \"url\": \"http://hROXHLsabvvKhhR.shjD49liMEzz\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b125b8c-a77c-4197-b4ef-d1fc104a4b4e",
+          "name": "List Move Ailments",
+          "request": {
+            "name": "List Move Ailments",
+            "description": {
+              "content": "List all move ailments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-ailment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f97d30c9-f8e3-4df7-825c-a4e6437cb9a9",
+              "name": "A paginated list of move ailment resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-ailment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52fd827d-9d8b-4961-b7a9-660309a59923",
+          "name": "Get Move Ailment",
+          "request": {
+            "name": "Get Move Ailment",
+            "description": {
+              "content": "Retrieve a single move ailment by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-ailment",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed31ffea-3bbf-4923-8870-1a111c35b212",
+              "name": "A single move ailment resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-ailment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7334,\n  \"name\": \"string\",\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://aCkKZdkUAzC.cudKTDF2csMFXlyxfjNMjOtNP0Aq+pRcHQOuQCw.FPrlhTL0rigdx+aYoh\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ieCA.wbWvAG58ub3FW-TVPE7bnmkmEIOdCXQ30qwvASOKTgcvILw-.-cBk8xbD2FcGF97CMwdpNkP35DQ,uW\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://pQhioyANcDwuEUuQEjHkwllItG.uytLFS\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://Th.ezpMIfOpMBwjsSFR4bB\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "139178b9-f53b-48a0-aebb-ac2c6e923237",
+          "name": "List Move Battle Styles",
+          "request": {
+            "name": "List Move Battle Styles",
+            "description": {
+              "content": "List all move battle styles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-battle-style"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4c60ab4-8706-4ec1-8f8b-1130cacef9cb",
+              "name": "A paginated list of move battle style resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-battle-style"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6cc7f58-cf78-4141-b3c4-d3b6c9699f78",
+          "name": "Get Move Battle Style",
+          "request": {
+            "name": "Get Move Battle Style",
+            "description": {
+              "content": "Retrieve a single move battle style by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-battle-style",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce6a7ee3-1e62-4d93-a6fb-9700ed3d06cc",
+              "name": "A single move battle style resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-battle-style",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1445,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://wuQfwjc.gjzkyD1Dgldy8b3Dk4w6D,yZ8+XecUWG9Q63tOCr3,A1Qhp8DhCbvq+PlSOGJ.d2ug8Z1yjNsqaEfWRj0xHxTF\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://SzmlfijcXCoVbzgHUFmgUQkyzaiQwEMyw.ktweAmUQP8VPXQKWuipU\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c96bdf2-5ea1-47db-a53a-06592f6fb8a7",
+          "name": "List Move Categories",
+          "request": {
+            "name": "List Move Categories",
+            "description": {
+              "content": "List all move categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f505d0df-f5c9-4cae-b6bc-4967adc7b4c2",
+              "name": "A paginated list of move category resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d37e274-ef0e-440d-8f71-2412fdd5664d",
+          "name": "Get Move Category",
+          "request": {
+            "name": "Get Move Category",
+            "description": {
+              "content": "Retrieve a single move category by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-category",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a8037f1-4fbc-491b-8293-65cb5590de5f",
+              "name": "A single move category resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-category",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9834,\n  \"name\": \"string\",\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://FGrmjzLkVzxnCfe.lqb57kkYkU1UxxZx9tG7,LrS888xq46eD7sOanfiPsvwBGKuzoHba9Xr.\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://vJychRwLzZYcjONudxbozOTYbnBTa.ifcu8mDpxoSxWwPwks9gDW9e.bgIG83tyhI\"\n      }\n    }\n  ],\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://nTOO.apqsWYeMoKCqn1WMKUJHIKMQ-63ZEIEY5Ex+x6KHX00tVqgw2kK6WB,skVDaCO\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://sIfhpxWpmVjBLlhZbUSXRtH.pcpkSN,huHd5MFoSXbTSzRzLv6kApzIEnvsA,t\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59a7a250-9fc8-4b1d-95be-0fbc87f1fbd7",
+          "name": "List Move Damage Classes",
+          "request": {
+            "name": "List Move Damage Classes",
+            "description": {
+              "content": "List all move damage classes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-damage-class"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d75bd3f-2a1f-47cd-961c-c78b8ec184b4",
+              "name": "A paginated list of move damage class resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-damage-class"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "650f2a08-598d-46fd-b0ae-011f6f4c10e2",
+          "name": "Get Move Damage Class",
+          "request": {
+            "name": "Get Move Damage Class",
+            "description": {
+              "content": "Retrieve a single move damage class by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-damage-class",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a8346da-e3eb-454f-8c48-8c31bc138227",
+              "name": "A single move damage class resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-damage-class",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4199,\n  \"name\": \"string\",\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://hWOeYnXOHOeSBvhADfZjuwvheenIOre.fpzpjUao\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://v.uujmWuch,IeJy1W7GWJUMEYUNQbqCZIdlJQjLBTP07cdGx,DyVwwDJ7X-zv3KnqcMXFxYgd2GOHYu.\"\n      }\n    }\n  ],\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://ecnSVJQPhEGULyiLUlfZXnfyjBnPd.kmioysnWmtf1xjP-n,Prrci.ZTb8ynSJN\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://QhkSnlApHjHliQG.legoNbsX0MNMRBbfr2AJ-7whm+Y-WI9\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://upsCGBvWohgZKCdWSIZEPP.ttmdpzddj,jFvveTolStu0hz6iST1NvpsLqoX6kJa0TgVHNCDFxBWwxhCb\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://YocCXQlWsHvkIhixBIWGtpZ.pyp-iA\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a1bc639-e913-4574-a29a-f221bd10b05e",
+          "name": "List Move Learn Methods",
+          "request": {
+            "name": "List Move Learn Methods",
+            "description": {
+              "content": "List all move learn methods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-learn-method"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80254895-9e60-4d5d-8e40-210ff79d4c59",
+              "name": "A paginated list of move learn method resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-learn-method"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a3e270d-7b55-4ff2-82dc-274793a2cc94",
+          "name": "Get Move Learn Method",
+          "request": {
+            "name": "Get Move Learn Method",
+            "description": {
+              "content": "Retrieve a single move learn method by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-learn-method",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac9e4fdc-1a3d-4826-8dc9-9f1bdeb1aca7",
+              "name": "A single move learn method resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-learn-method",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7257,\n  \"name\": \"string\",\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://QBvmCsUOFDYXmCzscn.rjccgMH4hcWDw.mZy\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://lxGFBoDvu.dyyumnZkT3GiQZ22O2bbwLCXxm\"\n      }\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://BWjhAsGcznnCpHyNiWN.pxbOAUIL7hp9m-U3yRIb1XFojgFvvmq6LVl1zGKzCj5pNaX5lemZZ\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://ooEvgSWZZSSZMTkDyuRUW.jnCBXJZ18PNqPGRZ5XsWA5yRV\"\n      }\n    }\n  ],\n  \"version_groups\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://q.gwvHnHSVMjXIwOrkOHdZ8qMcnmzBYVD-nnmMBiMDK3YB8YV.HZ9Y53\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://WjPrAnOFZMo.lqrKJuo317LrX-SMJFW0FF6OQJrz37qBetHnqpWWbAYyUM.-zXSBv6Y1Io6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f3d78ff-a41f-4cca-a360-850c3e2e8112",
+          "name": "List Move Targets",
+          "request": {
+            "name": "List Move Targets",
+            "description": {
+              "content": "List all move targets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-target"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d245204d-d26b-40a2-af7b-7ab81876abf8",
+              "name": "A paginated list of move target resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-target"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3595,\n  \"next\": \"https://cEahJbomVWgLRPpbpGbMIvS.ocjFxx3KuCLHszbntc.3UqwxsTGqc9q-\",\n  \"previous\": \"http://kUeMQxZFGUqfmIRkRUSQLpNEhY.ujgpK7d7iaym5Z9lW3tgCqMQE-ar9VNC7nfAkIJuncCew.sq67KA\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://PPAah.uuwrmt2cKLMX.LwK,u294+PlAMnxRgTt,uZF3Nuw\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://mqyjnWmffyTVZVLvURQKDKnMaUDvX.kzq89WFwbaHWMcYOh.4adwKeTBlPAiROd6aPH,u\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94a2559a-5ca2-4ad8-b342-815a8d6928c3",
+          "name": "Get Move Target",
+          "request": {
+            "name": "Get Move Target",
+            "description": {
+              "content": "Retrieve a single move target by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "move-target",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91c8156f-7c65-427c-8d10-8312457acdb4",
+              "name": "A single move target resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "move-target",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4199,\n  \"name\": \"string\",\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://hWOeYnXOHOeSBvhADfZjuwvheenIOre.fpzpjUao\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://v.uujmWuch,IeJy1W7GWJUMEYUNQbqCZIdlJQjLBTP07cdGx,DyVwwDJ7X-zv3KnqcMXFxYgd2GOHYu.\"\n      }\n    }\n  ],\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://ecnSVJQPhEGULyiLUlfZXnfyjBnPd.kmioysnWmtf1xjP-n,Prrci.ZTb8ynSJN\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://QhkSnlApHjHliQG.legoNbsX0MNMRBbfr2AJ-7whm+Y-WI9\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://upsCGBvWohgZKCdWSIZEPP.ttmdpzddj,jFvveTolStu0hz6iST1NvpsLqoX6kJa0TgVHNCDFxBWwxhCb\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://YocCXQlWsHvkIhixBIWGtpZ.pyp-iA\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "52ed2526-059b-493c-ab71-c20a625b9b70",
+    "name": "Poké Berries Moves API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

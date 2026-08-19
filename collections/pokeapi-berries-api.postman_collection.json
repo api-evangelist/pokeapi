@@ -1,0 +1,572 @@
+{
+  "item": [
+    {
+      "id": "f56969be-718e-4fe3-82d3-41706189a6ab",
+      "name": "Berries",
+      "description": {
+        "content": "Berries, their flavors, and firmness ratings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c805c931-a859-4348-9855-f63e79692ae4",
+          "name": "List Berries",
+          "request": {
+            "name": "List Berries",
+            "description": {
+              "content": "List all berries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f395ab4f-1b0d-4368-a878-12e0b604269b",
+              "name": "A paginated list of berry resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5153,\n  \"next\": \"https://ejaBmBvCp.mroafGsUBmU.wKSoTFvq87kN8JVcMTfBjMIej5scSyPotSQw\",\n  \"previous\": \"http://ttiEDVKSPEaLGj.ybelZLjV5ufyfKJF5l\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tyfJ.kusHkE,GxlkvUErc8.-3lwNR\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://wSejIsNvLDphHLSBhfFPcBY.lui0+SkyeKRilYHC\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67167641-4f0a-4b9d-a5da-c6e7c601d310",
+          "name": "Get Berry",
+          "request": {
+            "name": "Get Berry",
+            "description": {
+              "content": "Retrieve a single berry by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1dc998e1-6cb1-4e0e-88e8-19da4a3978a4",
+              "name": "A single berry resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8633,\n  \"name\": \"string\",\n  \"growth_time\": 5177,\n  \"max_harvest\": 9848,\n  \"natural_gift_power\": 6749,\n  \"size\": 4160,\n  \"smoothness\": 5802,\n  \"soil_dryness\": 8226,\n  \"firmness\": {\n    \"name\": \"string\",\n    \"url\": \"http://KhcHlyJFKMfLlGTIZDTQXtoPH.ccbbH4fwBhKu0pzImhc++Mpgr2Ck0tYYe2I5HzGXc8NAZNqoR\"\n  },\n  \"flavors\": [\n    {\n      \"potency\": 5647,\n      \"flavor\": {\n        \"name\": \"string\",\n        \"url\": \"http://LhQpRZAoUlUrEzaPlsdGrfS.ciDLh.XgIgp.mzfwfFK0wn2Rv6l+HavkLA\"\n      }\n    },\n    {\n      \"potency\": 830,\n      \"flavor\": {\n        \"name\": \"string\",\n        \"url\": \"http://QnWqplzqQtxVFV.pbeL+V4t8VAEx\"\n      }\n    }\n  ],\n  \"item\": {\n    \"name\": \"string\",\n    \"url\": \"https://vLFzETaHpPwZRhlUBXPiEAU.mdwwkRStHjEqNAF.+paE4iDyF1Y\"\n  },\n  \"natural_gift_type\": {\n    \"name\": \"string\",\n    \"url\": \"https://uShEjYKqWSzFomMcGBAwmtOmGVZWrtUgL.rauqNw+pD5+hMow4OtjIru.Co5bwCzZvXmwTbq+IY79XsjKLn8C\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cd2493a-4e11-4dea-99a9-63f9acac0cdb",
+          "name": "List Berry Firmnesses",
+          "request": {
+            "name": "List Berry Firmnesses",
+            "description": {
+              "content": "List all berry firmness categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry-firmness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e436aa3-7c12-49f3-9f02-f3310b7a80a3",
+              "name": "A paginated list of berry firmness resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry-firmness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5153,\n  \"next\": \"https://ejaBmBvCp.mroafGsUBmU.wKSoTFvq87kN8JVcMTfBjMIej5scSyPotSQw\",\n  \"previous\": \"http://ttiEDVKSPEaLGj.ybelZLjV5ufyfKJF5l\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tyfJ.kusHkE,GxlkvUErc8.-3lwNR\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://wSejIsNvLDphHLSBhfFPcBY.lui0+SkyeKRilYHC\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d7c49d3-bb1f-4bdc-a833-68ee06d12490",
+          "name": "Get Berry Firmness",
+          "request": {
+            "name": "Get Berry Firmness",
+            "description": {
+              "content": "Retrieve a single berry firmness by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry-firmness",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7e67010-1615-4c76-b899-90f34ccd5800",
+              "name": "A single berry firmness resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry-firmness",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 957,\n  \"name\": \"string\",\n  \"berries\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://KOKhTsLruYAORmXaLTgoWWGFGXbjTe.abfP0nf5jnWHsupN8vBaYvNXxSih0CxkClQF\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://H.vvh,7Rm4CgrnQW,2JG5g+ouz4Uj\"\n    }\n  ],\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://VqANGtlzLtCNZrkVKzBx.usbBQdv0qFX4c7DaT0hiIhQ.lxbeIykyxvDbWb79m8G6D9A38bz7vpo.\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://djEYMJfq.ccBMZ9+e,MUApZPs63w\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b30f4e9f-e976-4d23-97e9-937fb5d62c00",
+          "name": "List Berry Flavors",
+          "request": {
+            "name": "List Berry Flavors",
+            "description": {
+              "content": "List all berry flavor categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry-flavor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe153b2d-dd71-4a6f-82cf-0439a0812692",
+              "name": "A paginated list of berry flavor resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry-flavor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5153,\n  \"next\": \"https://ejaBmBvCp.mroafGsUBmU.wKSoTFvq87kN8JVcMTfBjMIej5scSyPotSQw\",\n  \"previous\": \"http://ttiEDVKSPEaLGj.ybelZLjV5ufyfKJF5l\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tyfJ.kusHkE,GxlkvUErc8.-3lwNR\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://wSejIsNvLDphHLSBhfFPcBY.lui0+SkyeKRilYHC\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cd6570e-be23-49c5-884b-efbbf3e6ba2f",
+          "name": "Get Berry Flavor",
+          "request": {
+            "name": "Get Berry Flavor",
+            "description": {
+              "content": "Retrieve a single berry flavor by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "berry-flavor",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68709d0f-98b9-4a3a-8308-420ddfd68baf",
+              "name": "A single berry flavor resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "berry-flavor",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5175,\n  \"name\": \"string\",\n  \"berries\": [\n    {\n      \"potency\": 6693,\n      \"berry\": {\n        \"name\": \"string\",\n        \"url\": \"http://QSMNnqCSdfKjtqifKqafSjrflmylYveG.pvvbDETmq.lNihAhuGExPA8SbOpZTKeV2WURwe3dXwE4S\"\n      }\n    },\n    {\n      \"potency\": 2606,\n      \"berry\": {\n        \"name\": \"string\",\n        \"url\": \"https://yQvzCwhfoFHpEhiXl.pbbklcveIiO,hAaCA+esaHYi7OianhHvZ\"\n      }\n    }\n  ],\n  \"contest_type\": {\n    \"name\": \"string\",\n    \"url\": \"https://JsvfiMDJxoRYvQeZjhAwAeIepKl.ajqKJXugORjreNbhzo0r+wp71K3,6F02i9VuQd.JiJWitxG\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://xHlQnBswgVafdInJLdwKBqjAW.olP0apOEK2bJ2Fcfy\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://EBXGiCXVKbjxZAE.qumy.ey2d+kiqeHt7hg,K9EWycR9NYzD-aT3oxH7E9HsDF3DmdRO-Xq.aKfLKaG9Dz.DiM,k\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a5fcbfd7-4592-445d-ad9e-9219dc4d2ae1",
+    "name": "Poké Berries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "4d8fe200-ad69-4dde-beb4-e621bc9107fb",
+      "name": "Contests",
+      "description": {
+        "content": "Contest types, contest effects, and super-contest effects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e1ae508-74c8-452f-a74a-fbe35983a932",
+          "name": "List Contest Types",
+          "request": {
+            "name": "List Contest Types",
+            "description": {
+              "content": "List all contest types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contest-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74c357e6-4a94-466a-9e65-48bee35de8fd",
+              "name": "A paginated list of contest type resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contest-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2942,\n  \"next\": \"http://MDjEOALkqSFDgocTSe.cyS\",\n  \"previous\": \"https://uaJdjZwXDJyJQJYNANYDfF.hgjgEULZI+tAMKZjtzqjf1qT.xc64nHXcd61.P1JNkyIIv.GohgZ4x\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://zVpjqUnBcxedGfKULVDbauRfPatCVZg.jyuFduCOL-H4b7rxZURJwHdqWV8K-xAmNS-yknYFoG1D,WUVn0Cm,B5xzgzXnbLlAeKYYCUd.gi\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://OCQyMNEYGdRbwXdztulfZ.sumiMQmnnbHapX9Sm7Z570\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c1e00a5-76a0-4cd4-92fb-d003ca5c9bb4",
+          "name": "Get Contest Type",
+          "request": {
+            "name": "Get Contest Type",
+            "description": {
+              "content": "Retrieve a single contest type by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contest-type",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa44024f-6f33-451a-9840-e171cfaf2209",
+              "name": "A single contest type resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contest-type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 109,\n  \"name\": \"string\",\n  \"berry_flavor\": {\n    \"name\": \"string\",\n    \"url\": \"http://PJQOWTNetFfGik.fem3h4OCPDvTrjoggSvc.T0.GG5q+wzlhcphXm1O\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"color\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://fgamrzzCrSaViOTUEYX.ngsMrrNcZhSxOHx2cLiowuNNVP\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"color\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://PNoEHqnZtLbtTcOZUMbxjBnqejcUqHkg.ydnSrzX1dJ\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "630052e7-63cb-4881-b8e9-115ccf9ccaea",
+          "name": "Get Contest Effect",
+          "request": {
+            "name": "Get Contest Effect",
+            "description": {
+              "content": "Retrieve a single contest effect by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contest-effect",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer only)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4147f04d-5e17-4a28-b4d4-45d99a09ad5e",
+              "name": "A single contest effect resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contest-effect",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer only)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9546,\n  \"appeal\": 3480,\n  \"jam\": 7187,\n  \"effect_entries\": [\n    {\n      \"effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://LNWHxxosoRrqhqFFwgzISrZimwjlbriFs.lwQGNy0yyUml+NfmOjeCDvb,3SlQywztaiZjr,p,kb9r8hwOxm0SsXWAPhiw15PXvpm\"\n      }\n    },\n    {\n      \"effect\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://ZvAhvkVtZxgIgcf.ywfCqMORW3HAgmpvNBjMlLqCV-+,Beu2Xm5uocvrn\"\n      }\n    }\n  ],\n  \"flavor_text_entries\": [\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://VNXpzVwafEAfqMPhHjZYgG.sfSSKG2TqkFvKNvmOu0yZunLKWRVMCUJ8vxcKvQg1V84eOV9NLqzRB.5PAcJ2NI7hV-WQda\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"http://wXdTJXxtNrrCmUOldxHkAWWfKqqyDs.rqlsn+UlfAgZNr8O,TJdy6e\"\n      }\n    },\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://SbOCzvGyKgVpeERiifRHW.egvBh-glw32p,gZM4NTn1s4uhTrNEWIfqDcIrPEyum5\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"https://DQyhRqRrZGbPHxO.ikZ4+QfGV8T9o,mUSAkRpHo\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70a73072-ccfc-4c34-9569-90393d2d769a",
+          "name": "Get Super Contest Effect",
+          "request": {
+            "name": "Get Super Contest Effect",
+            "description": {
+              "content": "Retrieve a single super contest effect by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "super-contest-effect",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer only)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc57e584-5ca8-4e95-981f-67890bdd82a1",
+              "name": "A single super contest effect resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "super-contest-effect",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer only)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3431,\n  \"appeal\": 5422,\n  \"flavor_text_entries\": [\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://krxiXQBfqFSbmxoatmTkZgRUuqsSgexOo.jhf9+VdkoVA7GHpgHmkv1Oddj48zqV\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"http://jtHIio.wltImSYiIOBK2.zdUm9RhSP5pyapOrW+UgLDwXesKNu\"\n      }\n    },\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://wasVEKdiw.xnrym-owkYed2O5gab.BLz11QHT9oeHAYvHcOLcL\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"https://ICreY.xsguoQUMy2\"\n      }\n    }\n  ],\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://fMf.tjqsKMlhF6Oho3Z7SCWpnmMizfGJkWj,6gNg.D-X3WBRFAUGo43ux4JKHXZ39d\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://VFQZircqbfZxPIsepriWkvBwEG.xviP,.cZeYpEbYn9A-,W7GGnb5V2yZWHUZhhVAS7\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0f15c59d-ea54-49de-b1b9-c4ed12e1ecd5",
+    "name": "Poké Berries Contests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

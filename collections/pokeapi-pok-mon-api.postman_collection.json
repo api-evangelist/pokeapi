@@ -1,0 +1,2102 @@
+{
+  "item": [
+    {
+      "id": "224a2a00-d693-4e4a-b4a0-c20af8cb83ad",
+      "name": "Pokémon",
+      "description": {
+        "content": "Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders, characteristics, and Pokéathlon stats.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a82dc2a-3906-46c1-b131-ddc82ce4d9ee",
+          "name": "List Abilities",
+          "request": {
+            "name": "List Abilities",
+            "description": {
+              "content": "List all Pokémon abilities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3fdead7-5b9b-4e0e-b26c-cf83ff6c1dae",
+              "name": "A paginated list of ability resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75990a9c-f2e3-4e46-ace7-d523c1be2c04",
+          "name": "Get Ability",
+          "request": {
+            "name": "Get Ability",
+            "description": {
+              "content": "Retrieve a single ability by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ability",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c6b0882-cc75-45df-a0c7-30b158a43877",
+              "name": "A single ability resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ability",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4967,\n  \"name\": \"string\",\n  \"is_main_series\": true,\n  \"generation\": {\n    \"name\": \"string\",\n    \"url\": \"http://sBiajcOaPsTrSdOwUXbRF.fawBScAv8kqhc3+9OqoXXo\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://hmtSVBheYGpdobjE.ttgrhRtXQNMLDN+0dnUtAcJz5Rtmxnu5SOdIFcsSqXac1.NaS\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://NFlLQtORB.anurD7ZXZfc1.3JsMN2EPdQ9EBLX0.gZBl-diI1ovKFXLn6H,M9IcaGtXKpTh5rptcb0.\"\n      }\n    }\n  ],\n  \"flavor_text_entries\": [\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://ZmIIHhEW.hqeKNIphE23f0DqmyMVeZqj17ZmCyC\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"https://ijpWxADl.scPjwtGcJ.buues6ayDlSWBzlJyl\"\n      }\n    },\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://fzwxCKiOcopASndiVTQoMAISgdH.czzgTTe.VJMujGs.\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"http://zvAotYtctAUQuJvi.llcyMgPt4X3nvFA9TV5rlY.VLpy,v4iCBfVASOdDLElJU6AOS-,4\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9db13f7-644a-47fc-8f87-248a508eef46",
+          "name": "List Characteristics",
+          "request": {
+            "name": "List Characteristics",
+            "description": {
+              "content": "List all characteristics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characteristic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "464b4276-99b7-40dc-9661-57f0f4c028e5",
+              "name": "A paginated list of characteristic resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characteristic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8533,\n  \"next\": \"http://MbLgwfuvSxaguXgzluGcepoBkcXb.gnjWYE66UFOA4sRcp4DxHxpXb6Ilv4EDVtMqB,nnrhyLVT4OqfdeLh\",\n  \"previous\": \"https://fYzxmLv.kdka-koSQia,ivGt+YC.yAtBBKFq0Opd32VAXMbaxzwnD9k\",\n  \"results\": [\n    {\n      \"url\": \"https://VNI.kxwfSpSKD\"\n    },\n    {\n      \"url\": \"https://OcDAHzucQpZ.cqylFu8mpV98pbSo-fDHWmYvPR2o7g,YLPHNoVHJUkZU4mEcbk-dHcn+\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9b4c27a-5bfd-417c-b7b5-a4fb1826a047",
+          "name": "Get Characteristic",
+          "request": {
+            "name": "Get Characteristic",
+            "description": {
+              "content": "Retrieve a single characteristic by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "characteristic",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer only)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccd2e41a-7a3b-4402-93ad-4b9073196dc6",
+              "name": "A single characteristic resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "characteristic",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer only)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3282,\n  \"gene_modulo\": 8928,\n  \"possible_values\": [\n    983,\n    5471\n  ],\n  \"highest_stat\": {\n    \"name\": \"string\",\n    \"url\": \"http://QxEHKTAgnAWDjMxHDggH.rbgoIGVLceSkklCygJmDCEQkLiEoXHbx\"\n  },\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://CzFHVuvztGeMCOT.hlvg1igyThF1DDdwDlPtnSJyKdNBT8xPsodYHcQjbznGVIJwjcZ-s\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://xAfM.kgsqD2hI1ekH0Xz4e1hnnv4fEORjET\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12fce9fd-5461-447f-9f05-3cabee689908",
+          "name": "List Egg Groups",
+          "request": {
+            "name": "List Egg Groups",
+            "description": {
+              "content": "List all egg groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "egg-group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21ad4494-6394-48e5-babc-f99852c9244e",
+              "name": "A paginated list of egg group resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "egg-group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40b2b402-f904-4608-9c33-12e66b06e398",
+          "name": "Get Egg Group",
+          "request": {
+            "name": "Get Egg Group",
+            "description": {
+              "content": "Retrieve a single egg group by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "egg-group",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaf28047-cc34-4b5b-94db-c04666415c20",
+              "name": "A single egg group resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "egg-group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6950,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://wQYMAFnRTAmZBhTtgNFgTkbR.vqtLY77T.f\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://uGYXkD.bgnbdoOoMAT-7LbRguLIRO1TVbiJt+WgKSHmk5tFhspDdchcSxLC8iNE\"\n      }\n    }\n  ],\n  \"pokemon_species\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://LNsV.lzKFjnHQ9KwV+a-a9qbNFPovvUCwXRTGAKGNFmwNYgyle\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZpMKcaFOTEGofpJghAyOE.oxpowy7\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc06942f-adee-46c4-8a99-0e3b266796a2",
+          "name": "List Genders",
+          "request": {
+            "name": "List Genders",
+            "description": {
+              "content": "List all gender designations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gender"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cafbef1-46fc-4c05-97ad-026169741a95",
+              "name": "A paginated list of gender resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gender"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45dd891a-a9de-41c3-96ea-dae1d1616362",
+          "name": "Get Gender",
+          "request": {
+            "name": "Get Gender",
+            "description": {
+              "content": "Retrieve a single gender by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gender",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2309a48a-cbb8-4fd8-a841-707c828b8be3",
+              "name": "A single gender resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gender",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6258,\n  \"name\": \"string\",\n  \"required_for_evolution\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ozSzCdySjRgbV.eeemieCLjgmSLnbzvSACiiDMGldoSIUkfFCmclFk1hPqLOBT6C7b2wyOCJHCEe6IZ\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://kmC.kmbFWFMx+EpLHYdYpsxRRo0FZj9vT8hDMSpqsdHBzApcozB8Car,jbRCkYh.EjMLsnJLw.4Gm5\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "640b45b3-57ea-45ce-a477-745ccb59cb0a",
+          "name": "List Growth Rates",
+          "request": {
+            "name": "List Growth Rates",
+            "description": {
+              "content": "List all growth rates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "growth-rate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3160e29-68e2-4d47-841a-165e8ab3b16e",
+              "name": "A paginated list of growth rate resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "growth-rate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f579af4d-5687-483d-b40c-0353ebbcc2b3",
+          "name": "Get Growth Rate",
+          "request": {
+            "name": "Get Growth Rate",
+            "description": {
+              "content": "Retrieve a single growth rate by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "growth-rate",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e537a03-81ae-4a74-8beb-7a84fc0a3d40",
+              "name": "A single growth rate resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "growth-rate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4068,\n  \"name\": \"string\",\n  \"formula\": \"string\",\n  \"descriptions\": [\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://egYlpaggqJHGeSKrGDfl.hiANFcV3Nfqt5sjdP2ofuVmxAUWWus5XpjhwSZIg,4wugLAy0BzLaDMapTKMlM\"\n      }\n    },\n    {\n      \"description\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://KUXDAufplIjCDrceniUClfC.mcsz3s.IolVFhwG6x62J8Dw5a.\"\n      }\n    }\n  ],\n  \"pokemon_species\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://MEiyiyCzqeOenJYFJk.zkruBdUJ8DuTUAZSAdXLv4oXbcG,IvYrStzunN5L,Gwyot+94d\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://RAJEWCgRFxomOblTwgbcFGvUzyeW.zbbnlT+FGOrgzOlPwdQ0lT4Sv8zSghS9+-GmFs7thRhDc4,VJ7Fup05VgiwcG\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d89a769-dd51-4ae8-a4ca-162febadd604",
+          "name": "List Natures",
+          "request": {
+            "name": "List Natures",
+            "description": {
+              "content": "List all natures.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nature"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af7b3c62-7af6-4f5d-a4a6-82de8ad8dd0f",
+              "name": "A paginated list of nature resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nature"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "776d7a0b-1596-4c41-bfb4-ce30c4d73082",
+          "name": "Get Nature",
+          "request": {
+            "name": "Get Nature",
+            "description": {
+              "content": "Retrieve a single nature by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nature",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b09eee7-d8db-4cc9-a25c-249593072842",
+              "name": "A single nature resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nature",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7189,\n  \"name\": \"string\",\n  \"decreased_stat\": {\n    \"name\": \"string\",\n    \"url\": \"https://cFfeLFuEwfZmUNZUAohWG.gxlntvFvktBxseUCZ\"\n  },\n  \"increased_stat\": {\n    \"name\": \"string\",\n    \"url\": \"https://yCQ.tnkiIH,1QXNf8yF4G\"\n  },\n  \"likes_flavor\": {\n    \"name\": \"string\",\n    \"url\": \"https://xJqVRFzRbUOj.ebbYyDd,u9Cqk\"\n  },\n  \"hates_flavor\": {\n    \"name\": \"string\",\n    \"url\": \"https://axOzqJmIrTYjBSExsiAKXLPAbpurbAQA.sqtIRmAarKC9dfwep\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://UclnGXQwedXmjbvwSfUsvjgxZraJXK.xefYwM\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://rXcKDaKIuKedOrnTjNe.qouloJ8qSbxCv6I5yfm+ONEHUfptft5eBWUdyXh-\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "921ec72f-d8a9-4836-94cb-8900f582ce80",
+          "name": "List Pokéathlon Stats",
+          "request": {
+            "name": "List Pokéathlon Stats",
+            "description": {
+              "content": "List all Pokéathlon stats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokeathlon-stat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c663e323-e17b-4dc3-9c9a-cb578eacfecb",
+              "name": "A paginated list of Pokéathlon stat resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokeathlon-stat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92a56fbf-eaaa-490d-b9c8-e7cdd0dc6c37",
+          "name": "Get Pokéathlon Stat",
+          "request": {
+            "name": "Get Pokéathlon Stat",
+            "description": {
+              "content": "Retrieve a single Pokéathlon stat by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokeathlon-stat",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8819926f-5d2b-4e6b-918d-20fe2abe4fa9",
+              "name": "A single Pokéathlon stat resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokeathlon-stat",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8448,\n  \"name\": \"string\",\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://eyrusMVTuobmLiZnB.vtfoCxZygR9FA3+JSTfQ\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://SXGpKjt.mtysFxxUI.RTmaamQ7d40IzbZyHrMe3WgWWCAurjtF6O-nEf8ZI.RtLOuWQbY-8QT6scF\"\n      }\n    }\n  ],\n  \"affecting_natures\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b98b734-a3eb-4007-99ed-e9eda0b8f6ae",
+          "name": "List Pokémon",
+          "request": {
+            "name": "List Pokémon",
+            "description": {
+              "content": "List all Pokémon.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokemon"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be82b11f-c958-4266-8a2c-2c078a1c6dc3",
+              "name": "A paginated list of Pokémon resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokemon"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9bbc8ef-aeab-4d4b-8b08-56fd1a667885",
+          "name": "Get Pokémon",
+          "request": {
+            "name": "Get Pokémon",
+            "description": {
+              "content": "Retrieve a single Pokémon by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokemon",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c42ae91-0cec-41ea-997a-53bbbc01c667",
+              "name": "A single Pokémon resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokemon",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3220,\n  \"name\": \"string\",\n  \"base_experience\": 474,\n  \"height\": 3749,\n  \"is_default\": true,\n  \"order\": 129,\n  \"weight\": 135,\n  \"abilities\": [\n    {\n      \"is_hidden\": false,\n      \"slot\": 4419,\n      \"ability\": {\n        \"name\": \"string\",\n        \"url\": \"https://xsxZKefUmgwPiNFZfwFpqzOpFoGpMxL.eauPQk+BDX8aa6KkL9N,sI\"\n      }\n    },\n    {\n      \"is_hidden\": true,\n      \"slot\": 9064,\n      \"ability\": {\n        \"name\": \"string\",\n        \"url\": \"http://VghYOzxsGjWnlFlWmgJqqe.niyoZkOZzDSklU,wYOszhFMt,VCHLDCd-abpnncRTeRmro+geQBHAUYZ\"\n      }\n    }\n  ],\n  \"forms\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://rPSboBHzYMqgUgraTd.ctfFe2z,3-R7-jvEGdyekEQLyQq5kPb43\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://h.pdfH+6uUwsDIa3qZWxN,OqVjILBV54D,pM\"\n    }\n  ],\n  \"location_area_encounters\": \"string\",\n  \"species\": {\n    \"name\": \"string\",\n    \"url\": \"http://XaGVOpodeIXcuiVAWllwCccXDPaq.tiOPO4e-nHxvluDCqWLVhb58jMzAAVcj7ZCogK.JcISV3YhPe\"\n  },\n  \"sprites\": {},\n  \"stats\": [\n    {\n      \"base_stat\": 161,\n      \"effort\": 7633,\n      \"stat\": {\n        \"name\": \"string\",\n        \"url\": \"https://kSZrYZEcnNlySsqEofJLAMScX.sjbTQBaYFT\"\n      }\n    },\n    {\n      \"base_stat\": 2146,\n      \"effort\": 7479,\n      \"stat\": {\n        \"name\": \"string\",\n        \"url\": \"https://UbGcTDjDvuKQHbjgjHQitVvyFxoUg.oepcdM+9oF,puQsd,yGDMewoeIcfn0YRVnkzGSIyxOjz\"\n      }\n    }\n  ],\n  \"types\": [\n    {\n      \"slot\": 3317,\n      \"type\": {\n        \"name\": \"string\",\n        \"url\": \"https://kRg.symYrnVUhmWcfgbjfMgIYFBICFmRtZ0QWS7jlmDX.rr,skkLiX.5.I\"\n      }\n    },\n    {\n      \"slot\": 1270,\n      \"type\": {\n        \"name\": \"string\",\n        \"url\": \"http://KXwCXlqET.kjecX8Jc94mpcGYT-EYBQHVALDvkjsotQXrQ+9X9u,AwAC.rnc0Ad9oPlD9XgoSrxsWHkw\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "268e9d23-7af7-4dc3-93a9-5defc4818b16",
+          "name": "Get Pokémon Encounters",
+          "request": {
+            "name": "Get Pokémon Encounters",
+            "description": {
+              "content": "Retrieve the list of location-area encounters for a Pokémon.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokemon",
+                ":id",
+                "encounters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff254e1d-1b72-4346-bc5e-4b9478acad72",
+              "name": "A list of location-area encounters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokemon",
+                    ":id",
+                    "encounters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"location_area\": {\n      \"name\": \"string\",\n      \"url\": \"http://ruCHiNUeUOAQEulq.wlivU,S+fx8O9fSA\"\n    }\n  },\n  {\n    \"location_area\": {\n      \"name\": \"string\",\n      \"url\": \"https://awVFqumtEYyRpvCpzasZoPYc.elxkEjFT25Y1urbBfP+wyaW6tXEwPGANNtpyqRTbfPOtr8yXx5UYQkm6+,DB\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2fa0b3c-fbd9-45aa-9723-565df99f3f7f",
+          "name": "List Pokémon Species",
+          "request": {
+            "name": "List Pokémon Species",
+            "description": {
+              "content": "List all Pokémon species.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokemon-species"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00cc2a7e-cdaf-48d3-a7cb-e33e3ef8bd96",
+              "name": "A paginated list of Pokémon species resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokemon-species"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a748d73a-1ba6-491e-92f1-a0c01d616ab2",
+          "name": "Get Pokémon Species",
+          "request": {
+            "name": "Get Pokémon Species",
+            "description": {
+              "content": "Retrieve a single Pokémon species by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pokemon-species",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84cbfd10-172f-4bfc-a0ce-0d38dd2b9280",
+              "name": "A single Pokémon species resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pokemon-species",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4792,\n  \"name\": \"string\",\n  \"order\": 9016,\n  \"gender_rate\": 5409,\n  \"capture_rate\": 728,\n  \"base_happiness\": 7203,\n  \"is_baby\": true,\n  \"is_legendary\": false,\n  \"is_mythical\": false,\n  \"hatch_counter\": 3754,\n  \"has_gender_differences\": false,\n  \"forms_switchable\": false,\n  \"growth_rate\": {\n    \"name\": \"string\",\n    \"url\": \"https://HnMIihWTWUXhpVlDoBKHZWUzaJQMHi.rtguqS7uFxVS,wMZiYRq5WKUvtaRdssKFPxM+iI9iBPcG3T+fd,\"\n  },\n  \"egg_groups\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"https://DbaqTQLfLZjIpfn.ceb\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"http://ireWvEEKFUdIZckLZd.kreeVIFpqLpHVPtgtvyF3CMmUQQ5mP2Rlyg1mldmKDCmBQm-HfBDz,vXk-PJq-yx\"\n    }\n  ],\n  \"color\": {\n    \"name\": \"string\",\n    \"url\": \"https://nQIQsnyjwSVJn.uovlLt2q-1,XwusX-FnEAZBKR\"\n  },\n  \"shape\": {\n    \"name\": \"string\",\n    \"url\": \"https://bxUxTHanINoXxFitqOQoxTpAXbAWAq.zbiEWZ3ZXr\"\n  },\n  \"evolves_from_species\": {\n    \"name\": \"string\",\n    \"url\": \"http://p.ytQfiA,AtKrviSyAMjWmXhUsM1cSg\"\n  },\n  \"evolution_chain\": {\n    \"url\": \"https://RhlBHNbempvzRDKXUQbuKfYJcTcgwHy.gyX3\"\n  },\n  \"habitat\": {\n    \"name\": \"string\",\n    \"url\": \"http://xvkZvFyrdqReipVp.qfLMAqrxkKsOXXKkSCY\"\n  },\n  \"generation\": {\n    \"name\": \"string\",\n    \"url\": \"http://xTsr.pwdqrVZBRX.7VwLz.N6Vg49mMRHhT0IxSJUVWCALjWG83+UbKbf4,+tc-\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://kOGmobWhR.mgovxgLbuR3Yj9miETM2AGP48Ywtqg\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://FWnFLqSRKWoRSYtQFT.lvTJX+0RSb+o6Cjq-PsOYXkyK8yb4lPbx,QG0i0J5WV2j5MRoZ3tWz+W6QrqWYmK,XzRfqaSffsS8tg9WMeAdzBN2\"\n      }\n    }\n  ],\n  \"flavor_text_entries\": [\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://mGGawtpCTGuWfQDvlLYydscvvhvuA.dcmkMHW7N6gf6IKBddGTwujDyIBFb3ypYAEzRnd\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"https://izarCqkdewjNCgRgRFdHUmxa.jqrsBybBzehHhQAbcao0BPIUiQ\"\n      }\n    },\n    {\n      \"flavor_text\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://uVRjuvIUWzjYOTUyoxrQQYqihmcUmAo.uejwaKABWU3yG1DOxFUo-+85uaUSzCD.K1IiuhPFe57\"\n      },\n      \"version\": {\n        \"name\": \"string\",\n        \"url\": \"http://ojUzSMFaJCcLzFSouElPMutnbKqrgI.omczC96b5UBytg9+duR2gwipFKRlWosB2ik\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "874275dd-867d-49aa-8acb-abcab36fa96e",
+          "name": "List Stats",
+          "request": {
+            "name": "List Stats",
+            "description": {
+              "content": "List all battle stats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2916465a-275e-4e50-b8ae-78a154c3772e",
+              "name": "A paginated list of stat resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9a338bb-d40a-4383-8b75-e4e6f81592e3",
+          "name": "Get Stat",
+          "request": {
+            "name": "Get Stat",
+            "description": {
+              "content": "Retrieve a single stat by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27065af8-e7b4-40c3-8684-0a3c3f87fa45",
+              "name": "A single stat resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4115,\n  \"name\": \"string\",\n  \"game_index\": 9828,\n  \"is_battle_only\": true,\n  \"affecting_moves\": {},\n  \"affecting_natures\": {},\n  \"characteristics\": [\n    {\n      \"url\": \"http://ZMPVHqNyZOBmaTDTwcYtuLzJfY.nixeg3nu38zfdSoyoOyUcrbPPT.xjvgfKcOY6UKin+5RfczZhwgRANMaN2JBa3CQ8DzP.\"\n    },\n    {\n      \"url\": \"https://PljpUWAJxKRPlJkfgTiWvTcX.acgHt+UagN00rR2S8QgCUIwo4+Vs2bpZvk3v2u4Wd\"\n    }\n  ],\n  \"move_damage_class\": {\n    \"name\": \"string\",\n    \"url\": \"https://aHVxEMBovdmBdgY.qxzeVphAO.Kit7UW2g\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://racWHdvDLBUDASDCow.dwzUjYEjdwrngOA.pJCK5gBqWNn.ILKdX57j.tUnY5RpFxC-nzNxJRCo.\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"https://c.idenCY6rDr9B4Ym1vyLA9Hy7JY\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf95fe53-2c6b-4bfc-8379-c4943021b05c",
+          "name": "List Types",
+          "request": {
+            "name": "List Types",
+            "description": {
+              "content": "List all Pokémon types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beaafd03-63ce-46ae-83b3-606cf2c784a4",
+              "name": "A paginated list of type resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4663,\n  \"next\": \"http://QHgoQxgcjztLJzn.etyT6PAxmrFG0RCnBf1fLa.+b-TR,snCHaZ4fsjW1epL0N3JmRT\",\n  \"previous\": \"http://T.pzsvu\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://bNgNegaZSFHxmFFYNzKIcrQXEBlUyJNi.gtpmcfMwUDr\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://ZvilebrWGsOlNqehybmcBpjeP.kosao84c,4d0cVQ1UyR,t-DBgSeW9IIlWFYW3c8f0q7nDkx0S4rxTQxxoeO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9957adfb-c812-4ce5-ad72-bde3ede33b2e",
+          "name": "Get Type",
+          "request": {
+            "name": "Get Type",
+            "description": {
+              "content": "Retrieve a single type by id or name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "type",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer) or name (slug)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89e488fb-5ca4-491f-a06c-7912d3579bcf",
+              "name": "A single type resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "type",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer) or name (slug)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5735,\n  \"name\": \"string\",\n  \"damage_relations\": {},\n  \"generation\": {\n    \"name\": \"string\",\n    \"url\": \"https://tnYjvp.rcseuuvkPGwQFRGXREcYJlfkyuc1wlIWFPJDChkIdOYHyL-iz\"\n  },\n  \"move_damage_class\": {\n    \"name\": \"string\",\n    \"url\": \"http://zJejBknnsEP.foJlykWr09loBOUMcdE6,OD39IbD7,1QZBFMgDTBCsYdR-XjiLAWou,DLi\"\n  },\n  \"names\": [\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://uyURZPTLBMMyaSzTpOllDmyxUsqHNxBU.duYan55CYEFiBYyJnjlweJkxE8c7uGYTqBrix-A.dk3CO9U\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"language\": {\n        \"name\": \"string\",\n        \"url\": \"http://fcNGmsmFelFVUAlMFHwxjVlGMFV.bayHfTGwGRb0eKueWe6TpGxy3Tj6bi7xD5sezRrPq\"\n      }\n    }\n  ],\n  \"moves\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"http://tsjonFukdWAikqFAFQgPAtjjqeg.jpldGhAjpPqRsriEifeJY4RhmZNiUsRiYPoo\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"https://njZaYoDQ.dcjLDPro,kqRjg8NrcDNAbLNN5X.gQnjotUs.WrbcbA\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "12410930-9012-475f-b80d-7c1970e650dc",
+    "name": "Poké Berries Pokémon API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}

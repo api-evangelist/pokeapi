@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "b6eac211-9ed7-4e80-8081-98aa34b95f0d",
+      "name": "Machines",
+      "description": {
+        "content": "Items that teach moves to Pokémon (TMs and HMs).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d99de58f-d0d8-4dce-ace6-a3157083115a",
+          "name": "List Machines",
+          "request": {
+            "name": "List Machines",
+            "description": {
+              "content": "List all machines.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip before starting to collect the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdf7291b-08b7-4b5d-a559-df2bb2d7be89",
+              "name": "A paginated list of machine resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7176,\n  \"next\": \"https://DxAVmcGdjKZMveDLrazTmCSFuKYgkXc.sdgh18YRTjR,86vLPD7A2ptiZC+wkt8p2QDAZXvC5t,CbONw+n7Q2Rhc++pQuF\",\n  \"previous\": \"https://dEORrKXOcCPmdoQEnytJRqrIGcZWYy.saiGTuywt\",\n  \"results\": [\n    {\n      \"url\": \"http://yWWJEcivpcofHuRfaKbzOFNnnaEmWjY.uztsToELHANS,OcnegxV\"\n    },\n    {\n      \"url\": \"https://vMigecgwVbCvjTY.wgcIgfcQnkMWhyLuWTiXF4gmgwIy1F51KWhxO\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f49edeea-e22a-43d7-a74d-fc93ac50f185",
+          "name": "Get Machine",
+          "request": {
+            "name": "Get Machine",
+            "description": {
+              "content": "Retrieve a single machine by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "machine",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Resource id (integer only)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd38b6fb-0a88-4e46-9442-308c86b1b4c8",
+              "name": "A single machine resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "machine",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Resource id (integer only)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9279,\n  \"item\": {\n    \"name\": \"string\",\n    \"url\": \"https://eYSKEprBteycLdLU.vyrvdj8Xv8RBrP-L2jxx\"\n  },\n  \"move\": {\n    \"name\": \"string\",\n    \"url\": \"https://FhuCdQvqKzwYxgI.digFBsEreRZ9ZFe6Z+Dj1qB2FryBxoahGGUpim,PVIcPnxWihrXzU8pL9t45qKUb\"\n  },\n  \"version_group\": {\n    \"name\": \"string\",\n    \"url\": \"https://cRmuFZ.qiuDov7m\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://pokeapi.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fa64e76d-50b1-42d9-a572-5be435d5f949",
+    "name": "Poké Berries Machines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.\n\nContact Support:\n Name: PokéAPI Maintainers",
+      "type": "text/plain"
+    }
+  }
+}
