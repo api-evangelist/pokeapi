@@ -24,6 +24,15 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pokeapi.png
 tags:
 - Pokémon
+- Open-Source
+- Open Data
+- REST
+- GraphQL
+- Gaming
+- Educational
+- Community
+tags_raw:
+- Pokémon
 - Open Source
 - Open Data
 - REST
@@ -196,6 +205,8 @@ apis:
   humanURL: https://pokeapi.co/docs/v2
   baseURL: https://pokeapi.co/api/v2
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
