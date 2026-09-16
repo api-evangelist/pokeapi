@@ -1,12 +1,12 @@
 aid: pokeapi
 name: PokéAPI
-description: >-
-  PokéAPI (pokeapi.co) is a free, open-source RESTful and GraphQL API serving comprehensive Pokémon data — including
-  Pokémon species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games,
-  and machines. Built as an educational tool licensed under BSD-3-Clause, it is community-funded via Open Collective and
-  GitHub Sponsors, requires no authentication, and is hosted with a fair-use policy encouraging clients to cache
-  responses locally. The API powers tutorials, fan apps, machine-learning experiments, and game tooling worldwide and
-  consistently serves one billion-plus requests per month.
+description: PokéAPI (pokeapi.co) is a free, open-source RESTful and GraphQL API serving comprehensive
+  Pokémon data — including Pokémon species, abilities, moves, items, types, locations, evolution chains,
+  encounters, berries, contests, games, and machines. Built as an educational tool licensed under BSD-3-Clause,
+  it is community-funded via Open Collective and GitHub Sponsors, requires no authentication, and is hosted
+  with a fair-use policy encouraging clients to cache responses locally. The API powers tutorials, fan
+  apps, machine-learning experiments, and game tooling worldwide and consistently serves one billion-plus
+  requests per month.
 type: Index
 deliveryModel:
   model: unknown
@@ -54,16 +54,15 @@ tags_raw:
 - Educational
 - Community
 created: '2026-05-30'
-modified: '2026-05-30'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
 - aid: pokeapi:pokeapi-graphql
   name: PokéAPI GraphQL API (Beta)
-  description: >-
-    The PokéAPI GraphQL beta exposes the same Pokémon dataset as the REST API through a single endpoint
-    with field-level selection, joins, and filtering. It is well suited to clients that want to cherry-pick
-    fields across Pokémon, species, moves, and abilities in a single round trip.
+  description: The PokéAPI GraphQL beta exposes the same Pokémon dataset as the REST API through a single
+    endpoint with field-level selection, joins, and filtering. It is well suited to clients that want
+    to cherry-pick fields across Pokémon, species, moves, and abilities in a single round trip.
   humanURL: https://pokeapi.co/docs/graphql
   tags:
   - Pokémon
@@ -320,9 +319,8 @@ apis:
     url: https://github.com/PokeAPI/pokekotlin
 - aid: pokeapi:pokeapi-pok-mon-api
   name: PokéAPI Pokémon API
-  description: >-
-    Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders, characteristics,
-    and Pokéathlon stats.
+  description: Pokémon, species, abilities, types, stats, natures, egg groups, growth rates, genders,
+    characteristics, and Pokéathlon stats.
   humanURL: https://pokeapi.co/docs/v2
   baseURL: https://pokeapi.co/api/v2
   tags:
@@ -376,6 +374,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: Website
+  url: https://pokeapi.co
 - type: AgenticAccess
   url: agentic-access/pokeapi-agentic-access.yml
 - type: DomainSecurity
@@ -425,53 +425,51 @@ common:
   - name: No Authentication
     description: All endpoints are publicly accessible without API keys, tokens, or signup.
   - name: REST and GraphQL Interfaces
-    description: Choose REST under /api/v2 or GraphQL at beta.pokeapi.co/graphql/v1beta — same dataset, two access patterns.
+    description: Choose REST under /api/v2 or GraphQL at beta.pokeapi.co/graphql/v1beta — same dataset,
+      two access patterns.
   - name: Comprehensive Pokémon Dataset
-    description: >-
-      Roughly 60 endpoints covering Pokémon, species, moves, abilities, items, berries, types, locations,
-      encounters, evolution chains, contests, games, and machines.
+    description: Roughly 60 endpoints covering Pokémon, species, moves, abilities, items, berries, types,
+      locations, encounters, evolution chains, contests, games, and machines.
   - name: Multi-Generation Coverage
-    description: >-
-      Data spans every released generation of Pokémon games with version-specific and version-group-specific
+    description: Data spans every released generation of Pokémon games with version-specific and version-group-specific
       resource variants.
   - name: Multi-Language Localization
-    description: >-
-      Names, flavor text, and descriptions are returned in multiple languages selectable via the Language utility
-      resource.
+    description: Names, flavor text, and descriptions are returned in multiple languages selectable via
+      the Language utility resource.
   - name: Cacheable Resources
-    description: >-
-      Resources are immutable game data — responses are highly cacheable, and the fair-use policy actively
-      encourages clients to cache locally.
+    description: Resources are immutable game data — responses are highly cacheable, and the fair-use
+      policy actively encourages clients to cache locally.
   - name: Pokémon Sprites Library
-    description: >-
-      Companion sprites repo (PokeAPI/sprites) provides every official artwork, sprite, and shiny variant referenced
-      by the REST responses.
+    description: Companion sprites repo (PokeAPI/sprites) provides every official artwork, sprite, and
+      shiny variant referenced by the REST responses.
   - name: Static Data Dump
-    description: PokeAPI/api-data publishes a static JSON snapshot of every resource for offline / build-time use cases.
+    description: PokeAPI/api-data publishes a static JSON snapshot of every resource for offline / build-time
+      use cases.
   - name: Self-Hostable
-    description: Docker image, Kubernetes Kustomize manifests, and Firebase deployment scripts let teams run a private mirror.
+    description: Docker image, Kubernetes Kustomize manifests, and Firebase deployment scripts let teams
+      run a private mirror.
   - name: Open Source (BSD-3-Clause)
     description: Source code, sprites, GraphQL schema, and client wrappers are open source.
 - type: UseCases
   data:
   - name: Pokédex Apps
-    description: Build mobile, web, or desktop Pokédex applications that render species, abilities, moves, and sprites.
+    description: Build mobile, web, or desktop Pokédex applications that render species, abilities, moves,
+      and sprites.
   - name: Team Builders and Battle Simulators
-    description: >-
-      Power competitive team-builder, damage-calculator, and battle-simulator tools with type matchups, base stats,
-      and movesets.
+    description: Power competitive team-builder, damage-calculator, and battle-simulator tools with type
+      matchups, base stats, and movesets.
   - name: Educational Coding Tutorials
-    description: PokéAPI is widely used in tutorials teaching REST, GraphQL, caching, pagination, and client-side data binding.
+    description: PokéAPI is widely used in tutorials teaching REST, GraphQL, caching, pagination, and
+      client-side data binding.
   - name: Machine Learning Datasets
-    description: >-
-      Researchers use the static dataset to train and benchmark recommendation, embedding, and image-classification
-      models on Pokémon entities.
+    description: Researchers use the static dataset to train and benchmark recommendation, embedding,
+      and image-classification models on Pokémon entities.
   - name: AI Assistant Demos
-    description: >-
-      A favorite first example for MCP servers, agent demos, and tool-use tutorials — the data is rich,
-      recognizable, and unauthenticated.
+    description: A favorite first example for MCP servers, agent demos, and tool-use tutorials — the data
+      is rich, recognizable, and unauthenticated.
   - name: Fan Wikis and Trading Apps
-    description: Provide reference data for fan-built wikis, trading marketplaces, and card-collection trackers.
+    description: Provide reference data for fan-built wikis, trading marketplaces, and card-collection
+      trackers.
 - type: Integrations
   data:
   - name: pokeapi-js-wrapper
@@ -489,18 +487,16 @@ common:
   - name: Static API Data Dump
     description: GitHub-hosted JSON snapshot for offline / build-time consumption.
   - name: Model Context Protocol Servers
-    description: >-
-      Numerous community MCP servers wrap PokéAPI as agent tools (poke-mcp, pokeapi-mcp-server, MCP_Pokemon,
-      pokedex-mcp, etc.).
+    description: Numerous community MCP servers wrap PokéAPI as agent tools (poke-mcp, pokeapi-mcp-server,
+      MCP_Pokemon, pokedex-mcp, etc.).
 - type: Tools
   data:
   - name: pokeapi-mcp-server (npm)
     description: Community MCP server (Asthanaji05) exposing roughly 47 PokéAPI endpoints as MCP tools.
     url: https://www.npmjs.com/package/pokeapi-mcp-server
   - name: poke-mcp (NaveenBandarage)
-    description: >-
-      Reference MCP server connecting Claude Desktop, Continue, Cline, and other clients to PokéAPI via SSE
-      transport.
+    description: Reference MCP server connecting Claude Desktop, Continue, Cline, and other clients to
+      PokéAPI via SSE transport.
     url: https://github.com/naveenbandarage/poke-mcp
   - name: poke-mcp (ChiragAgg5k)
     description: MCP server exposing stats, types, abilities, moves, and evolution chains as tools.
