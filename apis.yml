@@ -245,6 +245,8 @@ apis:
   humanURL: https://pokeapi.co/docs/v2
   baseURL: https://pokeapi.co/api/v2
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
