@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Poké Berries Locations API
+  title: Poké Locations API
   description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
   version: '2'
   contact:
@@ -150,6 +150,36 @@ paths:
                 $ref: '#/components/schemas/Region'
 components:
   schemas:
+    LocationArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        encounter_method_rates:
+          type: array
+          items:
+            type: object
+        location:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     Region:
       type: object
       properties:
@@ -175,21 +205,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    PalParkArea:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokemon_encounters:
-          type: array
-          items:
-            type: object
     Location:
       type: object
       properties:
@@ -211,13 +226,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -235,21 +243,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    LocationArea:
+    PalParkArea:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        game_index:
-          type: integer
-        encounter_method_rates:
-          type: array
-          items:
-            type: object
-        location:
-          $ref: '#/components/schemas/NamedAPIResource'
         names:
           type: array
           items:
@@ -269,15 +269,6 @@ components:
           format: uri
           description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
     Limit:
       name: limit
       in: query
@@ -295,3 +286,12 @@ components:
       description: Resource id (integer) or name (slug).
       schema:
         type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Poké Berries Moves API
+  title: Poké Moves API
   description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
   version: '2'
   contact:
@@ -249,27 +249,6 @@ paths:
                 $ref: '#/components/schemas/MoveTarget'
 components:
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    MoveBattleStyle:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
     MoveTarget:
       type: object
       properties:
@@ -289,6 +268,58 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
+    MoveCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    MoveBattleStyle:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    MoveLearnMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     MoveDamageClass:
       type: object
       properties:
@@ -308,29 +339,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    FlavorText:
-      type: object
-      properties:
-        flavor_text:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-        version:
-          $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -348,6 +356,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
     Move:
       type: object
       properties:
@@ -399,21 +416,23 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         type:
           $ref: '#/components/schemas/NamedAPIResource'
-    MoveCategory:
+    Description:
       type: object
       properties:
-        id:
-          type: integer
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
         name:
           type: string
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-        moves:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
     MoveAilment:
       type: object
       properties:
@@ -429,25 +448,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    MoveLearnMethod:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Limit:
       name: limit

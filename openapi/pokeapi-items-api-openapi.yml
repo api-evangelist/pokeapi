@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Poké Berries Items API
+  title: Poké Items API
   description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
   version: '2'
   contact:
@@ -183,6 +183,20 @@ paths:
                 $ref: '#/components/schemas/ItemPocket'
 components:
   schemas:
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     ItemPocket:
       type: object
       properties:
@@ -198,88 +212,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    ItemFlingEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        effect_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Effect'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    ItemCategory:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pocket:
-          $ref: '#/components/schemas/NamedAPIResource'
-    ItemAttribute:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     Item:
       type: object
       properties:
@@ -341,6 +273,81 @@ components:
             default:
               type: string
               nullable: true
+    ItemAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    ItemFlingEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ItemCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pocket:
+          $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResource:
       type: object
       properties:
@@ -351,13 +358,6 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    Effect:
-      type: object
-      properties:
-        effect:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:
       name: offset

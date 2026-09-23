@@ -1,17 +1,7 @@
 {
   "provider": "pokeapi",
   "sources": [
-    "pokeapi-berries-api-openapi.yml",
-    "pokeapi-contests-api-openapi.yml",
-    "pokeapi-encounters-api-openapi.yml",
-    "pokeapi-evolution-api-openapi.yml",
-    "pokeapi-games-api-openapi.yml",
-    "pokeapi-items-api-openapi.yml",
-    "pokeapi-locations-api-openapi.yml",
-    "pokeapi-machines-api-openapi.yml",
-    "pokeapi-moves-api-openapi.yml",
-    "pokeapi-pok-mon-api-openapi.yml",
-    "pokeapi-utility-api-openapi.yml"
+    "_original/pokeapi-openapi.yml"
   ],
   "outputs": [
     "pokeapi-berries-api-openapi.yml",
@@ -29,6 +19,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pokeapi-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "pokeapi-berries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-contests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-encounters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-evolution-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-games-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-machines-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-moves-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-pok-mon-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pokeapi-utility-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

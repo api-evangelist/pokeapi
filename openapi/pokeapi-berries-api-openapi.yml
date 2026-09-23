@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Poké Berries API
   description: PokéAPI v2 is a free, open-source RESTful API serving comprehensive Pokémon data — species, abilities, moves, items, types, locations, evolution chains, encounters, berries, contests, games, and machines. All endpoints are GET-only and require no authentication. Please cache resources locally; rate limits were removed in 2018 but persistent abusers may be IP-banned.
@@ -117,43 +117,6 @@ paths:
                 $ref: '#/components/schemas/BerryFlavor'
 components:
   schemas:
-    BerryFirmness:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        berries:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    BerryFlavor:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        berries:
-          type: array
-          items:
-            type: object
-            properties:
-              potency:
-                type: integer
-              berry:
-                $ref: '#/components/schemas/NamedAPIResource'
-        contest_type:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
     Name:
       type: object
       properties:
@@ -161,33 +124,6 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     Berry:
       type: object
       properties:
@@ -222,16 +158,71 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         natural_gift_type:
           $ref: '#/components/schemas/NamedAPIResource'
+    BerryFirmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    BerryFlavor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              berry:
+                $ref: '#/components/schemas/NamedAPIResource'
+        contest_type:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
     Limit:
       name: limit
       in: query
@@ -249,3 +240,12 @@ components:
       description: Resource id (integer) or name (slug).
       schema:
         type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
