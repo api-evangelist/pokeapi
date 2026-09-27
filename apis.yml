@@ -9,17 +9,22 @@ description: PokéAPI (pokeapi.co) is a free, open-source RESTful and GraphQL AP
   requests per month.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: open-core
+  license: BSD-3-Clause
+  license_evidence:
+    repo: pokeapi/pokeapi
+    spdx: BSD-3-Clause
+    stars: 5385
+  open_source: true
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -37,7 +42,7 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pokeapi.png
 tags:
 - Pokémon
-- Open-Source
+- Open Source
 - Open Data
 - REST
 - GraphQL
@@ -53,6 +58,7 @@ tags_raw:
 - Gaming
 - Educational
 - Community
+- Open-Source
 created: '2026-05-30'
 modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/pokeapi/refs/heads/main/apis.yml

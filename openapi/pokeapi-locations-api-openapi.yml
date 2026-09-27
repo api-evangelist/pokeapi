@@ -150,6 +150,73 @@ paths:
                 $ref: '#/components/schemas/Region'
 components:
   schemas:
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        main_generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    PalParkArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
     LocationArea:
       type: object
       properties:
@@ -180,31 +247,6 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    Region:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        main_generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokedexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     Location:
       type: object
       properties:
@@ -226,48 +268,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    PalParkArea:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokemon_encounters:
-          type: array
-          items:
-            type: object
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
   parameters:
     Limit:
       name: limit

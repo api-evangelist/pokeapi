@@ -249,7 +249,84 @@ paths:
                 $ref: '#/components/schemas/MoveTarget'
 components:
   schemas:
-    MoveTarget:
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    MoveAilment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    MoveLearnMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    MoveDamageClass:
       type: object
       properties:
         id:
@@ -283,88 +360,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    MoveBattleStyle:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    MoveLearnMethod:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    MoveDamageClass:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-        moves:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    FlavorText:
-      type: object
-      properties:
-        flavor_text:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-        version:
-          $ref: '#/components/schemas/NamedAPIResource'
     Move:
       type: object
       properties:
@@ -416,34 +411,39 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         type:
           $ref: '#/components/schemas/NamedAPIResource'
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
+    Name:
       type: object
       properties:
         name:
           type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    MoveAilment:
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    MoveTarget:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
         moves:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    MoveBattleStyle:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
         names:
           type: array
           items:

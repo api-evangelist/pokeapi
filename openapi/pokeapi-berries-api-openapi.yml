@@ -117,13 +117,33 @@ paths:
                 $ref: '#/components/schemas/BerryFlavor'
 components:
   schemas:
-    Name:
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
       type: object
       properties:
         name:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
     Berry:
       type: object
       properties:
@@ -173,33 +193,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     BerryFlavor:
       type: object
       properties:
@@ -222,6 +215,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Limit:
       name: limit

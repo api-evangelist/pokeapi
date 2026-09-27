@@ -51,30 +51,6 @@ paths:
                 $ref: '#/components/schemas/Language'
 components:
   schemas:
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Language:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        official:
-          type: boolean
-        iso639:
-          type: string
-        iso3166:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
     NamedAPIResourceList:
       type: object
       properties:
@@ -102,6 +78,30 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
+    Language:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        official:
+          type: boolean
+        iso639:
+          type: string
+        iso3166:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Limit:
       name: limit

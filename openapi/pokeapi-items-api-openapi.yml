@@ -183,20 +183,74 @@ paths:
                 $ref: '#/components/schemas/ItemPocket'
 components:
   schemas:
-    Name:
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ItemAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+    ItemFlingEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
       type: object
       properties:
         name:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Effect:
-      type: object
-      properties:
-        effect:
+          description: Slug name of the referenced resource.
+        url:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+          format: uri
+          description: Canonical URL of the referenced resource.
     ItemPocket:
       type: object
       properties:
@@ -212,6 +266,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
+    ItemCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pocket:
+          $ref: '#/components/schemas/NamedAPIResource'
     Item:
       type: object
       properties:
@@ -273,101 +344,21 @@ components:
             default:
               type: string
               nullable: true
-    ItemAttribute:
+    Effect:
       type: object
       properties:
-        id:
-          type: integer
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-    ItemFlingEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        effect_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Effect'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    Description:
-      type: object
-      properties:
-        description:
+        effect:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    ItemCategory:
+    Name:
       type: object
       properties:
-        id:
-          type: integer
         name:
           type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pocket:
+        language:
           $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
     Limit:
       name: limit
       in: query
@@ -385,3 +376,12 @@ components:
       description: Resource id (integer) or name (slug).
       schema:
         type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

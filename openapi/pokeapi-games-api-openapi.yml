@@ -150,39 +150,53 @@ paths:
                 $ref: '#/components/schemas/VersionGroup'
 components:
   schemas:
-    Generation:
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Version:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        abilities:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
         names:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-        main_region:
+        version_group:
           $ref: '#/components/schemas/NamedAPIResource'
-        moves:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        pokemon_species:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     Pokedex:
       type: object
       properties:
@@ -222,53 +236,39 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    Version:
+    Generation:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
+        abilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
         names:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-        version_group:
+        main_region:
           $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
+        moves:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     VersionGroup:
       type: object
       properties:

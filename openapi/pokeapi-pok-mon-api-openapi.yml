@@ -399,6 +399,93 @@ paths:
                 $ref: '#/components/schemas/Type'
 components:
   schemas:
+    Ability:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        is_main_series:
+          type: boolean
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        effect_entries:
+          type: array
+          items:
+            type: object
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        pokemon:
+          type: array
+          items:
+            type: object
+    Stat:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        is_battle_only:
+          type: boolean
+        affecting_moves:
+          type: object
+        affecting_natures:
+          type: object
+        characteristics:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        damage_relations:
+          type: object
+        past_damage_relations:
+          type: array
+          items:
+            type: object
+        game_indices:
+          type: array
+          items:
+            type: object
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_damage_class:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon:
+          type: array
+          items:
+            type: object
+        moves:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     Characteristic:
       type: object
       properties:
@@ -416,15 +503,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Description'
-    FlavorText:
+    Description:
       type: object
       properties:
-        flavor_text:
+        description:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-        version:
-          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    GrowthRate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        formula:
+          type: string
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
+        levels:
+          type: array
+          items:
+            type: object
+        pokemon_species:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Gender:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        pokemon_species_details:
+          type: array
+          items:
+            type: object
+        required_for_evolution:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     PokemonSpecies:
       type: object
       properties:
@@ -484,26 +622,55 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FlavorText'
-    Stat:
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
+    PokeathlonStat:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        game_index:
-          type: integer
-        is_battle_only:
-          type: boolean
-        affecting_moves:
-          type: object
-        affecting_natures:
-          type: object
-        characteristics:
+        names:
           type: array
           items:
-            $ref: '#/components/schemas/APIResource'
-        move_damage_class:
+            $ref: '#/components/schemas/Name'
+        affecting_natures:
+          type: object
+    Nature:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        decreased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        increased_stat:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        likes_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+        hates_flavor:
           $ref: '#/components/schemas/NamedAPIResource'
           nullable: true
         names:
@@ -580,26 +747,6 @@ components:
                 type: integer
               type:
                 $ref: '#/components/schemas/NamedAPIResource'
-    PokeathlonStat:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        affecting_natures:
-          type: object
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
     EggGroup:
       type: object
       properties:
@@ -612,73 +759,6 @@ components:
           items:
             $ref: '#/components/schemas/Name'
         pokemon_species:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    Nature:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        decreased_stat:
-          $ref: '#/components/schemas/NamedAPIResource'
-          nullable: true
-        increased_stat:
-          $ref: '#/components/schemas/NamedAPIResource'
-          nullable: true
-        likes_flavor:
-          $ref: '#/components/schemas/NamedAPIResource'
-          nullable: true
-        hates_flavor:
-          $ref: '#/components/schemas/NamedAPIResource'
-          nullable: true
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    Type:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        damage_relations:
-          type: object
-        past_damage_relations:
-          type: array
-          items:
-            type: object
-        game_indices:
-          type: array
-          items:
-            type: object
-        generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        move_damage_class:
-          $ref: '#/components/schemas/NamedAPIResource'
-          nullable: true
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokemon:
-          type: array
-          items:
-            type: object
-        moves:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
@@ -699,27 +779,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/APIResource'
-    GrowthRate:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        formula:
-          type: string
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
-        levels:
-          type: array
-          items:
-            type: object
-        pokemon_species:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     LocationAreaEncounter:
       type: object
       properties:
@@ -729,30 +788,6 @@ components:
           type: array
           items:
             type: object
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    APIResource:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     Name:
       type: object
       properties:
@@ -760,49 +795,30 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    Gender:
+    APIResource:
       type: object
       properties:
-        id:
-          type: integer
-        name:
+        url:
           type: string
-        pokemon_species_details:
-          type: array
-          items:
-            type: object
-        required_for_evolution:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    Ability:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        is_main_series:
-          type: boolean
-        generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        effect_entries:
-          type: array
-          items:
-            type: object
-        flavor_text_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlavorText'
-        pokemon:
-          type: array
-          items:
-            type: object
+          format: uri
+          description: Canonical URL of the referenced resource.
   parameters:
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
     Limit:
       name: limit
       in: query
@@ -820,19 +836,3 @@ components:
       description: Resource id (integer) or name (slug).
       schema:
         type: string
-    IntegerId:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer only).
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0

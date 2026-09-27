@@ -117,39 +117,6 @@ paths:
                 $ref: '#/components/schemas/EncounterConditionValue'
 components:
   schemas:
-    EncounterMethod:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        order:
-          type: integer
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    EncounterConditionValue:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        condition:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
     NamedAPIResourceList:
       type: object
       properties:
@@ -167,6 +134,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    EncounterConditionValue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        condition:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    EncounterMethod:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
     EncounterCondition:
       type: object
       properties:
@@ -182,16 +185,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
+    Name:
       type: object
       properties:
         name:
           type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Limit:
       name: limit
