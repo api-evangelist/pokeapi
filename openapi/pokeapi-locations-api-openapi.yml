@@ -150,6 +150,37 @@ paths:
                 $ref: '#/components/schemas/Region'
 components:
   schemas:
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        game_indices:
+          type: array
+          items:
+            type: object
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -192,16 +223,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     PalParkArea:
       type: object
       properties:
@@ -247,28 +268,23 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
-    Location:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        region:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        game_indices:
-          type: array
-          items:
-            type: object
-        areas:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -279,19 +295,3 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0

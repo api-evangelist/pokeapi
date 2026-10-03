@@ -78,13 +78,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/APIResource'
-    APIResource:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     Machine:
       type: object
       properties:
@@ -96,7 +89,30 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         version_group:
           $ref: '#/components/schemas/NamedAPIResource'
+    APIResource:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
   parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
     Limit:
       name: limit
       in: query
@@ -107,19 +123,3 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
-    IntegerId:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer only).
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0

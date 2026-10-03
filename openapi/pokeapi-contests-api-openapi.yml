@@ -83,6 +83,16 @@ paths:
                 $ref: '#/components/schemas/SuperContestEffect'
 components:
   schemas:
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
     NamedAPIResourceList:
       type: object
       properties:
@@ -97,6 +107,38 @@ components:
           nullable: true
           format: uri
         results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        jam:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+    SuperContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
+        moves:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
@@ -120,16 +162,13 @@ components:
                 type: string
               language:
                 $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
+    Effect:
       type: object
       properties:
-        name:
+        effect:
           type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     FlavorText:
       type: object
       properties:
@@ -139,46 +178,30 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         version:
           $ref: '#/components/schemas/NamedAPIResource'
-    ContestEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        appeal:
-          type: integer
-        jam:
-          type: integer
-        effect_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Effect'
-        flavor_text_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlavorText'
-    Effect:
-      type: object
-      properties:
-        effect:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    SuperContestEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        appeal:
-          type: integer
-        flavor_text_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlavorText'
-        moves:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -189,26 +212,3 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
-    IntegerId:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer only).
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
