@@ -193,53 +193,6 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    ItemFlingEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        effect_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Effect'
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    ItemPocket:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     ItemCategory:
       type: object
       properties:
@@ -257,6 +210,57 @@ components:
             $ref: '#/components/schemas/Name'
         pocket:
           $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ItemPocket:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Effect:
+      type: object
+      properties:
+        effect:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    ItemFlingEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     ItemAttribute:
       type: object
       properties:
@@ -276,13 +280,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Description'
-    Effect:
-      type: object
-      properties:
-        effect:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
     Item:
       type: object
       properties:
@@ -344,20 +341,23 @@ components:
             default:
               type: string
               nullable: true
-    Description:
+    NamedAPIResourceList:
       type: object
       properties:
-        description:
+        count:
+          type: integer
+        next:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
+          nullable: true
+          format: uri
+        previous:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:
       name: offset

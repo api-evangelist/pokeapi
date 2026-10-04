@@ -127,21 +127,13 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    BerryFirmness:
+    Name:
       type: object
       properties:
-        id:
-          type: integer
         name:
           type: string
-        berries:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     BerryFlavor:
       type: object
       properties:
@@ -160,6 +152,21 @@ components:
                 $ref: '#/components/schemas/NamedAPIResource'
         contest_type:
           $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    BerryFirmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
         names:
           type: array
           items:
@@ -214,13 +221,6 @@ components:
         item:
           $ref: '#/components/schemas/NamedAPIResource'
         natural_gift_type:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
           $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:

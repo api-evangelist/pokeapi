@@ -117,6 +117,19 @@ paths:
                 $ref: '#/components/schemas/EncounterConditionValue'
 components:
   schemas:
+    EncounterConditionValue:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        condition:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
     NamedAPIResource:
       type: object
       properties:
@@ -127,6 +140,28 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    EncounterCondition:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -144,21 +179,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    EncounterCondition:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     EncounterMethod:
       type: object
       properties:
@@ -168,26 +188,6 @@ components:
           type: string
         order:
           type: integer
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    EncounterConditionValue:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        condition:
-          $ref: '#/components/schemas/NamedAPIResource'
         names:
           type: array
           items:

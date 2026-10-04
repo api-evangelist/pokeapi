@@ -160,69 +160,12 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    Description:
+    Name:
       type: object
       properties:
-        description:
+        name:
           type: string
         language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    VersionGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        order:
-          type: integer
-        generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        move_learn_methods:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        pokedexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        versions:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    Version:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        version_group:
           $ref: '#/components/schemas/NamedAPIResource'
     Generation:
       type: object
@@ -254,6 +197,53 @@ components:
           items:
             $ref: '#/components/schemas/NamedAPIResource'
         version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Description:
+      type: object
+      properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    Version:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    VersionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        order:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_learn_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        versions:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
@@ -289,13 +279,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    Name:
+    NamedAPIResourceList:
       type: object
       properties:
-        name:
+        count:
+          type: integer
+        next:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:
       name: offset

@@ -61,23 +61,13 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    NamedAPIResourceList:
+    Name:
       type: object
       properties:
-        count:
-          type: integer
-        next:
+        name:
           type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     Language:
       type: object
       properties:
@@ -95,13 +85,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    Name:
+    NamedAPIResourceList:
       type: object
       properties:
-        name:
+        count:
+          type: integer
+        next:
           type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:
       name: offset

@@ -51,16 +51,6 @@ paths:
                 $ref: '#/components/schemas/Machine'
 components:
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
     APIResourceList:
       type: object
       properties:
@@ -89,6 +79,16 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         version_group:
           $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
     APIResource:
       type: object
       properties:
@@ -106,13 +106,6 @@ components:
         type: integer
         minimum: 0
         default: 0
-    IntegerId:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer only).
-      schema:
-        type: integer
     Limit:
       name: limit
       in: query
@@ -123,3 +116,10 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer

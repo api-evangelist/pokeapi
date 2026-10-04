@@ -83,50 +83,6 @@ paths:
                 $ref: '#/components/schemas/SuperContestEffect'
 components:
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    ContestEffect:
-      type: object
-      properties:
-        id:
-          type: integer
-        appeal:
-          type: integer
-        jam:
-          type: integer
-        effect_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/Effect'
-        flavor_text_entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlavorText'
     SuperContestEffect:
       type: object
       properties:
@@ -142,6 +98,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
     ContestType:
       type: object
       properties:
@@ -178,6 +144,40 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         version:
           $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    ContestEffect:
+      type: object
+      properties:
+        id:
+          type: integer
+        appeal:
+          type: integer
+        jam:
+          type: integer
+        effect_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Effect'
+        flavor_text_entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlavorText'
   parameters:
     Offset:
       name: offset
@@ -188,13 +188,6 @@ components:
         type: integer
         minimum: 0
         default: 0
-    IntegerId:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer only).
-      schema:
-        type: integer
     IdOrName:
       name: id
       in: path
@@ -212,3 +205,10 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IntegerId:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer only).
+      schema:
+        type: integer

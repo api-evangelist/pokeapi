@@ -160,69 +160,13 @@ components:
           type: string
           format: uri
           description: Canonical URL of the referenced resource.
-    Location:
+    Name:
       type: object
       properties:
-        id:
-          type: integer
         name:
           type: string
-        region:
+        language:
           $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        game_indices:
-          type: array
-          items:
-            type: object
-        areas:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    Region:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        main_generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokedexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
     PalParkArea:
       type: object
       properties:
@@ -261,13 +205,69 @@ components:
           type: array
           items:
             type: object
-    Name:
+    Region:
       type: object
       properties:
+        id:
+          type: integer
         name:
           type: string
-        language:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        main_generation:
           $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        version_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        region:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        game_indices:
+          type: array
+          items:
+            type: object
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
   parameters:
     Offset:
       name: offset
