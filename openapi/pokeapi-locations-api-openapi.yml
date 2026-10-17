@@ -149,62 +149,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/Region'
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    PalParkArea:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokemon_encounters:
-          type: array
-          items:
-            type: object
-    LocationArea:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        game_index:
-          type: integer
-        encounter_method_rates:
-          type: array
-          items:
-            type: object
-        location:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        pokemon_encounters:
-          type: array
-          items:
-            type: object
     Region:
       type: object
       properties:
@@ -230,6 +202,53 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+    LocationArea:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        game_index:
+          type: integer
+        encounter_method_rates:
+          type: array
+          items:
+            type: object
+        location:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
     Location:
       type: object
       properties:
@@ -251,47 +270,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
+    PalParkArea:
       type: object
       properties:
-        count:
+        id:
           type: integer
-        next:
+        name:
           type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
+        names:
           type: array
           items:
-            $ref: '#/components/schemas/NamedAPIResource'
-  parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of items to return per page.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100000
-        default: 20
+            $ref: '#/components/schemas/Name'
+        pokemon_encounters:
+          type: array
+          items:
+            type: object
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.

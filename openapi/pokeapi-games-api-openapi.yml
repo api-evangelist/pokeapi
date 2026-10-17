@@ -150,16 +150,40 @@ paths:
                 $ref: '#/components/schemas/VersionGroup'
 components:
   schemas:
-    NamedAPIResource:
+    Description:
       type: object
       properties:
+        description:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+    VersionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
         name:
           type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
+        order:
+          type: integer
+        generation:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move_learn_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        pokedexes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        regions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     Name:
       type: object
       properties:
@@ -167,6 +191,23 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     Generation:
       type: object
       properties:
@@ -197,53 +238,6 @@ components:
           items:
             $ref: '#/components/schemas/NamedAPIResource'
         version_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-    Description:
-      type: object
-      properties:
-        description:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Version:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        version_group:
-          $ref: '#/components/schemas/NamedAPIResource'
-    VersionGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        order:
-          type: integer
-        generation:
-          $ref: '#/components/schemas/NamedAPIResource'
-        move_learn_methods:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        pokedexes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        regions:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        versions:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
@@ -279,40 +273,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResourceList:
+    Version:
       type: object
       properties:
-        count:
+        id:
           type: integer
-        next:
+        name:
           type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
+        names:
           type: array
           items:
-            $ref: '#/components/schemas/NamedAPIResource'
+            $ref: '#/components/schemas/Name'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -323,3 +307,19 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

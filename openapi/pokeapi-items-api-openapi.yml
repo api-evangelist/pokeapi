@@ -183,17 +183,7 @@ paths:
                 $ref: '#/components/schemas/ItemPocket'
 components:
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    ItemCategory:
+    ItemAttribute:
       type: object
       properties:
         id:
@@ -208,15 +198,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-        pocket:
-          $ref: '#/components/schemas/NamedAPIResource'
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
+        descriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Description'
     ItemPocket:
       type: object
       properties:
@@ -239,6 +224,23 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     Effect:
       type: object
       properties:
@@ -246,6 +248,23 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
     ItemFlingEffect:
       type: object
       properties:
@@ -261,25 +280,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    ItemAttribute:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
-        descriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Description'
     Item:
       type: object
       properties:
@@ -341,40 +341,24 @@ components:
             default:
               type: string
               nullable: true
-    NamedAPIResourceList:
+    ItemCategory:
       type: object
       properties:
-        count:
+        id:
           type: integer
-        next:
+        name:
           type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
+        items:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+        pocket:
+          $ref: '#/components/schemas/NamedAPIResource'
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -385,3 +369,19 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

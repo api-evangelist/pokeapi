@@ -117,23 +117,6 @@ paths:
                 $ref: '#/components/schemas/BerryFlavor'
 components:
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
     BerryFlavor:
       type: object
       properties:
@@ -156,21 +139,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
-    BerryFirmness:
+    Name:
       type: object
       properties:
-        id:
-          type: integer
         name:
           type: string
-        berries:
-          type: array
-          items:
-            $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            $ref: '#/components/schemas/Name'
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -222,23 +197,32 @@ components:
           $ref: '#/components/schemas/NamedAPIResource'
         natural_gift_type:
           $ref: '#/components/schemas/NamedAPIResource'
+    BerryFirmness:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berries:
+          type: array
+          items:
+            $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/Name'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -249,3 +233,19 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0

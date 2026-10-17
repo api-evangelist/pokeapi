@@ -50,62 +50,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Machine'
 components:
-  schemas:
-    APIResourceList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          nullable: true
-          format: uri
-        previous:
-          type: string
-          nullable: true
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIResource'
-    Machine:
-      type: object
-      properties:
-        id:
-          type: integer
-        item:
-          $ref: '#/components/schemas/NamedAPIResource'
-        move:
-          $ref: '#/components/schemas/NamedAPIResource'
-        version_group:
-          $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    APIResource:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
     Limit:
       name: limit
       in: query
@@ -123,3 +68,58 @@ components:
       description: Resource id (integer only).
       schema:
         type: integer
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+  schemas:
+    APIResource:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
+    Machine:
+      type: object
+      properties:
+        id:
+          type: integer
+        item:
+          $ref: '#/components/schemas/NamedAPIResource'
+        move:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version_group:
+          $ref: '#/components/schemas/NamedAPIResource'
+    APIResourceList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          nullable: true
+          format: uri
+        previous:
+          type: string
+          nullable: true
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.

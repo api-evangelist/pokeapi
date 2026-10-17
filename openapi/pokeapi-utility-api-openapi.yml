@@ -50,24 +50,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/Language'
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Number of items to return per page.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100000
+        default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
   schemas:
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    Name:
-      type: object
-      properties:
-        name:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
     Language:
       type: object
       properties:
@@ -85,6 +95,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Name'
+    Name:
+      type: object
+      properties:
+        name:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
       properties:
@@ -102,30 +119,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-  parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Number of items to return per page.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100000
-        default: 20
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.

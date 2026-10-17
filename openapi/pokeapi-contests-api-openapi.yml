@@ -83,6 +83,15 @@ paths:
                 $ref: '#/components/schemas/SuperContestEffect'
 components:
   schemas:
+    FlavorText:
+      type: object
+      properties:
+        flavor_text:
+          type: string
+        language:
+          $ref: '#/components/schemas/NamedAPIResource'
+        version:
+          $ref: '#/components/schemas/NamedAPIResource'
     SuperContestEffect:
       type: object
       properties:
@@ -98,51 +107,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamedAPIResource'
-    NamedAPIResource:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Slug name of the referenced resource.
-        url:
-          type: string
-          format: uri
-          description: Canonical URL of the referenced resource.
-    ContestType:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        berry_flavor:
-          $ref: '#/components/schemas/NamedAPIResource'
-        names:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              color:
-                type: string
-              language:
-                $ref: '#/components/schemas/NamedAPIResource'
     Effect:
       type: object
       properties:
         effect:
           type: string
         language:
-          $ref: '#/components/schemas/NamedAPIResource'
-    FlavorText:
-      type: object
-      properties:
-        flavor_text:
-          type: string
-        language:
-          $ref: '#/components/schemas/NamedAPIResource'
-        version:
           $ref: '#/components/schemas/NamedAPIResource'
     NamedAPIResourceList:
       type: object
@@ -178,23 +148,37 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FlavorText'
+    ContestType:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        berry_flavor:
+          $ref: '#/components/schemas/NamedAPIResource'
+        names:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              color:
+                type: string
+              language:
+                $ref: '#/components/schemas/NamedAPIResource'
+    NamedAPIResource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Slug name of the referenced resource.
+        url:
+          type: string
+          format: uri
+          description: Canonical URL of the referenced resource.
   parameters:
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of items to skip before starting to collect the result set.
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-    IdOrName:
-      name: id
-      in: path
-      required: true
-      description: Resource id (integer) or name (slug).
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -205,6 +189,13 @@ components:
         minimum: 1
         maximum: 100000
         default: 20
+    IdOrName:
+      name: id
+      in: path
+      required: true
+      description: Resource id (integer) or name (slug).
+      schema:
+        type: string
     IntegerId:
       name: id
       in: path
@@ -212,3 +203,12 @@ components:
       description: Resource id (integer only).
       schema:
         type: integer
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to collect the result set.
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
